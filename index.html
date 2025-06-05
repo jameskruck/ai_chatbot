@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn how to build an AI-powered retail chatbot in this microlearning course." />
   <title>Retail Chatbot Microlearning Course</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,11 +20,21 @@
     </div>
   </header>
 
+  <nav aria-label="Course sections" class="navigation fade-in-up">
+    <ul>
+      <li><a href="#prep-work">Prep Work</a></li>
+      <li><a href="#interactive-work">Interactive Work</a></li>
+      <li><a href="#reflection">Reflection</a></li>
+    </ul>
+  </nav>
+
   <!-- Main Content -->
   <main>
     <!-- Prep Work Section -->
     <section id="prep-work" class="fade-in-up">
-      <div class="progress-bar"><div class="progress" style="width: 33%"></div></div>
+      <div class="progress-bar">
+        <div class="progress" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" style="width: 33%"></div>
+      </div>
 
       <h2>Prep Work</h2>
       <p>Let’s start by exploring why chatbots matter in retail and what you’ll learn today.</p>
@@ -53,7 +64,9 @@
 
     <!-- Interactive Work Section -->
     <section id="interactive-work" class="fade-in-up">
-      <div class="progress-bar"><div class="progress" style="width: 66%"></div></div>
+      <div class="progress-bar">
+        <div class="progress" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" style="width: 66%"></div>
+      </div>
 
       <h2>Interactive Work</h2>
       <p>Watch the video demo, explore the step-by-step guide, and test a chatbot yourself!</p>
@@ -62,6 +75,7 @@
         <h3>Watch the Video Demo</h3>
         <video controls>
           <source src="video/chatbot-demo.mp4" type="video/mp4">
+          <track kind="captions" srclang="en" src="captions/chatbot-demo.vtt" label="English">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -79,20 +93,24 @@
 
       <div class="card">
         <h3>Try the Example Chatbot</h3>
-        <iframe src="https://www.chatbase.co/chatbot-iframe/YOUR-CHATBOT-ID" width="350" height="500" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+        <iframe src="https://www.chatbase.co/chatbot-iframe/YOUR-CHATBOT-ID" width="350" height="500" style="border:1px solid #ccc; border-radius:8px;" title="Embedded example chatbot"></iframe>
+        <p><a href="https://www.chatbase.co/chatbot-iframe/YOUR-CHATBOT-ID" target="_blank" rel="noopener">Open the chatbot in a new window</a> if it doesn't load.</p>
       </div>
     </section>
 
     <!-- Reflection & Feedback Section -->
     <section id="reflection" class="fade-in-up">
-      <div class="progress-bar"><div class="progress" style="width: 100%"></div></div>
+      <div class="progress-bar">
+        <div class="progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+      </div>
 
       <h2>Reflection & Feedback</h2>
       <p>Think about what you learned and how it applies to your retail environment.</p>
       <h3>Reflection Prompt</h3>
       <p>What’s one way a chatbot could help your team save time and improve customer satisfaction?</p>
 
-      <iframe src="https://docs.google.com/forms/d/e/YOUR-FORM-ID/viewform?embedded=true" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      <iframe src="https://docs.google.com/forms/d/e/YOUR-FORM-ID/viewform?embedded=true" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0" title="Feedback form">Loading…</iframe>
+      <p><a href="https://docs.google.com/forms/d/e/YOUR-FORM-ID/viewform" target="_blank" rel="noopener">Open the form in a new window</a> if it doesn't load.</p>
     </section>
   </main>
 
