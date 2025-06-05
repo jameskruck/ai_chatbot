@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retail Chatbot Microlearning Course</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Hero / Header -->
+  <header class="hero fade-in">
+    <div>
+      <h1 class="hero-title">Building a Retail Chatbot</h1>
+      <p class="hero-subtitle">Empower your retail team with an AI-powered FAQ chatbot</p>
+      <a href="#prep-work" class="btn-primary">Start Learning</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Prep Work Section -->
+    <section id="prep-work" class="fade-in-up">
+      <div class="progress-bar"><div class="progress" style="width: 33%"></div></div>
+
+      <h2>Prep Work</h2>
+      <p>Let’s start by exploring why chatbots matter in retail and what you’ll learn today.</p>
+
+      <h3>Learning Outcomes</h3>
+      <ul>
+        <li>Understand the key features of an AI-powered chatbot</li>
+        <li>Identify the benefits of chatbots for retail customer experience</li>
+        <li>Create a basic chatbot prototype using an online tool</li>
+        <li>Reflect on how this chatbot can improve your store’s operations</li>
+      </ul>
+
+      <h3>Why Chatbots?</h3>
+      <p>Chatbots can reduce repetitive questions, improve response times, and boost customer satisfaction.</p>
+
+      <img src="images/chatbot-infographic.png" alt="Visual infographic of chatbot benefits" class="responsive-img" />
+
+      <h3>Quick Quiz</h3>
+      <p>Which of these is a key benefit of a chatbot?</p>
+      <ul>
+        <li><button onclick="checkAnswer(true)">A) Reduces repetitive inquiries</button></li>
+        <li><button onclick="checkAnswer(false)">B) Increases staff turnover</button></li>
+        <li><button onclick="checkAnswer(false)">C) Makes coffee</button></li>
+      </ul>
+      <p id="quiz-feedback"></p>
+    </section>
+
+    <!-- Interactive Work Section -->
+    <section id="interactive-work" class="fade-in-up">
+      <div class="progress-bar"><div class="progress" style="width: 66%"></div></div>
+
+      <h2>Interactive Work</h2>
+      <p>Watch the video demo, explore the step-by-step guide, and test a chatbot yourself!</p>
+
+      <div class="card">
+        <h3>Watch the Video Demo</h3>
+        <video controls>
+          <source src="video/chatbot-demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="card">
+        <h3>Follow the Step-by-Step Guide</h3>
+        <ol>
+          <li>Sign up for a free Chatbase account at <a href="https://www.chatbase.co" target="_blank" rel="noopener noreferrer">chatbase.co</a>.</li>
+          <li>Create a new chatbot and add your FAQ questions.</li>
+          <li>Customize the chatbot’s greeting and style.</li>
+          <li>Test it to ensure accurate responses.</li>
+          <li>Embed the chatbot on your website with the iframe code provided.</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3>Try the Example Chatbot</h3>
+        <iframe src="https://www.chatbase.co/chatbot-iframe/YOUR-CHATBOT-ID" width="350" height="500" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+      </div>
+    </section>
+
+    <!-- Reflection & Feedback Section -->
+    <section id="reflection" class="fade-in-up">
+      <div class="progress-bar"><div class="progress" style="width: 100%"></div></div>
+
+      <h2>Reflection & Feedback</h2>
+      <p>Think about what you learned and how it applies to your retail environment.</p>
+      <h3>Reflection Prompt</h3>
+      <p>What’s one way a chatbot could help your team save time and improve customer satisfaction?</p>
+
+      <iframe src="https://docs.google.com/forms/d/e/YOUR-FORM-ID/viewform?embedded=true" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 James Kruck</p>
+  </footer>
+
+  <script>
+    function checkAnswer(correct) {
+      const feedback = document.getElementById('quiz-feedback');
+      if (correct) {
+        feedback.textContent = "✅ Correct! Chatbots reduce repetitive inquiries.";
+        feedback.style.color = "green";
+      } else {
+        feedback.textContent = "❌ Not quite. Try again!";
+        feedback.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
