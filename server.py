@@ -15,7 +15,10 @@ conversation_histories = {}
 @app.route("/")
 def home():
     """Serve the main course page"""
-    return render_template_string(open('index.html').read())
+    try:
+        return render_template_string(open('index.html').read())
+    except:
+        return jsonify({"message": "Welcome to the Retail Chatbot Course API"})
 
 @app.route("/chat", methods=["POST"])
 def chat():
@@ -86,11 +89,6 @@ User Message: {user_message}"""
     try:
         # Call OpenAI API
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=conversation_histories[user_id],
-            temperature=0.7,
-            max_tokens=300 if "session_" in user_id else 500  # Shorter responses for tutoring
-        )        response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=conversation_histories[user_id],
             temperature=0.7,
