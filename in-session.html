@@ -92,14 +92,23 @@
       </div>
 
       <div class="tutor-intro card">
-        <h3>🤖 Meet Your AI Tutor</h3>
+        <h3>🤝 Meet Your AI Collaboration Partner</h3>
         <p>
-          Now that you understand FashionForward's situation, you'll work with an AI tutor to analyze 
-          this case and develop a chatbot solution. The AI will guide you through the problem-solving 
-          process, ask you questions, and help you think through each decision.
+          Now that you understand FashionForward's situation, you'll work <strong>with</strong> an AI peer to analyze 
+          this case and develop a chatbot solution. Think of this as brainstorming with a smart colleague who's 
+          just as invested in solving this puzzle as you are.
         </p>
-        <p><strong>Ready to start?</strong> Click below to begin your conversation with the AI tutor.</p>
-        <button id="start-tutoring" class="btn-primary">🚀 Start AI Tutoring Session</button>
+        <p><strong>Your Goal Together:</strong> Develop concrete recommendations for FashionForward's chatbot strategy.</p>
+        <div class="collaboration-goals">
+          <h4>🎯 What You'll Figure Out Together:</h4>
+          <ul>
+            <li>📊 Top 3 customer pain points (ranked by business impact)</li>
+            <li>💬 5 specific chatbot responses that match FashionForward's brand</li>
+            <li>🚀 Concrete rollout plan with timeline</li>
+            <li>📈 Success metrics to track effectiveness</li>
+          </ul>
+        </div>
+        <button id="start-tutoring" class="btn-primary">🚀 Start Collaborating</button>
       </div>
     </section>
 
@@ -107,9 +116,9 @@
     <section id="ai-tutoring" class="fade-in-up hidden">
       <div class="chat-container">
         <div class="chat-header">
-          <h3>💬 AI Tutor - FashionForward Case Analysis</h3>
+          <h3>💬 AI Collaboration Partner - FashionForward Case</h3>
           <div class="session-info">
-            <span id="session-status">Session Active</span>
+            <span id="session-status">Collaboration Active</span>
             <span id="progress-indicator">Getting Started</span>
           </div>
         </div>
@@ -264,7 +273,7 @@ Start by greeting the learner and asking them what they think is the biggest pro
         }
         
         try {
-          const response = await fetch('https://ai-chatbot-oise.onrender.com/chat', {
+          const response = await fetch('http://localhost:5000/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -312,7 +321,7 @@ Start by greeting the learner and asking them what they think is the biggest pro
         messageDiv.innerHTML = `
           <div class="message-content">
             <div class="message-header">
-              <span class="sender">${sender === 'ai' ? '🤖 AI Tutor' : '👤 You'}</span>
+              <span class="sender">${sender === 'ai' ? '🤝 AI Partner' : '👤 You'}</span>
               <span class="timestamp">${timestamp}</span>
             </div>
             <div class="message-text">${message.replace(/\n/g, '<br>')}</div>
@@ -336,7 +345,7 @@ Start by greeting the learner and asking them what they think is the biggest pro
         typingDiv.innerHTML = `
           <div class="message-content">
             <div class="message-header">
-              <span class="sender">🤖 AI Tutor</span>
+              <span class="sender">🤝 AI Partner</span>
             </div>
             <div class="typing-animation">
               <span></span><span></span><span></span>
@@ -371,7 +380,7 @@ Start by greeting the learner and asking them what they think is the biggest pro
       
       updateProgress() {
         const progressIndicator = document.getElementById('progress-indicator');
-        const stages = ['Getting Started', 'Problem Analysis', 'Solution Design', 'Wrapping Up'];
+        const stages = ['Getting Started', 'Problem Analysis', 'Solution Design', 'Implementation Planning', 'Finalizing Recommendations'];
         const stageIndex = Math.min(Math.floor(this.messageCount / 2), stages.length - 1);
         progressIndicator.textContent = stages[stageIndex];
       }
@@ -379,7 +388,7 @@ Start by greeting the learner and asking them what they think is the biggest pro
       async endTutoringSession() {
         document.getElementById('user-input').disabled = true;
         document.getElementById('send-message').disabled = true;
-        document.getElementById('session-status').textContent = 'Session Complete';
+        document.getElementById('session-status').textContent = 'Collaboration Complete';
         
         // Generate summary
         await this.generateSummary();
@@ -390,7 +399,7 @@ Start by greeting the learner and asking them what they think is the biggest pro
       
       async generateSummary() {
         const summaryContent = document.getElementById('summary-content');
-        summaryContent.innerHTML = '<div class="loading">🤖 Generating your personalized case analysis summary...</div>';
+        summaryContent.innerHTML = '<div class="loading">🤝 Generating your collaborative case solution summary...</div>';
         
         try {
           const summaryPrompt = `Based on this tutoring session about the FashionForward chatbot case, generate a personalized summary for the learner.
@@ -407,7 +416,7 @@ Please provide:
 
 Make it encouraging and specific to their responses. Format nicely with headers and bullet points.`;
 
-          const response = await fetch('https://ai-chatbot-oise.onrender.com/chat', {
+          const response = await fetch('http://localhost:5000/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -664,6 +673,27 @@ Make it encouraging and specific to their responses. Format nicely with headers 
       display: flex;
       gap: 15px;
       justify-content: center;
+    }
+    
+    .collaboration-goals {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+      border-left: 4px solid #4CAF50;
+    }
+    
+    .collaboration-goals h4 {
+      margin-top: 0;
+      color: var(--secondary-color);
+    }
+    
+    .collaboration-goals ul {
+      margin-bottom: 0;
+    }
+    
+    .collaboration-goals li {
+      margin-bottom: 8px;
     }
     
     .hidden {
