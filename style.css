@@ -1,10 +1,16 @@
-﻿:root {
-  --primary-color: #005634;
-  --secondary-color: #00335F;
-  --light-bg: #f5f5f5;
-  --text-color: #1f2937;
+﻿/* -------------------------------------------------
+   1) VARIABLES
+------------------------------------------------- */
+:root {
+  --primary-color: #005634;   /* Ivey green */
+  --secondary-color: #00335F; /* Darker accent */
+  --light-bg: #f5f5f5;        /* Page background */
+  --text-color: #1f2937;      /* Main text color */
 }
 
+/* -------------------------------------------------
+   2) GLOBAL RESET & BASE STYLES
+------------------------------------------------- */
 * {
   box-sizing: border-box;
 }
@@ -14,13 +20,17 @@ html {
 }
 
 body {
+  margin: 0;
+  padding: 20px;
   background-color: var(--light-bg);
   color: var(--text-color);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.6;
-  padding: 20px;
 }
 
+/* -------------------------------------------------
+   3) HERO / HEADER
+------------------------------------------------- */
 .hero {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: white;
@@ -40,21 +50,47 @@ body {
   opacity: 0.9;
 }
 
-.btn-primary {
+/* -------------------------------------------------
+   4) BUTTON STYLES (IVEY-INSPIRED)
+   Applies to:
+     • <a class="btn-primary">...</a>
+     • any <button> inside .choice-buttons
+     • any <button> inside a <form>
+------------------------------------------------- */
+.btn-primary,
+.choice-buttons button,
+form button {
   display: inline-block;
   background-color: white;
   color: var(--primary-color);
   font-weight: 600;
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--primary-color);
   border-radius: 0.375rem;
+  cursor: pointer;
   text-decoration: none;
-  margin-top: 15px;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.btn-primary:hover {
-  background-color: #e1e1e1;
+.btn-primary:hover,
+.choice-buttons button:hover,
+form button:hover {
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: underline;
 }
 
+.btn-primary:focus,
+.choice-buttons button:focus,
+form button:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* -------------------------------------------------
+   5) MAIN / LAYOUT
+------------------------------------------------- */
 main {
   max-width: 900px;
   margin: 0 auto;
@@ -106,6 +142,9 @@ footer {
   color: #666;
 }
 
+/* -------------------------------------------------
+   6) FADE-IN ANIMATIONS
+------------------------------------------------- */
 .fade-in-up {
   animation: fadeInUp 0.6s ease-out forwards;
   opacity: 0;
@@ -113,9 +152,57 @@ footer {
 
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
+/* -------------------------------------------------
+   7) QUIZ CHOICES (RADIO BUTTONS)
+------------------------------------------------- */
+.quiz-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.quiz-choices label {
+  display: flex;
+  align-items: center;
+  background-color: #f0f4f8;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.quiz-choices input[type="radio"] {
+  margin-right: 10px;
+  accent-color: var(--primary-color);
+}
+
+.quiz-choices label:hover {
+  background-color: #e6f0f8;
+}
+
+.quiz-choices label span {
+  position: relative;
+}
+
+.quiz-choices label:hover span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+/* -------------------------------------------------
+   8) PROGRESS BAR
+------------------------------------------------- */
 .progress-bar {
   background-color: #ddd;
   border-radius: 20px;
@@ -129,6 +216,9 @@ footer {
   transition: width 0.3s ease;
 }
 
+/* -------------------------------------------------
+   9) CARD LAYOUT
+------------------------------------------------- */
 .card {
   background: #fff;
   padding: 15px;
@@ -137,6 +227,9 @@ footer {
   margin-bottom: 20px;
 }
 
+/* -------------------------------------------------
+  10) NAVIGATION (if used)
+------------------------------------------------- */
 .navigation {
   text-align: center;
   margin-bottom: 20px;
@@ -161,6 +254,9 @@ footer {
   text-decoration: underline;
 }
 
+/* -------------------------------------------------
+  11) RESPONSIVE ADJUSTMENTS
+------------------------------------------------- */
 @media (max-width: 600px) {
   main {
     max-width: 100%;

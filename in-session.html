@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Phase 2: In-Session Work – Retail Chatbot Course</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ====== Header / Navigation ====== -->
+  <header class="hero fade-in">
+    <div>
+      <h1 class="hero-title">Building a Retail Chatbot</h1>
+      <p class="hero-subtitle">Phase 2: In-Session Work</p>
+      <nav class="navigation">
+        <ul>
+          <li><a href="index.html">Prep Work</a></li>
+          <li><a href="in-session.html" aria-current="page">In-Session Work</a></li>
+          <li><a href="post-work.html">Post-Session Work</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- ====== End Header ====== -->
+
+  <main>
+    <!-- ====== Phase 2: FashionForward Case ====== -->
+
+    <!-- Case Introduction -->
+    <section id="case-intro" class="fade-in-up">
+      <h2>Case Scenario: FashionForward T-Shirts’ Customer Service Crisis</h2>
+      <p>
+        FashionForward is a growing online t-shirt retailer. They receive over 50 daily emails 
+        about the same questions—sizing, fabric care, returns, and shipping. Their small customer 
+        service team is overwhelmed; response times are slipping, and customer satisfaction is falling. 
+        The owner wants an AI-powered chatbot to handle FAQs but doesn’t know where to start.
+      </p>
+    </section>
+
+    <!-- Step 1: Analyze the Problem -->
+    <section id="step-1" class="fade-in-up">
+      <h3>Step 1: Analyze the Problem</h3>
+      <p><strong>Question:</strong> Based on the scenario, what are the top 3 customer pain points?</p>
+      <button id="reveal-emails-button" class="btn-primary">
+        Click to Reveal Sample Emails
+      </button>
+
+      <div id="email-examples" class="hidden card">
+        <h4>Sample Customer Emails</h4>
+        <ul>
+          <li><em>“What sizes do you carry—I’m usually a Large.”</em></li>
+          <li><em>“How do I wash this shirt? Will it shrink?”</em></li>
+          <li><em>“I need to return a shirt—what’s your policy?”</em></li>
+          <li><em>“When will my order ship? Tracking not updating.”</em></li>
+          <li><em>“Can I exchange a shirt for a different color?”</em></li>
+        </ul>
+        <p class="italic">(Notice repetition of sizing, care, returns, shipping inquiries.)</p>
+      </div>
+      <p id="step1-feedback"></p>
+    </section>
+
+    <!-- Step 2: Prioritize Solutions -->
+    <section id="step-2" class="fade-in-up">
+      <h3>Step 2: Prioritize Solutions</h3>
+      <p><strong>Question:</strong> If you could only address 5 FAQs with your chatbot, which would have the biggest impact?</p>
+      <div class="card">
+        <h4>Email Volume by Topic</h4>
+        <ul>
+          <li>Sizing: 40%</li>
+          <li>Returns: 25%</li>
+          <li>Shipping: 20%</li>
+          <li>Fabric Care: 10%</li>
+          <li>Exchanges: 5%</li>
+        </ul>
+      </div>
+
+      <h4>Drag-and-Drop: Rank the Top 5 FAQs</h4>
+      <ul id="faq-list" class="draggable-list">
+        <li draggable="true" data-topic="Sizing">Sizing</li>
+        <li draggable="true" data-topic="Returns">Returns</li>
+        <li draggable="true" data-topic="Shipping">Shipping</li>
+        <li draggable="true" data-topic="Fabric Care">Fabric Care</li>
+        <li draggable="true" data-topic="Exchanges">Exchanges</li>
+      </ul>
+      <button id="submit-priorities" class="btn-primary">Submit Priorities</button>
+      <p id="step2-feedback"></p>
+    </section>
+
+    <!-- Step 3: Design the Solution -->
+    <section id="step-3" class="fade-in-up">
+      <h3>Step 3: Design the Solution</h3>
+      <p><strong>Question:</strong> How would you design chatbot responses that maintain FashionForward’s friendly brand voice?</p>
+
+      <div class="card">
+        <label for="resp-sizing">1. “What sizes do you carry?”</label>
+        <textarea id="resp-sizing" rows="2"
+                  placeholder="e.g., ‘We carry S, M, L, XL, and XXL—let me know if you need help choosing!’">
+        </textarea>
+
+        <label for="resp-returns">2. “How do I return this shirt?”</label>
+        <textarea id="resp-returns" rows="2"
+                  placeholder="e.g., ‘No problem! You can return any item within 30 days with tags attached—just visit our Returns page.’">
+        </textarea>
+
+        <label for="resp-shipping">3. “When will my order ship?”</label>
+        <textarea id="resp-shipping" rows="2"
+                  placeholder="e.g., ‘Once you order, we ship within 24 hours. You’ll get tracking info in your email shortly after!’">
+        </textarea>
+
+        <button id="test-responses" class="btn-primary">Test Responses</button>
+        <p id="step3-feedback"></p>
+      </div>
+    </section>
+
+    <!-- Step 4: Implementation Planning -->
+    <section id="step-4" class="fade-in-up">
+      <h3>Step 4: Implementation Planning</h3>
+      <p><strong>Question:</strong> How would you roll out this chatbot to minimize customer disruption?</p>
+
+      <form id="rollout-form">
+        <div>
+          <input type="radio" id="strategy1" name="rollout" value="soft-launch">
+          <label for="strategy1">Soft launch online only for newsletter subscribers (Weekend pilot).</label>
+        </div>
+        <div>
+          <input type="radio" id="strategy2" name="rollout" value="single-store">
+          <label for="strategy2">Pilot in one boutique store before full online launch.</label>
+        </div>
+        <div>
+          <input type="radio" id="strategy3" name="rollout" value="social-announcement">
+          <label for="strategy3">Announce on social media with a fallback live chat option.</label>
+        </div>
+        <button type="button" id="submit-rollout" class="btn-primary">Submit Strategy</button>
+      </form>
+      <p id="step4-feedback"></p>
+    </section>
+
+    <!-- Case Debrief -->
+    <section id="case-debrief" class="fade-in-up">
+      <div class="card">
+        <h3>Case Debrief: FashionForward T-Shirts</h3>
+        <p>Now that you’ve analyzed, prioritized, designed, and planned the rollout, let’s revisit our initial problem:</p>
+        <ol>
+          <li><strong>Top Pain Points:</strong> You identified <span id="debrief-painpoints"></span> as the top three. <em>(Well done!)</em></li>
+          <li><strong>Brand Voice:</strong> Your sample responses were friendly and on-brand. <em>Nice work!</em></li>
+          <li><strong>Rollout Plan:</strong> You chose “<span id="chosen-strategy"></span>.” Remember, whichever you pick, ensure minimal disruption (e.g., weekend pilot or social fallback).</li>
+        </ol>
+        <p>With this plan, FashionForward can solve ≈ 65 % of incoming emails in week 1 and improve CSAT scores. Congratulations—you’ve completed Phase 2!</p>
+      </div>
+    </section>
+    <!-- ====== End Phase 2 ====== -->
+
+    <!-- ====== Navigation Buttons ====== -->
+    <div class="navigation-buttons">
+      <a href="index.html" class="btn-primary">← Back: Prep Work</a>
+      <a href="post-work.html" class="btn-primary">Next: Post-Session Work →</a>
+    </div>
+  </main>
+
+  <!-- ====== Footer ====== -->
+  <footer>
+    <p>&copy; 2025 James Kruck</p>
+  </footer>
+
+  <!-- ====== JavaScript for Phase 2 Interactivity ====== -->
+  <script>
+    // Step 1: Reveal sample emails
+    document.getElementById('reveal-emails-button').addEventListener('click', () => {
+      const emails = document.getElementById('email-examples');
+      emails.classList.toggle('hidden');
+      if (!emails.classList.contains('hidden')) {
+        emails.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    // Step 2: Drag-and-Drop for priorities
+    const list = document.getElementById('faq-list');
+    let draggedItem = null;
+
+    list.addEventListener('dragstart', e => {
+      draggedItem = e.target;
+      setTimeout(() => e.target.classList.add('hide'), 0);
+    });
+    list.addEventListener('dragend', e => {
+      e.target.classList.remove('hide');
+      draggedItem = null;
+    });
+    list.addEventListener('dragover', e => e.preventDefault());
+    list.addEventListener('dragenter', e => {
+      if (e.target.tagName === 'LI') e.target.classList.add('over');
+    });
+    list.addEventListener('dragleave', e => {
+      if (e.target.tagName === 'LI') e.target.classList.remove('over');
+    });
+    list.addEventListener('drop', e => {
+      e.preventDefault();
+      if (e.target.tagName === 'LI') {
+        e.target.classList.remove('over');
+        list.insertBefore(draggedItem, e.target.nextSibling);
+      }
+    });
+    document.getElementById('submit-priorities').addEventListener('click', () => {
+      const chosenOrder = Array.from(list.children).map(li => li.dataset.topic);
+      const feedback = document.getElementById('step2-feedback');
+      if (
+        chosenOrder[0] === 'Sizing' &&
+        chosenOrder[1] === 'Returns' &&
+        chosenOrder[2] === 'Shipping'
+      ) {
+        feedback.textContent = '✅ Great! You prioritized the top three by volume correctly.';
+        feedback.style.color = 'green';
+      } else {
+        feedback.textContent = '❌ Check your priorities: Sizing, Returns, Shipping should be in the top three.';
+        feedback.style.color = 'red';
+      }
+      // Populate debrief’s top pain points
+      document.getElementById('debrief-painpoints').textContent = chosenOrder.slice(0, 3).join(', ');
+    });
+
+    // Step 3: Test chatbot responses
+    document.getElementById('test-responses').addEventListener('click', () => {
+      const resp1 = document.getElementById('resp-sizing').value.trim();
+      const resp2 = document.getElementById('resp-returns').value.trim();
+      const resp3 = document.getElementById('resp-shipping').value.trim();
+      const feedback = document.getElementById('step3-feedback');
+      if (!resp1 || !resp2 || !resp3) {
+        alert('Please fill in all three responses before testing.');
+        return;
+      }
+      let convo = '🗨️ Test Chatbot Replies:\n\n';
+      convo += `Customer: “What sizes do you carry?”\nBot: “${resp1}”\n\n`;
+      convo += `Customer: “How do I return this shirt?”\nBot: “${resp2}”\n\n`;
+      convo += `Customer: “When will my order ship?”\nBot: “${resp3}”\n`;
+      feedback.textContent = convo;
+      feedback.style.whiteSpace = 'pre-line';
+    });
+
+    // Step 4: Rollout strategy feedback
+    document.getElementById('submit-rollout').addEventListener('click', () => {
+      const choice = document.querySelector('input[name="rollout"]:checked');
+      const feedback = document.getElementById('step4-feedback');
+      if (!choice) {
+        alert('Please select a rollout strategy before submitting.');
+        return;
+      }
+      let message = '';
+      switch (choice.value) {
+        case 'soft-launch':
+          message = '✅ Smart choice! A weekend pilot with newsletter subscribers lets FashionForward test the bot with minimal risk.';
+          break;
+        case 'single-store':
+          message = '✅ Good idea! Piloting in one store provides real-world feedback before the full online launch.';
+          break;
+        case 'social-announcement':
+          message = '✅ Interesting! Social media announcement can drive early adoption, but ensure you have a fallback live chat if needed.';
+          break;
+        default:
+          message = '❌ Unexpected choice—please select a valid option.';
+      }
+      feedback.textContent = message;
+      feedback.style.color = 'green';
+
+      // Populate the chosen strategy in the debrief
+      const labelText = document.querySelector(`label[for="${choice.id}"]`).textContent;
+      document.getElementById('chosen-strategy').textContent = labelText;
+    });
+  </script>
+
+  <!-- ====== Additional Styles for Phase 2 ====== -->
+  <style>
+    .draggable-list {
+      list-style: none;
+      margin: 0 0 10px 0;
+      padding: 0;
+    }
+    .draggable-list li {
+      background: #f0f4f8;
+      padding: 8px 12px;
+      margin: 4px 0;
+      border-radius: 4px;
+      cursor: move;
+    }
+    .draggable-list .hide {
+      display: none;
+    }
+    .draggable-list .over {
+      border: 2px dashed #005634;
+    }
+    textarea {
+      width: 100%;
+      margin-bottom: 8px;
+      padding: 6px 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+    #step3-feedback {
+      background: #eef7ec;
+      border-left: 4px solid #005634;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      white-space: pre-line;
+    }
+    #step4-feedback {
+      margin-top: 10px;
+      font-weight: 500;
+    }
+    input[type="radio"] {
+      margin-right: 6px;
+      accent-color: #005634;
+    }
+  </style>
+</body>
+</html>
