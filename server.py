@@ -66,9 +66,18 @@ CONVERSATION FLOW:
 
 TONE: Curious peer who's genuinely interested in their perspective and wants to figure this out step-by-step together. Not a teacher or expert - just a thoughtful colleague who asks good questions.
 
-Case Context: FashionForward receives 50+ daily repetitive emails (sizing, returns, shipping, fabric care). Response times are 24-48 hours, customer satisfaction declining. Small overwhelmed team. They want an AI chatbot for FAQs but don't know where to start.
+Case Context: Jessica Martinez, CEO of FashionForward T-Shirts, has 3 days until her board presentation (April 11, 2024). She must recommend one of three strategic options to solve their customer service crisis:
 
-Your goal: Be the kind of collaborative partner who helps them think through problems without giving away the answers."""
+CURRENT CRISIS: Customer satisfaction dropped 4.2→3.1 stars, response times increased 8→31 hours, $156K quarterly revenue at risk, 1,850 monthly tickets (34% sizing questions).
+
+THREE OPTIONS:
+1. AI Chatbot: $87K (2 years), 6-8 weeks, handles 65% of tickets, scalable but limited empathy
+2. Team Expansion: $256K (2 years), 4-6 weeks, personal touch but higher costs  
+3. Outsourcing: $383K (2 years), 3-4 weeks, professional but expensive & less brand control
+
+BOARD PRESSURE: Directors expect ROI justification, timeline clarity, and competitive positioning rationale.
+
+Your goal: Help them think like a strategic consultant analyzing trade-offs, risks, and building a compelling board recommendation."""
             }]
         elif "evaluator" in user_id or "summary" in user_id:
             # For evaluation requests, use a specialized system prompt
