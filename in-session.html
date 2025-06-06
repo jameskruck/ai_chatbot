@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Phase 2: In-Session Work – Retail Chatbot Course</title>
+  <title>Phase 2: In-Session Work – Retail Chatbot Course</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -25,130 +25,130 @@
 
   <main>
     <!-- ====== Phase 2: FashionForward Case ====== -->
-
-    <!-- Case Introduction -->
     <section id="case-intro" class="fade-in-up">
-      <h2>Case Scenario: FashionForward T-Shirts’ Customer Service Crisis</h2>
-      <p>
-        FashionForward is a growing online t-shirt retailer. They receive over 50 daily emails 
-        about the same questions—sizing, fabric care, returns, and shipping. Their small customer 
-        service team is overwhelmed; response times are slipping, and customer satisfaction is falling. 
-        The owner wants an AI-powered chatbot to handle FAQs but doesn’t know where to start.
-      </p>
-    </section>
-
-    <!-- Step 1: Analyze the Problem -->
-    <section id="step-1" class="fade-in-up">
-      <h3>Step 1: Analyze the Problem</h3>
-      <p><strong>Question:</strong> Based on the scenario, what are the top 3 customer pain points?</p>
-      <button id="reveal-emails-button" class="btn-primary">
-        Click to Reveal Sample Emails
-      </button>
-
-      <div id="email-examples" class="hidden card">
-        <h4>Sample Customer Emails</h4>
-        <ul>
-          <li><em>“What sizes do you carry—I’m usually a Large.”</em></li>
-          <li><em>“How do I wash this shirt? Will it shrink?”</em></li>
-          <li><em>“I need to return a shirt—what’s your policy?”</em></li>
-          <li><em>“When will my order ship? Tracking not updating.”</em></li>
-          <li><em>“Can I exchange a shirt for a different color?”</em></li>
-        </ul>
-        <p class="italic">(Notice repetition of sizing, care, returns, shipping inquiries.)</p>
-      </div>
-      <p id="step1-feedback"></p>
-    </section>
-
-    <!-- Step 2: Prioritize Solutions -->
-    <section id="step-2" class="fade-in-up">
-      <h3>Step 2: Prioritize Solutions</h3>
-      <p><strong>Question:</strong> If you could only address 5 FAQs with your chatbot, which would have the biggest impact?</p>
-      <div class="card">
-        <h4>Email Volume by Topic</h4>
-        <ul>
-          <li>Sizing: 40%</li>
-          <li>Returns: 25%</li>
-          <li>Shipping: 20%</li>
-          <li>Fabric Care: 10%</li>
-          <li>Exchanges: 5%</li>
-        </ul>
+      <div class="progress-bar">
+        <div class="progress" 
+             role="progressbar" aria-valuenow="66" 
+             aria-valuemin="0" aria-valuemax="100"
+             style="width: 66%;"></div>
       </div>
 
-      <h4>Drag-and-Drop: Rank the Top 5 FAQs</h4>
-      <ul id="faq-list" class="draggable-list">
-        <li draggable="true" data-topic="Sizing">Sizing</li>
-        <li draggable="true" data-topic="Returns">Returns</li>
-        <li draggable="true" data-topic="Shipping">Shipping</li>
-        <li draggable="true" data-topic="Fabric Care">Fabric Care</li>
-        <li draggable="true" data-topic="Exchanges">Exchanges</li>
-      </ul>
-      <button id="submit-priorities" class="btn-primary">Submit Priorities</button>
-      <p id="step2-feedback"></p>
-    </section>
-
-    <!-- Step 3: Design the Solution -->
-    <section id="step-3" class="fade-in-up">
-      <h3>Step 3: Design the Solution</h3>
-      <p><strong>Question:</strong> How would you design chatbot responses that maintain FashionForward’s friendly brand voice?</p>
-
-      <div class="card">
-        <label for="resp-sizing">1. “What sizes do you carry?”</label>
-        <textarea id="resp-sizing" rows="2"
-                  placeholder="e.g., ‘We carry S, M, L, XL, and XXL—let me know if you need help choosing!’">
-        </textarea>
-
-        <label for="resp-returns">2. “How do I return this shirt?”</label>
-        <textarea id="resp-returns" rows="2"
-                  placeholder="e.g., ‘No problem! You can return any item within 30 days with tags attached—just visit our Returns page.’">
-        </textarea>
-
-        <label for="resp-shipping">3. “When will my order ship?”</label>
-        <textarea id="resp-shipping" rows="2"
-                  placeholder="e.g., ‘Once you order, we ship within 24 hours. You’ll get tracking info in your email shortly after!’">
-        </textarea>
-
-        <button id="test-responses" class="btn-primary">Test Responses</button>
-        <p id="step3-feedback"></p>
-      </div>
-    </section>
-
-    <!-- Step 4: Implementation Planning -->
-    <section id="step-4" class="fade-in-up">
-      <h3>Step 4: Implementation Planning</h3>
-      <p><strong>Question:</strong> How would you roll out this chatbot to minimize customer disruption?</p>
-
-      <form id="rollout-form">
-        <div>
-          <input type="radio" id="strategy1" name="rollout" value="soft-launch">
-          <label for="strategy1">Soft launch online only for newsletter subscribers (Weekend pilot).</label>
+      <h2>Case Scenario: FashionForward T-Shirts</h2>
+      
+      <div class="case-background card">
+        <h3>📧 The Customer Service Crisis</h3>
+        <p>
+          <strong>FashionForward</strong> is a growing online t-shirt retailer. They receive over 50 daily emails 
+          about the same questions—sizing, fabric care, returns, and shipping. Their small customer 
+          service team is overwhelmed; response times are slipping, and customer satisfaction is falling. 
+          The owner wants an AI-powered chatbot to handle FAQs but doesn't know where to start.
+        </p>
+        
+        <div class="case-details">
+          <div class="detail-box">
+            <h4>📊 Current Situation</h4>
+            <ul>
+              <li>50+ repetitive emails daily</li>
+              <li>Response time: 24-48 hours</li>
+              <li>Customer satisfaction: Declining</li>
+              <li>Staff: Overwhelmed</li>
+            </ul>
+          </div>
+          
+          <div class="detail-box">
+            <h4>🎯 Business Goals</h4>
+            <ul>
+              <li>Reduce response times</li>
+              <li>Free up staff for complex issues</li>
+              <li>Improve customer satisfaction</li>
+              <li>Scale customer service efficiently</li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <input type="radio" id="strategy2" name="rollout" value="single-store">
-          <label for="strategy2">Pilot in one boutique store before full online launch.</label>
-        </div>
-        <div>
-          <input type="radio" id="strategy3" name="rollout" value="social-announcement">
-          <label for="strategy3">Announce on social media with a fallback live chat option.</label>
-        </div>
-        <button type="button" id="submit-rollout" class="btn-primary">Submit Strategy</button>
-      </form>
-      <p id="step4-feedback"></p>
-    </section>
 
-    <!-- Case Debrief -->
-    <section id="case-debrief" class="fade-in-up">
-      <div class="card">
-        <h3>Case Debrief: FashionForward T-Shirts</h3>
-        <p>Now that you’ve analyzed, prioritized, designed, and planned the rollout, let’s revisit our initial problem:</p>
-        <ol>
-          <li><strong>Top Pain Points:</strong> You identified <span id="debrief-painpoints"></span> as the top three. <em>(Well done!)</em></li>
-          <li><strong>Brand Voice:</strong> Your sample responses were friendly and on-brand. <em>Nice work!</em></li>
-          <li><strong>Rollout Plan:</strong> You chose “<span id="chosen-strategy"></span>.” Remember, whichever you pick, ensure minimal disruption (e.g., weekend pilot or social fallback).</li>
-        </ol>
-        <p>With this plan, FashionForward can solve ≈ 65 % of incoming emails in week 1 and improve CSAT scores. Congratulations—you’ve completed Phase 2!</p>
+        <div class="sample-emails">
+          <h4>📝 Sample Customer Emails</h4>
+          <div class="email-grid">
+            <div class="email-sample">
+              <em>"What sizes do you carry—I'm usually a Large."</em>
+            </div>
+            <div class="email-sample">
+              <em>"How do I wash this shirt? Will it shrink?"</em>
+            </div>
+            <div class="email-sample">
+              <em>"I need to return a shirt—what's your policy?"</em>
+            </div>
+            <div class="email-sample">
+              <em>"When will my order ship? Tracking not updating."</em>
+            </div>
+            <div class="email-sample">
+              <em>"Can I exchange a shirt for a different color?"</em>
+            </div>
+            <div class="email-sample">
+              <em>"Do you have this design in XL?"</em>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tutor-intro card">
+        <h3>🤖 Meet Your AI Tutor</h3>
+        <p>
+          Now that you understand FashionForward's situation, you'll work with an AI tutor to analyze 
+          this case and develop a chatbot solution. The AI will guide you through the problem-solving 
+          process, ask you questions, and help you think through each decision.
+        </p>
+        <p><strong>Ready to start?</strong> Click below to begin your conversation with the AI tutor.</p>
+        <button id="start-tutoring" class="btn-primary">🚀 Start AI Tutoring Session</button>
       </div>
     </section>
-    <!-- ====== End Phase 2 ====== -->
+
+    <!-- AI Tutoring Interface -->
+    <section id="ai-tutoring" class="fade-in-up hidden">
+      <div class="chat-container">
+        <div class="chat-header">
+          <h3>💬 AI Tutor - FashionForward Case Analysis</h3>
+          <div class="session-info">
+            <span id="session-status">Session Active</span>
+            <span id="progress-indicator">Getting Started</span>
+          </div>
+        </div>
+        
+        <div id="chat-messages" class="chat-messages">
+          <!-- Messages will be populated here -->
+        </div>
+        
+        <div class="chat-input-container">
+          <div class="input-group">
+            <textarea id="user-input" 
+                      placeholder="Type your response here..." 
+                      rows="3"
+                      disabled></textarea>
+            <button id="send-message" class="btn-send" disabled>
+              <span class="send-text">Send</span>
+              <span class="send-icon">📤</span>
+            </button>
+          </div>
+          <div class="input-hints">
+            <small>💡 Take your time to think through each question. The AI tutor is here to guide your learning.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Session Summary -->
+    <section id="session-summary" class="fade-in-up hidden">
+      <div class="card">
+        <h3>📋 Your Case Analysis Summary</h3>
+        <div id="summary-content">
+          <!-- Will be populated by AI -->
+        </div>
+        <div class="summary-actions">
+          <button id="download-summary" class="btn-primary">📄 Download Summary</button>
+          <button id="continue-course" class="btn-primary">Continue to Implementation →</button>
+        </div>
+      </div>
+    </section>
 
     <!-- ====== Navigation Buttons ====== -->
     <div class="navigation-buttons">
@@ -162,154 +162,532 @@
     <p>&copy; 2025 James Kruck</p>
   </footer>
 
-  <!-- ====== JavaScript for Phase 2 Interactivity ====== -->
+  <!-- ====== JavaScript for AI Tutoring ====== -->
   <script>
-    // Step 1: Reveal sample emails
-    document.getElementById('reveal-emails-button').addEventListener('click', () => {
-      const emails = document.getElementById('email-examples');
-      emails.classList.toggle('hidden');
-      if (!emails.classList.contains('hidden')) {
-        emails.scrollIntoView({ behavior: 'smooth' });
+    class ChatbotTutor {
+      constructor() {
+        this.sessionId = this.generateSessionId();
+        this.messageCount = 0;
+        this.currentStage = 'introduction';
+        this.userResponses = [];
+        this.isWaitingForResponse = false;
+        
+        this.initializeEventListeners();
       }
-    });
+      
+      generateSessionId() {
+        return 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+      }
+      
+      initializeEventListeners() {
+        document.getElementById('start-tutoring').addEventListener('click', () => {
+          this.startTutoringSession();
+        });
+        
+        document.getElementById('send-message').addEventListener('click', () => {
+          this.sendMessage();
+        });
+        
+        document.getElementById('user-input').addEventListener('keypress', (e) => {
+          if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            this.sendMessage();
+          }
+        });
+        
+        document.getElementById('continue-course').addEventListener('click', () => {
+          window.location.href = 'post-work.html';
+        });
+        
+        document.getElementById('download-summary').addEventListener('click', () => {
+          this.downloadSummary();
+        });
+      }
+      
+      async startTutoringSession() {
+        document.getElementById('case-intro').style.display = 'none';
+        document.getElementById('ai-tutoring').classList.remove('hidden');
+        
+        // Enable input
+        document.getElementById('user-input').disabled = false;
+        document.getElementById('send-message').disabled = false;
+        
+        // Start the conversation
+        await this.sendInitialMessage();
+      }
+      
+      async sendInitialMessage() {
+        const initialPrompt = `You are an expert AI tutor guiding a learner through a retail chatbot case study. The learner has just read about FashionForward T-Shirts' customer service crisis.
 
-    // Step 2: Drag-and-Drop for priorities
-    const list = document.getElementById('faq-list');
-    let draggedItem = null;
+Your role:
+1. Guide them through analyzing the case using Socratic questioning
+2. Help them identify pain points, prioritize solutions, and design responses
+3. Keep responses engaging, supportive, and educational
+4. Ask one focused question at a time
+5. Build on their responses to deepen understanding
 
-    list.addEventListener('dragstart', e => {
-      draggedItem = e.target;
-      setTimeout(() => e.target.classList.add('hide'), 0);
-    });
-    list.addEventListener('dragend', e => {
-      e.target.classList.remove('hide');
-      draggedItem = null;
-    });
-    list.addEventListener('dragover', e => e.preventDefault());
-    list.addEventListener('dragenter', e => {
-      if (e.target.tagName === 'LI') e.target.classList.add('over');
-    });
-    list.addEventListener('dragleave', e => {
-      if (e.target.tagName === 'LI') e.target.classList.remove('over');
-    });
-    list.addEventListener('drop', e => {
-      e.preventDefault();
-      if (e.target.tagName === 'LI') {
-        e.target.classList.remove('over');
-        list.insertBefore(draggedItem, e.target.nextSibling);
-      }
-    });
-    document.getElementById('submit-priorities').addEventListener('click', () => {
-      const chosenOrder = Array.from(list.children).map(li => li.dataset.topic);
-      const feedback = document.getElementById('step2-feedback');
-      if (
-        chosenOrder[0] === 'Sizing' &&
-        chosenOrder[1] === 'Returns' &&
-        chosenOrder[2] === 'Shipping'
-      ) {
-        feedback.textContent = '✅ Great! You prioritized the top three by volume correctly.';
-        feedback.style.color = 'green';
-      } else {
-        feedback.textContent = '❌ Check your priorities: Sizing, Returns, Shipping should be in the top three.';
-        feedback.style.color = 'red';
-      }
-      // Populate debrief’s top pain points
-      document.getElementById('debrief-painpoints').textContent = chosenOrder.slice(0, 3).join(', ');
-    });
+Case Context: FashionForward gets 50+ daily emails about sizing, returns, shipping, and fabric care. Response times are 24-48 hours, customer satisfaction is declining.
 
-    // Step 3: Test chatbot responses
-    document.getElementById('test-responses').addEventListener('click', () => {
-      const resp1 = document.getElementById('resp-sizing').value.trim();
-      const resp2 = document.getElementById('resp-returns').value.trim();
-      const resp3 = document.getElementById('resp-shipping').value.trim();
-      const feedback = document.getElementById('step3-feedback');
-      if (!resp1 || !resp2 || !resp3) {
-        alert('Please fill in all three responses before testing.');
-        return;
-      }
-      let convo = '🗨️ Test Chatbot Replies:\n\n';
-      convo += `Customer: “What sizes do you carry?”\nBot: “${resp1}”\n\n`;
-      convo += `Customer: “How do I return this shirt?”\nBot: “${resp2}”\n\n`;
-      convo += `Customer: “When will my order ship?”\nBot: “${resp3}”\n`;
-      feedback.textContent = convo;
-      feedback.style.whiteSpace = 'pre-line';
-    });
+Start by greeting the learner and asking them what they think is the biggest problem FashionForward is facing based on what they just read. Keep it conversational and encouraging.`;
 
-    // Step 4: Rollout strategy feedback
-    document.getElementById('submit-rollout').addEventListener('click', () => {
-      const choice = document.querySelector('input[name="rollout"]:checked');
-      const feedback = document.getElementById('step4-feedback');
-      if (!choice) {
-        alert('Please select a rollout strategy before submitting.');
-        return;
+        await this.callAI(initialPrompt, true);
       }
-      let message = '';
-      switch (choice.value) {
-        case 'soft-launch':
-          message = '✅ Smart choice! A weekend pilot with newsletter subscribers lets FashionForward test the bot with minimal risk.';
-          break;
-        case 'single-store':
-          message = '✅ Good idea! Piloting in one store provides real-world feedback before the full online launch.';
-          break;
-        case 'social-announcement':
-          message = '✅ Interesting! Social media announcement can drive early adoption, but ensure you have a fallback live chat if needed.';
-          break;
-        default:
-          message = '❌ Unexpected choice—please select a valid option.';
+      
+      async sendMessage() {
+        const userInput = document.getElementById('user-input');
+        const message = userInput.value.trim();
+        
+        if (!message || this.isWaitingForResponse) return;
+        
+        // Add user message to chat
+        this.addMessageToChat('user', message);
+        userInput.value = '';
+        
+        // Store user response
+        this.userResponses.push({
+          stage: this.currentStage,
+          question: this.lastAIQuestion,
+          response: message,
+          timestamp: new Date().toISOString()
+        });
+        
+        // Send to AI tutor
+        await this.callAI(message, false);
       }
-      feedback.textContent = message;
-      feedback.style.color = 'green';
+      
+      async callAI(message, isInitial = false) {
+        this.isWaitingForResponse = true;
+        this.updateSendButton(true);
+        
+        if (!isInitial) {
+          this.addTypingIndicator();
+        }
+        
+        try {
+          const response = await fetch('https://ai-chatbot-oise.onrender.com/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              user_id: this.sessionId,
+              message: message,
+              session_data: {
+                stage: this.currentStage,
+                messageCount: this.messageCount,
+                userResponses: this.userResponses
+              }
+            })
+          });
+          
+          const data = await response.json();
+          
+          if (data.error) {
+            throw new Error(data.error);
+          }
+          
+          this.removeTypingIndicator();
+          this.addMessageToChat('ai', data.response);
+          this.lastAIQuestion = data.response;
+          this.messageCount++;
+          
+          // Update progress
+          this.updateProgress();
+          
+        } catch (error) {
+          this.removeTypingIndicator();
+          this.addMessageToChat('ai', 'I apologize, but I\'m having trouble connecting right now. Please try again in a moment.');
+          console.error('AI Tutor Error:', error);
+        }
+        
+        this.isWaitingForResponse = false;
+        this.updateSendButton(false);
+      }
+      
+      addMessageToChat(sender, message) {
+        const chatMessages = document.getElementById('chat-messages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${sender}-message`;
+        
+        const timestamp = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        
+        messageDiv.innerHTML = `
+          <div class="message-content">
+            <div class="message-header">
+              <span class="sender">${sender === 'ai' ? '🤖 AI Tutor' : '👤 You'}</span>
+              <span class="timestamp">${timestamp}</span>
+            </div>
+            <div class="message-text">${message.replace(/\n/g, '<br>')}</div>
+          </div>
+        `;
+        
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        // Check if conversation should end
+        if (this.messageCount >= 8) {
+          setTimeout(() => this.endTutoringSession(), 2000);
+        }
+      }
+      
+      addTypingIndicator() {
+        const chatMessages = document.getElementById('chat-messages');
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'message ai-message typing-indicator';
+        typingDiv.id = 'typing-indicator';
+        typingDiv.innerHTML = `
+          <div class="message-content">
+            <div class="message-header">
+              <span class="sender">🤖 AI Tutor</span>
+            </div>
+            <div class="typing-animation">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        `;
+        
+        chatMessages.appendChild(typingDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+      
+      removeTypingIndicator() {
+        const typingIndicator = document.getElementById('typing-indicator');
+        if (typingIndicator) {
+          typingIndicator.remove();
+        }
+      }
+      
+      updateSendButton(isLoading) {
+        const sendButton = document.getElementById('send-message');
+        const userInput = document.getElementById('user-input');
+        
+        sendButton.disabled = isLoading;
+        userInput.disabled = isLoading;
+        
+        if (isLoading) {
+          sendButton.innerHTML = '<span class="loading-spinner">⏳</span>';
+        } else {
+          sendButton.innerHTML = '<span class="send-text">Send</span><span class="send-icon">📤</span>';
+        }
+      }
+      
+      updateProgress() {
+        const progressIndicator = document.getElementById('progress-indicator');
+        const stages = ['Getting Started', 'Problem Analysis', 'Solution Design', 'Wrapping Up'];
+        const stageIndex = Math.min(Math.floor(this.messageCount / 2), stages.length - 1);
+        progressIndicator.textContent = stages[stageIndex];
+      }
+      
+      async endTutoringSession() {
+        document.getElementById('user-input').disabled = true;
+        document.getElementById('send-message').disabled = true;
+        document.getElementById('session-status').textContent = 'Session Complete';
+        
+        // Generate summary
+        await this.generateSummary();
+        
+        document.getElementById('session-summary').classList.remove('hidden');
+        document.getElementById('session-summary').scrollIntoView({ behavior: 'smooth' });
+      }
+      
+      async generateSummary() {
+        const summaryContent = document.getElementById('summary-content');
+        summaryContent.innerHTML = '<div class="loading">🤖 Generating your personalized case analysis summary...</div>';
+        
+        try {
+          const summaryPrompt = `Based on this tutoring session about the FashionForward chatbot case, generate a personalized summary for the learner.
 
-      // Populate the chosen strategy in the debrief
-      const labelText = document.querySelector(`label[for="${choice.id}"]`).textContent;
-      document.getElementById('chosen-strategy').textContent = labelText;
+Session Data:
+${JSON.stringify(this.userResponses, null, 2)}
+
+Please provide:
+1. Key insights they demonstrated
+2. Their problem-solving approach
+3. Strengths in their analysis
+4. Areas for further consideration
+5. Next steps for implementation
+
+Make it encouraging and specific to their responses. Format nicely with headers and bullet points.`;
+
+          const response = await fetch('https://ai-chatbot-oise.onrender.com/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              user_id: this.sessionId + '_summary',
+              message: summaryPrompt
+            })
+          });
+          
+          const data = await response.json();
+          summaryContent.innerHTML = `<div class="summary-text">${data.response.replace(/\n/g, '<br>')}</div>`;
+          
+        } catch (error) {
+          summaryContent.innerHTML = '<div class="error">Unable to generate summary at this time.</div>';
+        }
+      }
+      
+      downloadSummary() {
+        const summaryText = document.getElementById('summary-content').textContent;
+        const blob = new Blob([summaryText], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'FashionForward_Case_Analysis_Summary.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+    }
+    
+    // Initialize the chatbot tutor when page loads
+    window.addEventListener('DOMContentLoaded', () => {
+      new ChatbotTutor();
     });
   </script>
 
-  <!-- ====== Additional Styles for Phase 2 ====== -->
+  <!-- ====== Styles for AI Tutoring Interface ====== -->
   <style>
-    .draggable-list {
-      list-style: none;
-      margin: 0 0 10px 0;
-      padding: 0;
+    .case-background {
+      margin-bottom: 25px;
     }
-    .draggable-list li {
-      background: #f0f4f8;
-      padding: 8px 12px;
-      margin: 4px 0;
-      border-radius: 4px;
-      cursor: move;
+    
+    .case-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 20px 0;
     }
-    .draggable-list .hide {
+    
+    .detail-box {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid var(--primary-color);
+    }
+    
+    .detail-box h4 {
+      margin-top: 0;
+      color: var(--secondary-color);
+    }
+    
+    .email-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .email-sample {
+      background: #fff3cd;
+      padding: 12px;
+      border-radius: 6px;
+      border-left: 3px solid #ffc107;
+      font-style: italic;
+      font-size: 0.9em;
+    }
+    
+    .tutor-intro {
+      background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+      border: 2px solid #4CAF50;
+    }
+    
+    .chat-container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .chat-header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .chat-header h3 {
+      margin: 0;
+      color: white;
+    }
+    
+    .session-info {
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+      font-size: 0.9em;
+    }
+    
+    .chat-messages {
+      height: 400px;
+      overflow-y: auto;
+      padding: 20px;
+      background: #fafafa;
+    }
+    
+    .message {
+      margin-bottom: 20px;
+      animation: slideIn 0.3s ease-out;
+    }
+    
+    .message-content {
+      max-width: 80%;
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .user-message .message-content {
+      margin-left: auto;
+      background: var(--primary-color);
+      color: white;
+    }
+    
+    .ai-message .message-content {
+      margin-right: auto;
+      background: white;
+      border: 1px solid #e0e0e0;
+    }
+    
+    .message-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 0.8em;
+      opacity: 0.8;
+    }
+    
+    .sender {
+      font-weight: 600;
+    }
+    
+    .message-text {
+      line-height: 1.5;
+    }
+    
+    .typing-indicator .message-content {
+      padding: 15px 20px;
+    }
+    
+    .typing-animation {
+      display: flex;
+      gap: 4px;
+    }
+    
+    .typing-animation span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ccc;
+      animation: typing 1.4s infinite ease-in-out;
+    }
+    
+    .typing-animation span:nth-child(1) { animation-delay: -0.32s; }
+    .typing-animation span:nth-child(2) { animation-delay: -0.16s; }
+    
+    @keyframes typing {
+      0%, 80%, 100% { transform: scale(0); opacity: 0.5; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+    
+    .chat-input-container {
+      padding: 20px;
+      background: white;
+      border-top: 1px solid #e0e0e0;
+    }
+    
+    .input-group {
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+    }
+    
+    #user-input {
+      flex: 1;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 12px;
+      resize: none;
+      font-family: inherit;
+    }
+    
+    .btn-send {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    
+    .btn-send:hover:not(:disabled) {
+      background: var(--secondary-color);
+      transform: translateY(-1px);
+    }
+    
+    .btn-send:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    
+    .input-hints {
+      margin-top: 8px;
+      text-align: center;
+    }
+    
+    .loading-spinner {
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .summary-text {
+      line-height: 1.6;
+      font-size: 1.1em;
+    }
+    
+    .summary-actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+    
+    .hidden {
       display: none;
     }
-    .draggable-list .over {
-      border: 2px dashed #005634;
-    }
-    textarea {
-      width: 100%;
-      margin-bottom: 8px;
-      padding: 6px 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      resize: vertical;
-    }
-    #step3-feedback {
-      background: #eef7ec;
-      border-left: 4px solid #005634;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 4px;
-      font-family: 'Courier New', monospace;
-      white-space: pre-line;
-    }
-    #step4-feedback {
-      margin-top: 10px;
-      font-weight: 500;
-    }
-    input[type="radio"] {
-      margin-right: 6px;
-      accent-color: #005634;
+    
+    @media (max-width: 600px) {
+      .case-details {
+        grid-template-columns: 1fr;
+      }
+      
+      .email-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .chat-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+      
+      .message-content {
+        max-width: 95%;
+      }
     }
   </style>
 </body>
