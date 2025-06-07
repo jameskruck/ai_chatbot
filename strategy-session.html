@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Phase 2: Enhanced Strategy Session – AI Chatbot Strategy Course</title>
+  <title>Phase 2: Virtual Study Group Session – AI Chatbot Strategy Course</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,11 +11,11 @@
   <header class="hero fade-in">
     <div>
       <h1 class="hero-title">AI Chatbot Strategy for Retail</h1>
-      <p class="hero-subtitle">Phase 2: Enhanced Strategy Session & Implementation</p>
+      <p class="hero-subtitle">Phase 2: Virtual Study Group Session & Implementation</p>
       <nav class="navigation">
         <ul>
           <li><a href="index.html">Prep Work</a></li>
-          <li><a href="strategy-session.html" aria-current="page">Strategy Session</a></li>
+          <li><a href="strategy-session.html" aria-current="page">Study Group Session</a></li>
           <li><a href="reflection.html">Implementation & Reflection</a></li>
         </ul>
       </nav>
@@ -24,7 +24,7 @@
   <!-- ====== End Header ====== -->
 
   <main>
-    <!-- ====== Enhanced Case Discussion Phase ====== -->
+    <!-- ====== Study Group Discussion Phase ====== -->
     <section id="case-discussion" class="fade-in-up">
       <div class="progress-bar">
         <div class="progress" 
@@ -33,60 +33,90 @@
              style="width: 66%;"></div>
       </div>
 
-      <h2>Part A: Collaborative Strategic Analysis</h2>
+      <h2>Part A: Virtual Study Group Discussion</h2>
       
       <div class="session-intro card">
-        <h3>🎯 Your Role: Strategic Advisor with AI Peers</h3>
+        <h3>🎓 Your Role: MBA Student in Case Discussion</h3>
         <p>
-          You've read Jessica Martinez's case. Now you're working with multiple AI business consultants, 
-          each with different expertise and perspectives. Together, you'll analyze options and develop recommendations.
+          You've read Jessica Martinez's case. Now you're joining a virtual study group with fellow MBA students, 
+          each bringing different expertise and perspectives. Together, you'll analyze options and develop recommendations.
         </p>
         <div class="session-goals">
-          <h4>Enhanced Session Goals:</h4>
+          <h4>Study Group Goals:</h4>
           <ul>
-            <li>🤝 <strong>Collaborate</strong> with AI agents who have genuine disagreements</li>
-            <li>🔍 <strong>Research</strong> live industry data that might change your analysis</li>
-            <li>⚠️ <strong>Adapt</strong> to unexpected complications and plot twists</li>
-            <li>💡 <strong>Co-create</strong> solutions through genuine AI partnership</li>
+            <li>🤝 <strong>Collaborate</strong> with peers who have genuine industry experience</li>
+            <li>🔍 <strong>Research</strong> together using your combined networks and expertise</li>
+            <li>⚠️ <strong>Navigate</strong> unexpected insights and real-world complications</li>
+            <li>💡 <strong>Co-create</strong> solutions through authentic peer collaboration</li>
           </ul>
         </div>
-        <button id="start-analysis" class="btn-primary">🚀 Begin Enhanced Collaboration</button>
+        <button id="start-analysis" class="btn-primary">🚀 Join Your Study Group</button>
       </div>
     </section>
 
-    <!-- Enhanced AI Strategic Consultation -->
+    <!-- ====== Video Demo Section ====== -->
+    <section id="video-demo" class="fade-in-up">
+      <div class="video-demo-card">
+        <h3>🎥 How Virtual Study Groups Work</h3>
+        <div class="video-container">
+          <video controls poster="images/video-thumbnail.jpg">
+            <source src="video/study-group-demo.mp4" type="video/mp4">
+            <track src="captions/study-group-demo.vtt" kind="subtitles" srclang="en" label="English">
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-overlay">
+            <div class="play-button">▶️</div>
+            <div class="video-title">Watch: Study Group Demo (3 mins)</div>
+            <div class="video-description">See how you'll collaborate with Sarah, Marcus, and Priya</div>
+          </div>
+        </div>
+        <div class="video-info">
+          <h4>In this demo, you'll see:</h4>
+          <ul>
+            <li>✓ How to engage with different peer personalities</li>
+            <li>✓ Example of collaborative research in action</li>
+            <li>✓ How complications arise from peer experience</li>
+            <li>✓ Transition from analysis to implementation</li>
+          </ul>
+          <p><em>Optional viewing - you can jump straight into the study group if you prefer to learn by doing!</em></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Virtual Study Group Discussion -->
     <section id="ai-consultation" class="fade-in-up hidden">
       <div class="chat-container">
-        <!-- Agent Panel -->
-        <div class="agent-panel">
-          <div class="agent-controls">
-            <h4>🤝 Your AI Collaboration Team</h4>
-            <div class="agent-list">
-              <div class="agent active" data-agent="financial_analyst">
-                💰 Financial Analyst (Active)
+        <!-- Study Group Panel -->
+        <div class="study-group-panel">
+          <div class="group-controls">
+            <h4>👥 Your Virtual Study Group</h4>
+            <p class="group-subtitle">Connect with peers from different business backgrounds</p>
+            <div class="classmate-list">
+              <div class="classmate active" data-agent="sarah_chen">
+                💼 Sarah Chen (Finance MBA, Ex-McKinsey) - Active
               </div>
-              <div class="agent available" data-agent="cx_expert">
-                👥 CX Expert (Click to invite)
+              <div class="classmate available" data-agent="marcus_rodriguez">
+                🎯 Marcus Rodriguez (Retail CX Director) - Invite to discuss
               </div>
-              <div class="agent available" data-agent="tech_optimist">
-                🚀 Tech Specialist (Click to invite)
+              <div class="classmate available" data-agent="priya_patel">
+                🚀 Priya Patel (Tech Startup Founder) - Invite to discuss
               </div>
             </div>
-            <div class="research-controls">
+            <div class="group-research">
               <button id="trigger-research" class="btn-research">
-                🔍 Research Current Market Data
+                📚 Let's research this together
               </button>
-              <div class="research-status" id="research-status"></div>
+              <div class="research-note" id="research-status"></div>
             </div>
           </div>
         </div>
         
         <div class="chat-header">
-          <h3>💼 Enhanced Strategic Consultation - FashionForward Decision</h3>
+          <h3>💬 FashionForward Case Discussion</h3>
           <div class="session-info">
-            <span id="session-status">Collaborative Analysis</span>
-            <span id="progress-indicator">Multi-Agent Discussion</span>
-            <span id="active-agents-count">1 AI Partner Active</span>
+            <span id="session-status">Study Group Discussion</span>
+            <span id="progress-indicator">Strategic Analysis</span>
+            <span id="active-agents-count">1 Study Partner Active</span>
           </div>
         </div>
         
@@ -97,16 +127,16 @@
         <div class="chat-input-container">
           <div class="input-group">
             <textarea id="user-input" 
-                      placeholder="Share your strategic thinking with the team..." 
+                      placeholder="Share your thoughts with your study group..." 
                       rows="3"
                       disabled></textarea>
             <button id="send-message" class="btn-send" disabled>
-              <span class="send-text">Send</span>
+              <span class="send-text">Share</span>
               <span class="send-icon">📤</span>
             </button>
           </div>
           <div class="input-hints">
-            <small>💡 Your AI partners may disagree with each other - help them think through the trade-offs!</small>
+            <small>💡 Your study partners have different backgrounds - engage with their perspectives!</small>
           </div>
         </div>
       </div>
@@ -115,29 +145,29 @@
     <!-- Transition to Implementation -->
     <section id="implementation-transition" class="fade-in-up hidden">
       <div class="card">
-        <h3>🔄 From Collaborative Strategy to Action</h3>
+        <h3>🔄 From Study Group Analysis to Action</h3>
         <div id="strategy-summary">
           <!-- Will be populated based on their discussion -->
         </div>
         <div class="collaboration-insights">
-          <h4>🤝 What Your AI Team Discovered Together:</h4>
+          <h4>🤝 What Your Study Group Discovered Together:</h4>
           <div id="collaboration-highlights"></div>
         </div>
-        <p><strong>Now let's build it!</strong> Time to create the chatbot solution your team recommended.</p>
+        <p><strong>Now let's build it!</strong> Time to create the chatbot solution your study group recommended.</p>
         <button id="start-building" class="btn-primary">🛠️ Start Building Your Chatbot</button>
       </div>
     </section>
 
-    <!-- ====== Implementation Phase (Same as before) ====== -->
+    <!-- ====== Implementation Phase ====== -->
     <section id="chatbot-building" class="fade-in-up hidden">
       <h2>Part B: Hands-On Implementation</h2>
       
       <div class="building-intro card">
         <h3>🛠️ Building Your FashionForward Chatbot</h3>
-        <p>Based on your collaborative analysis with your AI team, you're now going to build a functional chatbot prototype using Chatbase. This will handle the specific FAQ types you identified as highest priority.</p>
+        <p>Based on your study group's collaborative analysis, you're now going to build a functional chatbot prototype using Chatbase. This will handle the specific FAQ types your group identified as highest priority.</p>
       </div>
 
-      <!-- Implementation steps same as before -->
+      <!-- Step 1: Set Up Your Chatbot Platform -->
       <div class="build-step card">
         <h4>Step 1: Set Up Your Chatbot Platform</h4>
         <div class="step-content">
@@ -150,6 +180,10 @@
               <li>Choose "Website" as your source type</li>
             </ol>
           </div>
+          <div class="peer-insight">
+            <h5>💡 Study Group Tip</h5>
+            <p><strong>From Priya:</strong> "I've used Chatbase before - it's much easier than building from scratch. The key is getting your training data really clean before you upload it."</p>
+          </div>
         </div>
         <div class="step-check">
           <label>
@@ -159,18 +193,161 @@
         </div>
       </div>
 
-      <!-- More implementation steps... -->
+      <!-- Step 2: Training Data -->
+      <div class="build-step card">
+        <h4>Step 2: Train Your Bot with FashionForward FAQs</h4>
+        <div class="step-content">
+          <div class="instructions">
+            <p>Upload the FashionForward FAQ knowledge base to train your chatbot:</p>
+          </div>
+          <div class="faq-data">
+            <h5>📋 FashionForward FAQ Dataset</h5>
+            <p class="peer-insight"><strong>From Marcus:</strong> "These are based on real customer service patterns I see in retail - focus on the top 3 categories first."</p>
+            <div class="faq-categories">
+              <div class="faq-category">
+                <h6>Sizing Questions (34% of volume)</h6>
+                <ul>
+                  <li><strong>Q:</strong> What sizes do you carry?<br>
+                      <strong>A:</strong> We offer sizes XS, S, M, L, XL, and XXL. Our shirts have a modern fit - if you're between sizes, we recommend sizing up for a more relaxed fit.</li>
+                  <li><strong>Q:</strong> Do your shirts run large or small?<br>
+                      <strong>A:</strong> Our shirts fit true to size with a modern cut. Check our size guide for exact measurements. If you prefer a looser fit, consider going up one size.</li>
+                  <li><strong>Q:</strong> What's your return policy for wrong sizes?<br>
+                      <strong>A:</strong> We offer free exchanges within 30 days! Just keep the tags on and we'll send you a different size at no extra cost.</li>
+                </ul>
+              </div>
+              
+              <div class="faq-category">
+                <h6>Order Status (26% of volume)</h6>
+                <ul>
+                  <li><strong>Q:</strong> When will my order ship?<br>
+                      <strong>A:</strong> Orders typically ship within 24-48 hours. You'll receive a tracking email as soon as your package is on its way!</li>
+                  <li><strong>Q:</strong> How can I track my order?<br>
+                      <strong>A:</strong> Check your email for a tracking link, or use your order number on our order status page. Most orders arrive within 5-7 business days.</li>
+                  <li><strong>Q:</strong> My tracking hasn't updated in days. What's wrong?<br>
+                      <strong>A:</strong> Sometimes tracking can be delayed during updates. If it's been more than 7 days since shipping, please contact our support team and we'll investigate immediately.</li>
+                </ul>
+              </div>
+              
+              <div class="faq-category">
+                <h6>Returns & Exchanges (18% of volume)</h6>
+                <ul>
+                  <li><strong>Q:</strong> How do I return or exchange an item?<br>
+                      <strong>A:</strong> Easy! Visit our returns page, enter your order number, and we'll email you a prepaid return label. Returns are free within 30 days.</li>
+                  <li><strong>Q:</strong> Can I exchange for a different design?<br>
+                      <strong>A:</strong> Absolutely! As long as it's within 30 days and the item has tags attached, you can exchange for any item of equal or lesser value.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="upload-instructions">
+              <p><strong>To add this data to Chatbase:</strong></p>
+              <ol>
+                <li>Copy the FAQ content above</li>
+                <li>In Chatbase, go to "Data Sources"</li>
+                <li>Choose "Text" and paste the FAQ content</li>
+                <li>Click "Train" to teach your bot these responses</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="step-check">
+          <label>
+            <input type="checkbox" id="training-complete">
+            <span>✓ I've uploaded the FAQ data and trained my chatbot</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Step 3: Customize Brand Voice -->
+      <div class="build-step card">
+        <h4>Step 3: Set FashionForward's Brand Voice</h4>
+        <div class="step-content">
+          <p>Configure your chatbot to match FashionForward's friendly, casual brand personality:</p>
+          <div class="brand-settings">
+            <h5>🎭 Brand Voice Settings</h5>
+            <div class="peer-insight">
+              <p><strong>From Sarah:</strong> "This is critical for ROI - brand-aligned bots see 25% higher customer satisfaction in my consulting experience."</p>
+            </div>
+            <div class="voice-config">
+              <p><strong>Personality Instructions (copy this into Chatbase):</strong></p>
+              <div class="code-block">
+                <p>You are FashionForward's helpful customer service assistant. You should be:</p>
+                <ul>
+                  <li>Friendly and conversational (never formal or corporate)</li>
+                  <li>Enthusiastic about sustainable fashion</li>
+                  <li>Quick to offer solutions and alternatives</li>
+                  <li>Supportive and understanding of customer concerns</li>
+                </ul>
+                <p>Always end responses with an offer to help further. Use emojis sparingly but appropriately. If you can't answer something, warmly direct them to human support.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="step-check">
+          <label>
+            <input type="checkbox" id="voice-complete">
+            <span>✓ I've configured the brand voice and personality</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Step 4: Test Your Bot -->
+      <div class="build-step card">
+        <h4>Step 4: Test Your Chatbot</h4>
+        <div class="step-content">
+          <p>Test your chatbot with these sample customer questions to ensure it's working properly:</p>
+          <div class="test-scenarios">
+            <h5>🧪 Test Scenarios</h5>
+            <div class="peer-insight">
+              <p><strong>From Marcus:</strong> "Always test the emotional scenarios - angry customers are where most bots fail."</p>
+            </div>
+            <div class="test-grid">
+              <div class="test-item">
+                <strong>Test 1:</strong> "What size should I order if I usually wear a medium?"
+                <p><em>Expected: Sizing guidance with recommendation to check size guide</em></p>
+              </div>
+              <div class="test-item">
+                <strong>Test 2:</strong> "When will my order arrive?"
+                <p><em>Expected: Shipping timeline and tracking information</em></p>
+              </div>
+              <div class="test-item">
+                <strong>Test 3:</strong> "I need to return this shirt"
+                <p><em>Expected: Return process with 30-day policy information</em></p>
+              </div>
+              <div class="test-item">
+                <strong>Test 4:</strong> "I'm really frustrated - my package is lost!"
+                <p><em>Expected: Empathetic response and escalation to human support</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="step-check">
+          <label>
+            <input type="checkbox" id="testing-complete">
+            <span>✓ I've tested my chatbot and it responds appropriately</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Implementation Complete -->
       <div class="completion-check card">
         <h3>🎉 Implementation Complete!</h3>
-        <p>Congratulations! You've successfully:</p>
+        <p>Congratulations! You and your study group have successfully:</p>
         <ul>
-          <li>✅ Collaborated with multiple AI agents on strategic analysis</li>
-          <li>✅ Navigated unexpected complications and research insights</li>
-          <li>✅ Made a data-driven recommendation through genuine AI partnership</li>
-          <li>✅ Built a functional AI chatbot prototype</li>
+          <li>✅ Collaborated with peers from different industry backgrounds</li>
+          <li>✅ Navigated real-world insights and implementation challenges</li>
+          <li>✅ Made a data-driven recommendation through authentic peer discussion</li>
+          <li>✅ Built a functional AI chatbot prototype with industry best practices</li>
         </ul>
+        <div class="peer-congratulations">
+          <h4>🎓 Study Group Feedback:</h4>
+          <div class="peer-feedback">
+            <p><strong>Sarah:</strong> "Great financial analysis throughout - you really understood the ROI implications!"</p>
+            <p><strong>Marcus:</strong> "I loved how you kept the customer experience front and center."</p>
+            <p><strong>Priya:</strong> "Your implementation approach was spot-on - very startup-minded!"</p>
+          </div>
+        </div>
         <button id="complete-session" class="btn-primary" disabled>
-          🏁 Complete Enhanced Session & Reflect
+          🏁 Complete Study Group Session & Reflect
         </button>
       </div>
     </section>
@@ -187,922 +364,75 @@
     <p>&copy; 2025 James Kruck</p>
   </footer>
 
-// Enhanced JavaScript for your strategy-session.html
-// Replace your existing JavaScript class with this version
-<script>
-class EnhancedCollaborativeSession {
-  constructor() {
-    this.sessionId = this.generateSessionId();
-    this.activeAgents = ['financial_analyst'];
-    this.currentStage = 1;
-    this.messageCount = 0;
-    this.isWaitingForResponse = false;
-    this.caseComplications = [];
-    this.researchInsights = [];
-    
-    // Your Render server URL
-    this.serverUrl = 'https://ai-chatbot-oise.onrender.com';
-    this.connectionStatus = 'checking';
-    
-    this.initializeEventListeners();
-    this.checkServerConnection();
-  }
-  
-  generateSessionId() {
-    return 'enhanced_session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-  }
-  
-  async checkServerConnection() {
-    try {
-      console.log('Checking server connection...');
-      const response = await fetch(`${this.serverUrl}/health`, {
-        method: 'GET',
-        headers: { 'Accept': 'application/json' }
-      });
-      
-      if (response.ok) {
-        const data = await response.json();
-        this.connectionStatus = 'connected';
-        this.showConnectionStatus('✅ AI collaboration server connected', 'success');
-        console.log('Server connected:', data);
-      } else {
-        throw new Error(`Server responded with status: ${response.status}`);
-      }
-    } catch (error) {
-      console.error('Server connection failed:', error);
-      this.connectionStatus = 'disconnected';
-      this.showConnectionStatus('⚠️ Server starting up - please wait 30-60 seconds', 'warning');
-      // Retry after delay for Render cold starts
-      setTimeout(() => this.retryConnection(), 10000);
-    }
-  }
-  
-  async retryConnection() {
-    if (this.connectionStatus === 'disconnected') {
-      console.log('Retrying server connection...');
-      await this.checkServerConnection();
-    }
-  }
-  
-  showConnectionStatus(message, type) {
-    // Remove any existing status
-    const existingStatus = document.querySelector('.connection-status');
-    if (existingStatus) existingStatus.remove();
-    
-    const statusDiv = document.createElement('div');
-    statusDiv.className = `connection-status ${type}`;
-    statusDiv.innerHTML = `
-      <div class="status-content">
-        <span class="status-icon">${type === 'success' ? '✅' : '⚠️'}</span>
-        <span class="status-message">${message}</span>
-        ${type === 'warning' ? '<small>Render servers sleep when inactive and take time to wake up</small>' : ''}
-      </div>
-    `;
-    
-    // Insert at appropriate location
-    const agentPanel = document.querySelector('.agent-panel');
-    const main = document.querySelector('main');
-    const targetElement = agentPanel || main;
-    
-    if (targetElement) {
-      targetElement.insertBefore(statusDiv, targetElement.firstChild);
-    }
-    
-    // Auto-remove success messages
-    if (type === 'success') {
-      setTimeout(() => {
-        if (statusDiv.parentNode) statusDiv.remove();
-      }, 5000);
-    }
-  }
-  
-  initializeEventListeners() {
-    document.getElementById('start-analysis')?.addEventListener('click', () => {
-      this.startEnhancedAnalysisSession();
-    });
-    
-    document.getElementById('send-message')?.addEventListener('click', () => {
-      this.sendEnhancedMessage();
-    });
-    
-    document.getElementById('user-input')?.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        this.sendEnhancedMessage();
-      }
-    });
-    
-    // Agent introduction listeners
-    document.querySelectorAll('.agent.available').forEach(agent => {
-      agent.addEventListener('click', () => {
-        this.introduceAgent(agent.dataset.agent);
-      });
-    });
-    
-    // Research trigger listener
-    document.getElementById('trigger-research')?.addEventListener('click', () => {
-      this.triggerResearch();
-    });
-    
-    document.getElementById('start-building')?.addEventListener('click', () => {
-      this.startBuildingPhase();
-    });
-    
-    // Build step checkboxes
-    const buildCheckboxes = document.querySelectorAll('.build-step input[type="checkbox"]');
-    buildCheckboxes.forEach(checkbox => {
-      checkbox.addEventListener('change', this.updateProgress);
-    });
-    
-    document.getElementById('complete-session')?.addEventListener('click', () => {
-      window.location.href = 'reflection.html';
-    });
-  }
-  
-  async startEnhancedAnalysisSession() {
-    document.getElementById('case-discussion').style.display = 'none';
-    document.getElementById('ai-consultation').classList.remove('hidden');
-    
-    // Enable input
-    const userInput = document.getElementById('user-input');
-    const sendButton = document.getElementById('send-message');
-    
-    if (userInput) userInput.disabled = false;
-    if (sendButton) sendButton.disabled = false;
-    
-    // Start with initial collaborative message
-    await this.sendInitialCollaborativeMessage();
-  }
-  
-  async sendInitialCollaborativeMessage() {
-    const initialPrompt = `Start a collaborative business analysis session. Begin by having the financial analyst introduce themselves and ask for the human's initial reaction to Jessica's FashionForward situation. Keep it conversational and collaborative - you're thinking partners, not teacher and student.`;
+  <!-- ====== Enhanced JavaScript ====== -->
+  <script src="enhanced-collaboration.js"></script>
 
-    await this.callEnhancedAI(initialPrompt, true);
-  }
-  
-  async sendEnhancedMessage() {
-    const userInput = document.getElementById('user-input');
-    const message = userInput?.value?.trim();
-    
-    if (!message || this.isWaitingForResponse) return;
-    
-    this.addMessageToChat('user', message);
-    userInput.value = '';
-    
-    await this.callEnhancedAI(message, false);
-  }
-  
-  async callEnhancedAI(message, isInitial = false) {
-    this.isWaitingForResponse = true;
-    this.updateSendButton(true);
-    
-    if (!isInitial) {
-      this.addTypingIndicator();
-    }
-    
-    try {
-      const response = await fetch(`${this.serverUrl}/chat`, {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          user_id: this.sessionId,
-          message: message,
-          stage: this.currentStage
-        })
-      });
-      
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-      }
-      
-      const data = await response.json();
-      
-      if (data.error) {
-        throw new Error(data.error);
-      }
-      
-      this.removeTypingIndicator();
-      
-      // Handle main collaborative response
-      this.addMultiAgentMessage(data.response || 'I\'m thinking through this...');
-      
-      // Handle complications
-      if (data.complication) {
-        setTimeout(() => {
-          this.displayComplication(data.complication);
-        }, 3000);
-      }
-      
-      // Handle research insights
-      if (data.research_insight) {
-        setTimeout(() => {
-          this.displayResearchResults(data.research_insight);
-        }, 5000);
-      }
-      
-      this.messageCount++;
-      this.currentStage++;
-      
-      // Check for transition after sufficient collaboration
-      if (this.messageCount >= 5) {
-        this.checkForTransitionReadiness(data.response || '');
-      }
-      
-    } catch (error) {
-      this.removeTypingIndicator();
-      console.error('AI call failed:', error);
-      
-      let errorMessage = 'I\'m having trouble connecting with the AI team right now.';
-      if (error.message.includes('500')) {
-        errorMessage += ' The server might be overloaded - please try again in a moment.';
-      } else if (error.message.includes('fetch')) {
-        errorMessage += ' Please check your connection and try again.';
-      }
-      
-      this.addMessageToChat('system', errorMessage);
-    }
-    
-    this.isWaitingForResponse = false;
-    this.updateSendButton(false);
-  }
-  
-  async introduceAgent(agentType) {
-    if (this.activeAgents.includes(agentType)) {
-      return; // Already active
-    }
-    
-    try {
-      this.showLoadingState(`Inviting ${this.getAgentInfo(agentType).name}...`);
-      
-      const response = await fetch(`${this.serverUrl}/introduce_agent`, {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          user_id: this.sessionId,
-          agent_type: agentType
-        })
-      });
-      
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-      }
-      
-      const data = await response.json();
-      
-      if (data.agent_introduced) {
-        // Update UI
-        const agentElement = document.querySelector(`[data-agent="${agentType}"]`);
-        if (agentElement) {
-          agentElement.className = 'agent active';
-          agentElement.innerHTML = agentElement.innerHTML.replace('(Click to invite)', '(Active)');
-        }
-        
-        // Add introduction message
-        this.addAgentIntroduction(agentType, data.introduction);
-        
-        this.activeAgents.push(agentType);
-        this.updateActiveAgentsCount();
-      }
-      
-    } catch (error) {
-      console.error('Failed to introduce agent:', error);
-      this.addMessageToChat('system', 
-        `❌ Unable to connect with ${this.getAgentInfo(agentType).name}. ` +
-        'The server might be busy - please try again.'
-      );
-    } finally {
-      this.hideLoadingState();
-    }
-  }
-  
-  async triggerResearch() {
-    const researchButton = document.getElementById('trigger-research');
-    const researchStatus = document.getElementById('research-status');
-    
-    if (researchButton) researchButton.disabled = true;
-    if (researchButton) researchButton.innerHTML = '🔍 Researching...';
-    if (researchStatus) researchStatus.textContent = 'Accessing market data...';
-    
-    try {
-      const response = await fetch(`${this.serverUrl}/trigger_research`, {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          user_id: this.sessionId,
-          topic: 'chatbot_implementations'
-        })
-      });
-      
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-      }
-      
-      const data = await response.json();
-      
-      if (data.research) {
-        this.displayResearchResults(data.research);
-        if (researchStatus) researchStatus.textContent = 'Research complete!';
-      } else {
-        throw new Error('No research data received');
-      }
-      
-    } catch (error) {
-      console.error('Research failed:', error);
-      if (researchStatus) researchStatus.textContent = 'Using cached data';
-      this.simulateResearch();
-    } finally {
-      if (researchButton) {
-        researchButton.disabled = false;
-        researchButton.innerHTML = '🔍 Research Current Market Data';
-      }
-      setTimeout(() => {
-        if (researchStatus) researchStatus.textContent = '';
-      }, 3000);
-    }
-  }
-  
-  // Helper methods
-  addMessageToChat(sender, message) {
-    const chatMessages = document.getElementById('chat-messages');
-    if (!chatMessages) return;
-    
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `message ${sender}-message`;
-    
-    const timestamp = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-    
-    let senderDisplay = '';
-    switch(sender) {
-      case 'user': senderDisplay = '👤 You'; break;
-      case 'ai': senderDisplay = '🤖 AI Team'; break;
-      case 'system': senderDisplay = '💻 System'; break;
-      default: senderDisplay = sender;
-    }
-    
-    messageDiv.innerHTML = `
-      <div class="message-content">
-        <div class="message-header">
-          <span class="sender">${senderDisplay}</span>
-          <span class="timestamp">${timestamp}</span>
-        </div>
-        <div class="message-text">${message.replace(/\n/g, '<br>')}</div>
-      </div>
-    `;
-    
-    chatMessages.appendChild(messageDiv);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
-  
-  addMultiAgentMessage(message) {
-    const chatMessages = document.getElementById('chat-messages');
-    if (!chatMessages) return;
-    
-    const messageDiv = document.createElement('div');
-    messageDiv.className = 'message multi-agent-message';
-    
-    const timestamp = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-    
-    messageDiv.innerHTML = `
-      <div class="multi-agent-content">
-        <div class="agent-collaboration-header">
-          <span class="collab-icon">🤝</span>
-          <span class="collab-text">AI Team Discussion</span>
-          <span class="timestamp">${timestamp}</span>
-        </div>
-        <div class="message-text">${message.replace(/\n/g, '<br>')}</div>
-      </div>
-    `;
-    
-    chatMessages.appendChild(messageDiv);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
-  
-  getAgentInfo(agentType) {
-    const agentMap = {
-      'financial_analyst': { emoji: '💰', name: 'Financial Analyst' },
-      'cx_expert': { emoji: '👥', name: 'CX Expert' },
-      'tech_optimist': { emoji: '🚀', name: 'Tech Specialist' }
-    };
-    return agentMap[agentType] || { emoji: '🤖', name: 'AI Agent' };
-  }
-  
-  showLoadingState(message) {
-    this.hideLoadingState(); // Remove any existing
-    const loadingDiv = document.createElement('div');
-    loadingDiv.id = 'loading-state';
-    loadingDiv.className = 'loading-state';
-    loadingDiv.innerHTML = `
-      <div class="loading-content">
-        <span class="loading-spinner">⏳</span>
-        <span class="loading-message">${message}</span>
-      </div>
-    `;
-    
-    const agentPanel = document.querySelector('.agent-panel');
-    if (agentPanel) {
-      agentPanel.appendChild(loadingDiv);
-    }
-  }
-  
-  hideLoadingState() {
-    const loadingState = document.getElementById('loading-state');
-    if (loadingState) {
-      loadingState.remove();
-    }
-  }
-  
-  // Add other required methods as needed...
-  addTypingIndicator() {
-    const chatMessages = document.getElementById('chat-messages');
-    if (!chatMessages) return;
-    
-    const typingDiv = document.createElement('div');
-    typingDiv.className = 'message ai-message typing-indicator';
-    typingDiv.id = 'typing-indicator';
-    typingDiv.innerHTML = `
-      <div class="message-content">
-        <div class="message-header">
-          <span class="sender">🤝 AI Team</span>
-        </div>
-        <div class="typing-animation">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-    `;
-    
-    chatMessages.appendChild(typingDiv);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
-  
-  removeTypingIndicator() {
-    const typingIndicator = document.getElementById('typing-indicator');
-    if (typingIndicator) {
-      typingIndicator.remove();
-    }
-  }
-  
-  updateSendButton(isLoading) {
-    const sendButton = document.getElementById('send-message');
-    const userInput = document.getElementById('user-input');
-    
-    if (sendButton) sendButton.disabled = isLoading;
-    if (userInput) userInput.disabled = isLoading;
-    
-    if (sendButton) {
-      if (isLoading) {
-        sendButton.innerHTML = '<span class="loading-spinner">⏳</span>';
-      } else {
-        sendButton.innerHTML = '<span class="send-text">Send</span><span class="send-icon">📤</span>';
-      }
-    }
-  }
-  
-  updateActiveAgentsCount() {
-    const countElement = document.getElementById('active-agents-count');
-    if (countElement) {
-      const count = this.activeAgents.length;
-      countElement.textContent = `${count} AI Partner${count > 1 ? 's' : ''} Active`;
-    }
-  }
-  
-  addAgentIntroduction(agentType, introduction) {
-    const chatMessages = document.getElementById('chat-messages');
-    if (!chatMessages) return;
-    
-    const introDiv = document.createElement('div');
-    introDiv.className = 'message agent-introduction';
-    
-    const agentInfo = this.getAgentInfo(agentType);
-    
-    introDiv.innerHTML = `
-      <div class="agent-intro-content">
-        <div class="agent-avatar">${agentInfo.emoji}</div>
-        <div class="intro-text">
-          <div class="agent-name">${agentInfo.name} joins the conversation</div>
-          <div class="intro-message">${introduction}</div>
-        </div>
-      </div>
-    `;
-    
-    chatMessages.appendChild(introDiv);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
-  
-  displayResearchResults(research) {
-    const chatMessages = document.getElementById('chat-messages');
-    if (!chatMessages) return;
-    
-    const researchDiv = document.createElement('div');
-    researchDiv.className = 'message research-results';
-    
-    let researchHTML = '';
-    if (research.chatbot_implementations) {
-      researchHTML += '<h5>📊 Recent Chatbot Implementations:</h5><ul>';
-      research.chatbot_implementations.forEach(impl => {
-        researchHTML += `<li><strong>${impl.company}</strong> (${impl.year}): ${impl.outcome}</li>`;
-      });
-      researchHTML += '</ul>';
-    }
-    
-    if (research.latest_trends) {
-      researchHTML += '<h5>📈 Latest Trends:</h5><ul>';
-      research.latest_trends.forEach(trend => {
-        researchHTML += `<li>${trend}</li>`;
-      });
-      researchHTML += '</ul>';
-    }
-    
-    if (research.industry_insights) {
-      researchHTML += '<h5>🏢 Industry Insights:</h5><ul>';
-      research.industry_insights.forEach(insight => {
-        researchHTML += `<li>${insight}</li>`;
-      });
-      researchHTML += '</ul>';
-    }
-    
-    researchDiv.innerHTML = `
-      <div class="research-content">
-        <div class="research-header">
-          <span class="research-icon">🔍</span>
-          <span class="research-title">Live Market Research</span>
-        </div>
-        <div class="research-data">${researchHTML}</div>
-      </div>
-    `;
-    
-    chatMessages.appendChild(researchDiv);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-    
-    this.researchInsights.push(research);
-    
-    // AI agents react to research
-    setTimeout(() => {
-      this.addMessageToChat('ai', `This research definitely shifts our analysis! The ${research.chatbot_implementations?.[0]?.company || 'implementation'} data is particularly interesting. How does this change your perspective on the options?`);
-    }, 2000);
-  }
-  
-  displayComplication(complication) {
-    const chatMessages = document.getElementById('chat-messages');
-    if (!chatMessages) return;
-    
-    const compDiv = document.createElement('div');
-    compDiv.className = 'message complication-alert';
-    
-    compDiv.innerHTML = `
-      <div class="complication-content">
-        <div class="complication-header">
-          <span class="alert-icon">⚠️</span>
-          <span class="alert-title">Breaking Development!</span>
-        </div>
-        <div class="complication-text">
-          <p><strong>Update:</strong> ${complication.description}</p>
-          <p><em>This could ${complication.impact} your current approach. ${complication.new_considerations}</em></p>
-        </div>
-      </div>
-    `;
-    
-    chatMessages.appendChild(compDiv);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-    
-    this.caseComplications.push(complication);
-  }
-  
-  simulateResearch() {
-    // Fallback research data when server is unavailable
-    const cachedResearch = {
-      chatbot_implementations: [
-        {company: "Sephora", year: 2019, outcome: "25% email reduction, 15% phone increase"},
-        {company: "H&M", year: 2020, outcome: "60% FAQ automation, improved CSAT"},
-        {company: "ASOS", year: 2021, outcome: "45% faster response times, mixed satisfaction"}
-      ],
-      latest_trends: [
-        "Hybrid AI-human models showing 40% better satisfaction than pure AI",
-        "Personalization engines reducing repeat questions by 55%"
-      ]
-    };
-    
-    this.displayResearchResults(cachedResearch);
-  }
-  
-  checkForTransitionReadiness(aiResponse) {
-    const transitionCues = [
-      'ready to build',
-      'start implementing',
-      'move to implementation',
-      'consensus',
-      'decision made',
-      'agreed on'
-    ];
-    
-    const hasTransitionCue = transitionCues.some(cue => 
-      aiResponse.toLowerCase().includes(cue)
-    );
-    
-    if (this.messageCount >= 5 && !document.getElementById('ready-to-build-btn')) {
-      this.showReadyButton();
-    }
-    
-    if (hasTransitionCue && this.messageCount >= 6) {
-      setTimeout(() => this.transitionToBuilding(), 2000);
-    }
-  }
-  
-  showReadyButton() {
-    const chatContainer = document.querySelector('.chat-input-container');
-    if (!chatContainer || document.getElementById('ready-to-build-btn')) return;
-    
-    const readyButton = document.createElement('button');
-    readyButton.id = 'ready-to-build-btn';
-    readyButton.className = 'btn-secondary';
-    readyButton.style.marginTop = '10px';
-    readyButton.style.width = '100%';
-    readyButton.innerHTML = '🛠️ Team Ready to Start Building';
-    readyButton.onclick = () => {
-      this.addMessageToChat('user', 'I think our team has analyzed this thoroughly. Let\'s start building the solution!');
-      setTimeout(() => this.transitionToBuilding(), 1000);
-    };
-    chatContainer.appendChild(readyButton);
-  }
-  
-  async transitionToBuilding() {
-    document.getElementById('ai-consultation').style.display = 'none';
-    document.getElementById('implementation-transition').classList.remove('hidden');
-    
-    // Generate collaborative summary
-    const summaryDiv = document.getElementById('strategy-summary');
-    const highlightsDiv = document.getElementById('collaboration-highlights');
-    
-    if (summaryDiv) summaryDiv.innerHTML = '<div class="loading">📊 Summarizing team collaboration...</div>';
-    if (highlightsDiv) highlightsDiv.innerHTML = '<div class="loading">🤝 Analyzing collaborative insights...</div>';
-    
-    try {
-      const response = await fetch(`${this.serverUrl}/chat`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          user_id: this.sessionId + '_summary',
-          message: `Generate a brief summary of the collaborative strategic analysis and key insights discovered through AI-human teamwork.`
-        })
-      });
-      
-      const data = await response.json();
-      if (summaryDiv) summaryDiv.innerHTML = `<div class="strategy-recap">${data.response}</div>`;
-      
-    } catch (error) {
-      if (summaryDiv) summaryDiv.innerHTML = '<div class="strategy-recap">Your collaborative team analysis identified key strategic insights and reached consensus on the optimal approach.</div>';
-    }
-    
-    // Generate collaboration highlights
-    const highlights = [
-      `🎯 Multi-perspective analysis with ${this.activeAgents.length} AI specialists`,
-      `🔍 ${this.researchInsights.length} live research insights integrated`,
-      `⚠️ ${this.caseComplications.length} unexpected complications navigated`,
-      `💡 Genuine collaborative problem-solving achieved`
-    ];
-    
-    if (highlightsDiv) {
-      highlightsDiv.innerHTML = `<ul>${highlights.map(h => `<li>${h}</li>`).join('')}</ul>`;
-    }
-  }
-  
-  startBuildingPhase() {
-    document.getElementById('implementation-transition').style.display = 'none';
-    document.getElementById('chatbot-building').classList.remove('hidden');
-    document.getElementById('chatbot-building').scrollIntoView({ behavior: 'smooth' });
-  }
-  
-  updateProgress() {
-    const checkboxes = document.querySelectorAll('.build-step input[type="checkbox"]');
-    const completeButton = document.getElementById('complete-session');
-    if (!completeButton) return;
-    
-    const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
-    
-    completeButton.disabled = !allChecked;
-    
-    if (allChecked) {
-      completeButton.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-}
-
-// Initialize the enhanced strategy session when page loads
-window.addEventListener('DOMContentLoaded', () => {
-  new EnhancedCollaborativeSession();
-});
-
-// Enhanced CSS for Render deployment
-const enhancedCSS = `
-.connection-status {
-  padding: 15px 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  border-left: 4px solid;
-  animation: slideIn 0.3s ease-out;
-}
-
-.connection-status.success {
-  background: linear-gradient(135deg, #d4edda, #c3e6cb);
-  border-color: #28a745;
-  color: #155724;
-}
-
-.connection-status.warning {
-  background: linear-gradient(135deg, #fff3cd, #ffeeba);
-  border-color: #ffc107;
-  color: #856404;
-}
-
-.status-content {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-direction: column;
-  text-align: center;
-}
-
-.status-content small {
-  font-size: 0.85em;
-  opacity: 0.9;
-  margin-top: 6px;
-  font-style: italic;
-}
-
-.loading-state {
-  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-  padding: 12px 18px;
-  border-radius: 6px;
-  margin: 12px 0;
-  border-left: 4px solid #2196f3;
-  animation: fadeIn 0.3s ease-out;
-}
-
-.loading-content {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.loading-spinner {
-  animation: spin 1.5s linear infinite;
-  font-size: 1.1em;
-}
-
-.loading-message {
-  font-style: italic;
-  color: #1976d2;
-  font-weight: 500;
-}
-
-.btn-secondary {
-  background: #6c757d;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 500;
-}
-
-.btn-secondary:hover {
-  background: #545b62;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.strategy-recap {
-  background: linear-gradient(135deg, #e8f5e8, #d4f4d4);
-  padding: 20px;
-  border-radius: 8px;
-  border-left: 4px solid var(--primary-color);
-  font-weight: 500;
-  line-height: 1.6;
-  color: #2d5a2d;
-}
-
-.loading {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 15px;
-  background: #f8f9fa;
-  border-radius: 6px;
-  font-style: italic;
-  color: #666;
-}
-
-.loading::before {
-  content: "⏳";
-  animation: spin 2s linear infinite;
-}
-
-@keyframes slideIn {
-  from { opacity: 0; transform: translateY(-15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .status-content {
-    text-align: left;
-    flex-direction: row;
-  }
-  
-  .loading-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 8px;
-  }
-  
-  .connection-status {
-    padding: 12px 16px;
-  }
-}
-`;
-
-// Inject the enhanced CSS
-const enhancedStyleSheet = document.createElement('style');
-enhancedStyleSheet.textContent = enhancedCSS;
-document.head.appendChild(enhancedStyleSheet);
-</script>
-  <!-- ====== Enhanced Styles ====== -->
+  <!-- ====== Study Group Styles ====== -->
   <style>
-    /* Enhanced collaboration styles */
-    .agent-panel {
+    /* Study Group Panel Styling */
+    .study-group-panel {
       background: linear-gradient(135deg, #f8f9fa, #e9ecef);
       padding: 20px;
       border-bottom: 2px solid #dee2e6;
       border-radius: 12px 12px 0 0;
     }
 
-    .agent-controls h4 {
-      margin: 0 0 15px 0;
+    .group-controls h4 {
+      margin: 0 0 8px 0;
       color: var(--primary-color);
       font-size: 1.1em;
     }
 
-    .agent-list {
-      display: flex;
-      gap: 12px;
-      margin: 15px 0;
-      flex-wrap: wrap;
+    .group-subtitle {
+      margin: 0 0 15px 0;
+      color: #666;
+      font-style: italic;
+      font-size: 0.9em;
     }
 
-    .agent {
-      padding: 10px 16px;
-      border-radius: 25px;
+    .classmate-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 15px 0;
+    }
+
+    .classmate {
+      padding: 12px 16px;
+      border-radius: 8px;
       cursor: pointer;
       transition: all 0.3s ease;
       font-size: 0.9em;
       font-weight: 500;
       border: 2px solid transparent;
+      background: white;
     }
 
-    .agent.active {
+    .classmate.active {
       background: var(--primary-color);
       color: white;
       border-color: var(--primary-color);
     }
 
-    .agent.available {
+    .classmate.available {
       background: #f8f9fa;
       border: 2px dashed #ccc;
       color: #666;
     }
 
-    .agent.available:hover {
+    .classmate.available:hover {
       border-color: var(--primary-color);
       color: var(--primary-color);
       background: #ffffff;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    .research-controls {
+    .group-research {
       margin-top: 15px;
       display: flex;
-      align-items: center;
-      gap: 10px;
+      flex-direction: column;
+      gap: 8px;
     }
 
     .btn-research {
@@ -1126,29 +456,88 @@ document.head.appendChild(enhancedStyleSheet);
       cursor: not-allowed;
     }
 
-    .research-status {
-      font-size: 0.9em;
+    .research-note {
+      font-size: 0.85em;
       color: #17a2b8;
       font-style: italic;
     }
 
-    .session-info {
-      display: flex;
-      flex-direction: column;
-      text-align: right;
-      font-size: 0.85em;
-      gap: 4px;
+    /* Peer Insight Boxes */
+    .peer-insight {
+      background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+      padding: 12px;
+      border-radius: 6px;
+      border-left: 4px solid #ffc107;
+      margin: 10px 0;
+      font-size: 0.9em;
     }
 
-    #active-agents-count {
-      background: rgba(255,255,255,0.2);
-      padding: 4px 8px;
+    .peer-insight strong {
+      color: #856404;
+    }
+
+    /* Peer Congratulations */
+    .peer-congratulations {
+      background: #e8f5e8;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .peer-congratulations h4 {
+      margin: 0 0 10px 0;
+      color: var(--primary-color);
+    }
+
+    .peer-feedback p {
+      margin: 5px 0;
+      font-style: italic;
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(0,86,52,0.1);
+    }
+
+    .peer-feedback p:last-child {
+      border-bottom: none;
+    }
+
+    .peer-feedback strong {
+      color: var(--primary-color);
+    }
+
+    /* Enhanced message display for peers */
+    .peer-message .peer-message-content {
+      margin-right: auto;
+      background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
+      border: 1px solid #007bff;
+      max-width: 80%;
       border-radius: 12px;
-      font-weight: 500;
+      padding: 15px;
     }
 
-    /* Agent introduction styling */
-    .agent-introduction {
+    .peer-message-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 0.85em;
+      flex-wrap: wrap;
+    }
+
+    .peer-sender {
+      font-weight: 600;
+      color: #0056b3;
+    }
+
+    .peer-expertise {
+      background: rgba(0, 123, 255, 0.1);
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.75em;
+      color: #0056b3;
+    }
+
+    .peer-introduction {
       background: linear-gradient(135deg, #fff3cd, #ffeaa7);
       border-left: 4px solid #ffc107;
       margin: 20px 0;
@@ -1156,14 +545,14 @@ document.head.appendChild(enhancedStyleSheet);
       animation: slideInFromRight 0.5s ease-out;
     }
 
-    .agent-intro-content {
+    .peer-intro-content {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 20px;
       padding: 20px;
     }
 
-    .agent-avatar {
+    .peer-avatar {
       font-size: 2.5em;
       background: white;
       border-radius: 50%;
@@ -1173,17 +562,21 @@ document.head.appendChild(enhancedStyleSheet);
       align-items: center;
       justify-content: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      flex-shrink: 0;
     }
 
-    .intro-text {
-      flex: 1;
-    }
-
-    .agent-name {
+    .peer-name {
       font-weight: 600;
       color: var(--primary-color);
-      margin-bottom: 8px;
+      margin-bottom: 4px;
       font-size: 1.1em;
+    }
+
+    .peer-background {
+      font-size: 0.9em;
+      color: #666;
+      margin-bottom: 8px;
+      font-style: italic;
     }
 
     .intro-message {
@@ -1191,8 +584,8 @@ document.head.appendChild(enhancedStyleSheet);
       line-height: 1.5;
     }
 
-    /* Research results styling */
-    .research-results {
+    /* Group research results */
+    .group-research-results {
       background: linear-gradient(135deg, #e7f3ff, #cce7ff);
       border-left: 4px solid #007bff;
       margin: 20px 0;
@@ -1200,185 +593,7 @@ document.head.appendChild(enhancedStyleSheet);
       animation: slideInFromLeft 0.5s ease-out;
     }
 
-    .research-content {
-      padding: 20px;
-    }
-
-    .research-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 15px;
-      font-weight: 600;
-      color: #0056b3;
-    }
-
-    .research-icon {
-      font-size: 1.2em;
-    }
-
-    .research-data h5 {
-      margin: 15px 0 8px 0;
-      color: #0056b3;
-      font-size: 1em;
-    }
-
-    .research-data ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-
-    .research-data li {
-      margin: 8px 0;
-      line-height: 1.4;
-    }
-
-    /* Complication alerts */
-    .complication-alert {
-      background: linear-gradient(135deg, #fff5f5, #ffe6e6);
-      border-left: 4px solid #dc3545;
-      margin: 20px 0;
-      border-radius: 8px;
-      animation: shake 0.5s ease-in-out;
-    }
-
-    .complication-content {
-      padding: 20px;
-    }
-
-    .complication-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 15px;
-      font-weight: 600;
-      color: #dc3545;
-    }
-
-    .alert-icon {
-      font-size: 1.3em;
-      animation: pulse 2s infinite;
-    }
-
-    .complication-text p {
-      margin: 10px 0;
-      line-height: 1.5;
-    }
-
-    .complication-text strong {
-      color: #dc3545;
-    }
-
-    /* Multi-agent message styling */
-    .multi-agent-message {
-      background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
-      border-left: 4px solid var(--secondary-color);
-      border-radius: 8px;
-      margin: 15px 0;
-    }
-
-    .multi-agent-content {
-      padding: 18px;
-    }
-
-    .agent-collaboration-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 12px;
-      font-weight: 600;
-      color: var(--secondary-color);
-    }
-
-    .collab-icon {
-      font-size: 1.2em;
-    }
-
-    .collab-text {
-      flex: 1;
-      margin-left: 8px;
-    }
-
-    .timestamp {
-      font-size: 0.8em;
-      opacity: 0.7;
-      font-weight: normal;
-    }
-
-    /* Enhanced message display */
-    .message {
-      margin-bottom: 20px;
-      animation: fadeInUp 0.4s ease-out;
-    }
-
-    .user-message .message-content {
-      margin-left: auto;
-      background: var(--primary-color);
-      color: white;
-      max-width: 75%;
-    }
-
-    .ai-message .message-content,
-    .system-message .message-content {
-      margin-right: auto;
-      background: white;
-      border: 1px solid #e0e0e0;
-      max-width: 80%;
-    }
-
-    .system-message .message-content {
-      background: #f8f9fa;
-      border-color: #dee2e6;
-      font-style: italic;
-    }
-
-    /* Collaboration insights */
-    .collaboration-insights {
-      background: #e8f5e8;
-      padding: 20px;
-      border-radius: 8px;
-      margin: 15px 0;
-      border-left: 4px solid var(--primary-color);
-    }
-
-    .collaboration-insights h4 {
-      margin: 0 0 15px 0;
-      color: var(--primary-color);
-    }
-
-    .collaboration-insights ul {
-      margin: 0;
-      padding-left: 0;
-      list-style: none;
-    }
-
-    .collaboration-insights li {
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(0,86,52,0.1);
-    }
-
-    .collaboration-insights li:last-child {
-      border-bottom: none;
-    }
-
-    /* Loading states */
-    .loading {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 15px;
-      background: #f8f9fa;
-      border-radius: 6px;
-      font-style: italic;
-      color: #666;
-    }
-
-    .loading::before {
-      content: "⏳";
-      animation: spin 2s linear infinite;
-    }
-
-    /* Enhanced animations */
+    /* Study group specific animations */
     @keyframes slideInFromRight {
       from { 
         opacity: 0; 
@@ -1401,64 +616,38 @@ document.head.appendChild(enhancedStyleSheet);
       }
     }
 
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-5px); }
-      75% { transform: translateX(5px); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-
-    @keyframes fadeInUp {
-      from { 
-        opacity: 0; 
-        transform: translateY(20px); 
+    /* Mobile responsive adjustments */
+    @media (max-width: 768px) {
+      .peer-intro-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
       }
-      to { 
-        opacity: 1; 
-        transform: translateY(0); 
+      
+      .peer-message-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
       }
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    /* Typing animation */
-    .typing-animation {
-      display: flex;
-      gap: 6px;
-      padding: 15px 0;
-    }
-
-    .typing-animation span {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #ccc;
-      animation: typing 1.4s infinite ease-in-out;
-    }
-
-    .typing-animation span:nth-child(1) { animation-delay: -0.32s; }
-    .typing-animation span:nth-child(2) { animation-delay: -0.16s; }
-    .typing-animation span:nth-child(3) { animation-delay: 0s; }
-
-    @keyframes typing {
-      0%, 80%, 100% { 
-        transform: scale(0.8); 
-        opacity: 0.5; 
+      
+      .peer-message .peer-message-content {
+        max-width: 95%;
       }
-      40% { 
-        transform: scale(1.2); 
-        opacity: 1; 
+
+      .classmate-list {
+        gap: 6px;
+      }
+
+      .classmate {
+        padding: 10px 12px;
+        text-align: center;
       }
     }
 
-    /* Enhanced chat container */
+    /* All other existing styles remain the same */
+    .agent-panel { display: none; } /* Hide the old agent panel class */
+    
+    /* Maintain existing chat and implementation styles */
     .chat-container {
       background: white;
       border-radius: 12px;
@@ -1473,6 +662,7 @@ document.head.appendChild(enhancedStyleSheet);
       overflow-y: auto;
       padding: 25px;
       background: #fafafa;
+      scroll-behavior: smooth;
     }
 
     .chat-input-container {
@@ -1526,136 +716,76 @@ document.head.appendChild(enhancedStyleSheet);
       transform: none;
     }
 
-    .input-hints {
-      margin-top: 12px;
+    /* Keep all existing build step, FAQ, and completion styling */
+    .build-step {
+      margin-bottom: 30px;
+      padding: 20px;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .step-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 15px 0;
+    }
+
+    .faq-category {
+      background: #f8f9fa;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 8px;
+      border-left: 4px solid var(--secondary-color);
+    }
+
+    .code-block {
+      background: #f4f4f4;
+      padding: 15px;
+      border-radius: 6px;
+      border-left: 4px solid var(--primary-color);
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 15px 0;
+    }
+
+    .test-item {
+      background: #fff3e0;
+      padding: 15px;
+      border-radius: 6px;
+      border-left: 4px solid #ff9800;
+    }
+
+    .step-check {
+      margin: 15px 0;
+      padding: 10px;
+      background: #e8f5e8;
+      border-radius: 6px;
+    }
+
+    .completion-check {
+      background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+      border: 2px solid #4CAF50;
       text-align: center;
     }
 
-    .input-hints small {
-      color: #666;
-      font-style: italic;
+    .hidden {
+      display: none;
     }
 
-    /* Strategy recap styling */
-    .strategy-recap {
-      background: #e8f5e8;
-      padding: 20px;
-      border-radius: 8px;
-      border-left: 4px solid var(--primary-color);
-      font-weight: 500;
-      line-height: 1.6;
-    }
-
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .agent-list {
-        flex-direction: column;
-        gap: 8px;
+    @media (max-width: 600px) {
+      .step-content {
+        grid-template-columns: 1fr;
       }
       
-      .agent {
-        text-align: center;
+      .test-grid {
+        grid-template-columns: 1fr;
       }
-      
-      .research-controls {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-      }
-      
-      .chat-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-      }
-      
-      .session-info {
-        text-align: center;
-      }
-      
-      .agent-intro-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-      }
-      
-      .agent-collaboration-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 8px;
-      }
-      
-      .message-content {
-        max-width: 95% !important;
-      }
-      
-      .input-group {
-        flex-direction: column;
-        gap: 10px;
-      }
-      
-      .btn-send {
-        align-self: stretch;
-      }
-    }
-
-    /* Loading spinner for send button */
-    .loading-spinner {
-      animation: spin 1s linear infinite;
-      display: inline-block;
-    }
-
-    /* Button animations */
-    .btn-primary, .btn-secondary {
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary:hover, .btn-secondary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    /* Enhanced session goals */
-    .session-goals {
-      background: linear-gradient(135deg, #f8f9fa, #ffffff);
-      padding: 20px;
-      border-radius: 8px;
-      margin: 20px 0;
-      border: 1px solid #e0e0e0;
-    }
-
-    .session-goals h4 {
-      color: var(--primary-color);
-      margin-bottom: 15px;
-    }
-
-    .session-goals ul {
-      margin: 0;
-      padding-left: 0;
-      list-style: none;
-    }
-
-    .session-goals li {
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .session-goals li:last-child {
-      border-bottom: none;
-    }
-
-    /* Smooth scrolling for chat */
-    .chat-messages {
-      scroll-behavior: smooth;
-    }
-
-    /* Focus states for accessibility */
-    .agent:focus,
-    .btn-research:focus,
-    #user-input:focus,
-    .btn-send:focus {
-      outline: 2px solid var(--primary-color);
-      outline-offset: 2px;
     }
   </style>
 </body>
