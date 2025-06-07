@@ -7,32 +7,45 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- ====== Header / Navigation ====== -->
-  <header class="hero fade-in">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header / Navigation -->
+  <header class="hero fade-in" role="banner">
     <div>
       <h1 class="hero-title">AI Chatbot Strategy for Retail</h1>
-      <p class="hero-subtitle">Phase 2: Virtual Study Group Session & Implementation</p>
-      <nav class="navigation">
+      <h2 class="hero-subtitle">Phase 2: Virtual Study Group Session & Implementation</h2>
+      <nav class="navigation" aria-label="Course phases">
         <ul>
           <li><a href="index.html">Prep Work</a></li>
-          <li><a href="strategy-session.html" aria-current="page">Study Group Session</a></li>
+          <li><a href="strategy-session.html" aria-current="page" aria-describedby="current-phase">Study Group Session <span class="sr-only" id="current-phase">(current phase)</span></a></li>
           <li><a href="reflection.html">Implementation & Reflection</a></li>
         </ul>
       </nav>
     </div>
   </header>
-  <!-- ====== End Header ====== -->
 
-  <main>
-    <!-- ====== Study Group Discussion Phase ====== -->
-    <section id="case-discussion" class="fade-in-up">
+  <main id="main-content">
+    <!-- Progress Bar -->
+    <section id="progress-section" class="fade-in-up">
       <div class="progress-bar">
         <div class="progress" 
              role="progressbar" aria-valuenow="66" 
              aria-valuemin="0" aria-valuemax="100"
+             aria-label="Course progress: 66% complete"
              style="width: 66%;"></div>
       </div>
+    </section>
 
+    <!-- How to Use This Page -->
+    <section id="page-introduction" class="fade-in-up">
+      <div class="card">
+        <h2>How to Use This Page</h2>
+        <p>This collaborative session combines case analysis with hands-on implementation. You'll work with virtual MBA peers to analyze FashionForward's situation, then build a functional chatbot prototype based on your group's strategic recommendations. The session has two parts: strategic discussion and practical implementation.</p>
+      </div>
+    </section>
+
+    <!-- Study Group Discussion Phase -->
+    <section id="case-discussion" class="fade-in-up">
       <h2>Part A: Virtual Study Group Discussion</h2>
       
       <div class="session-intro card">
@@ -54,32 +67,30 @@
       </div>
     </section>
 
-    <!-- ====== Video Demo Section ====== -->
+    <!-- Video Demo Section -->
     <section id="video-demo" class="fade-in-up">
-      <div class="video-demo-card">
-        <h3>🎥 How Virtual Study Groups Work</h3>
-        <div class="video-container">
-          <video controls poster="images/video-thumbnail.jpg">
+      <div class="card">
+        <h2>🎥 Watch: How Virtual Study Groups Work</h2>
+        <p>In this demonstration, see how to collaborate with your virtual peers – Sarah, Marcus, and Priya – and how your discussions will shape the chatbot you build together. The same content is available in text format below.</p>
+        <div class="video-wrapper">
+          <video controls aria-label="Virtual study group demonstration showing collaboration techniques" poster="images/video-thumbnail.jpg" preload="metadata">
             <source src="video/study-group-demo.mp4" type="video/mp4">
-            <track src="captions/study-group-demo.vtt" kind="subtitles" srclang="en" label="English">
+            <track src="captions/study-group-demo.vtt" kind="subtitles" srclang="en" label="English" default>
             Your browser does not support the video tag.
           </video>
-          <div class="video-overlay">
-            <div class="play-button">▶️</div>
-            <div class="video-title">Watch: Study Group Demo (3 mins)</div>
-            <div class="video-description">See how you'll collaborate with Sarah, Marcus, and Priya</div>
+          <div class="video-duration"><small>Duration: 3 minutes | Captions available | Click to play</small></div>
+        </div>
+        <details class="intro-text-alternative">
+          <summary class="text-toggle">📖 Read the video content instead</summary>
+          <div class="expandable-content">
+            <h3>Virtual Study Group Overview</h3>
+            <p>In this video demonstration, you'll see how to collaborate with your virtual study group partners: Sarah, Marcus, and Priya. Each brings a unique perspective to the discussion – Sarah with a finance lens, Marcus focusing on customer experience, and Priya with implementation expertise from the startup world.</p>
+            <p>The video begins by introducing each of your peers, showing how their backgrounds shape the questions they ask and the insights they offer. You'll notice that Marcus often considers the customer journey and front-line challenges, while Sarah asks about financial implications and ROI. Priya is quick to suggest practical solutions and technology-based efficiencies.</p>
+            <p>Throughout the study group session, you'll watch how these differing perspectives help you weigh the three strategic options in the FashionForward case: using an AI chatbot, expanding the team, or outsourcing customer service. As each peer weighs in, you'll see how authentic, collaborative dialogue surfaces critical factors—like customer retention, board expectations, and the need to maintain brand voice.</p>
+            <p>The video also highlights some challenges that arise in real group work, like conflicting priorities and gaps in expertise. It shows how you can navigate those challenges by actively listening and balancing different viewpoints, ensuring that every voice is heard.</p>
+            <p>Finally, the video transitions from group discussion to action. You'll see how you and your peers decide to move forward with chatbot implementation, using your collective insights to craft a plan that's not just technically sound but also aligned with strategic goals and customer experience.</p>
           </div>
-        </div>
-        <div class="video-info">
-          <h4>In this demo, you'll see:</h4>
-          <ul>
-            <li>✓ How to engage with different peer personalities</li>
-            <li>✓ Example of collaborative research in action</li>
-            <li>✓ How complications arise from peer experience</li>
-            <li>✓ Transition from analysis to implementation</li>
-          </ul>
-          <p><em>Optional viewing - you can jump straight into the study group if you prefer to learn by doing!</em></p>
-        </div>
+        </details>
       </div>
     </section>
 
@@ -91,14 +102,14 @@
           <div class="group-controls">
             <h4>👥 Your Virtual Study Group</h4>
             <p class="group-subtitle">Connect with peers from different business backgrounds</p>
-            <div class="classmate-list">
-              <div class="classmate active" data-agent="sarah_chen">
+            <div class="classmate-list" role="group" aria-label="Study group members">
+              <div class="classmate active" data-agent="sarah_chen" role="button" tabindex="0" aria-pressed="true">
                 💼 Sarah Chen (Finance MBA, Ex-McKinsey) - Active
               </div>
-              <div class="classmate available" data-agent="marcus_rodriguez">
+              <div class="classmate available" data-agent="marcus_rodriguez" role="button" tabindex="0" aria-pressed="false">
                 🎯 Marcus Rodriguez (Retail CX Director) - Invite to discuss
               </div>
-              <div class="classmate available" data-agent="priya_patel">
+              <div class="classmate available" data-agent="priya_patel" role="button" tabindex="0" aria-pressed="false">
                 🚀 Priya Patel (Tech Startup Founder) - Invite to discuss
               </div>
             </div>
@@ -106,7 +117,7 @@
               <button id="trigger-research" class="btn-research">
                 📚 Let's research this together
               </button>
-              <div class="research-note" id="research-status"></div>
+              <div class="research-note" id="research-status" role="status" aria-live="polite"></div>
             </div>
           </div>
         </div>
@@ -120,22 +131,24 @@
           </div>
         </div>
         
-        <div id="chat-messages" class="chat-messages">
+        <div id="chat-messages" class="chat-messages" role="log" aria-live="polite" aria-label="Study group conversation">
           <!-- Messages will be populated here -->
         </div>
         
         <div class="chat-input-container">
           <div class="input-group">
+            <label for="user-input" class="sr-only">Share your thoughts with your study group</label>
             <textarea id="user-input" 
                       placeholder="Share your thoughts with your study group..." 
                       rows="3"
-                      disabled></textarea>
-            <button id="send-message" class="btn-send" disabled>
+                      disabled
+                      aria-describedby="input-hints"></textarea>
+            <button id="send-message" class="btn-send" disabled aria-describedby="input-hints">
               <span class="send-text">Share</span>
-              <span class="send-icon">📤</span>
+              <span class="send-icon" aria-hidden="true">📤</span>
             </button>
           </div>
-          <div class="input-hints">
+          <div class="input-hints" id="input-hints">
             <small>💡 Your study partners have different backgrounds - engage with their perspectives!</small>
           </div>
         </div>
@@ -158,7 +171,7 @@
       </div>
     </section>
 
-    <!-- ====== Implementation Phase ====== -->
+    <!-- Implementation Phase -->
     <section id="chatbot-building" class="fade-in-up hidden">
       <h2>Part B: Hands-On Implementation</h2>
       
@@ -174,7 +187,7 @@
           <div class="instructions">
             <p>We'll use <strong>Chatbase</strong> - a user-friendly AI chatbot platform perfect for retail FAQ bots.</p>
             <ol>
-              <li>Go to <a href="https://chatbase.co" target="_blank">chatbase.co</a></li>
+              <li>Go to <a href="https://chatbase.co" target="_blank" rel="noopener noreferrer">chatbase.co</a></li>
               <li>Sign up for a free account</li>
               <li>Click "Create Chatbot"</li>
               <li>Choose "Website" as your source type</li>
@@ -329,14 +342,14 @@
       </div>
 
       <!-- Implementation Complete -->
-      <div class="completion-check card">
+      <div class="completion-check card hidden" id="completion-section">
         <h3>🎉 Implementation Complete!</h3>
         <p>Congratulations! You and your study group have successfully:</p>
         <ul>
-          <li>✅ Collaborated with peers from different industry backgrounds</li>
-          <li>✅ Navigated real-world insights and implementation challenges</li>
-          <li>✅ Made a data-driven recommendation through authentic peer discussion</li>
-          <li>✅ Built a functional AI chatbot prototype with industry best practices</li>
+          <li>Collaborated with peers from different industry backgrounds</li>
+          <li>Navigated real-world insights and implementation challenges</li>
+          <li>Made a data-driven recommendation through authentic peer discussion</li>
+          <li>Built a functional AI chatbot prototype with industry best practices</li>
         </ul>
         <div class="peer-congratulations">
           <h4>🎓 Study Group Feedback:</h4>
@@ -346,447 +359,24 @@
             <p><strong>Priya:</strong> "Your implementation approach was spot-on - very startup-minded!"</p>
           </div>
         </div>
-        <button id="complete-session" class="btn-primary" disabled>
+        <button id="complete-session" class="btn-primary">
           🏁 Complete Study Group Session & Reflect
         </button>
       </div>
     </section>
 
-    <!-- ====== Navigation Buttons ====== -->
+    <!-- Navigation Buttons -->
     <div class="navigation-buttons">
-      <a href="index.html" class="btn-primary">← Back: Prep Work</a>
+      <a href="index.html" class="btn-secondary">← Back: Prep Work</a>
       <a href="reflection.html" class="btn-primary">Next: Reflection & Planning →</a>
     </div>
   </main>
 
-  <!-- ====== Footer ====== -->
   <footer>
     <p>&copy; 2025 James Kruck</p>
   </footer>
 
-  <!-- ====== Enhanced JavaScript ====== -->
+  <!-- Enhanced JavaScript -->
   <script src="enhanced-collaboration.js"></script>
-
-  <!-- ====== Study Group Styles ====== -->
-  <style>
-    /* Study Group Panel Styling */
-    .study-group-panel {
-      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-      padding: 20px;
-      border-bottom: 2px solid #dee2e6;
-      border-radius: 12px 12px 0 0;
-    }
-
-    .group-controls h4 {
-      margin: 0 0 8px 0;
-      color: var(--primary-color);
-      font-size: 1.1em;
-    }
-
-    .group-subtitle {
-      margin: 0 0 15px 0;
-      color: #666;
-      font-style: italic;
-      font-size: 0.9em;
-    }
-
-    .classmate-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin: 15px 0;
-    }
-
-    .classmate {
-      padding: 12px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 0.9em;
-      font-weight: 500;
-      border: 2px solid transparent;
-      background: white;
-    }
-
-    .classmate.active {
-      background: var(--primary-color);
-      color: white;
-      border-color: var(--primary-color);
-    }
-
-    .classmate.available {
-      background: #f8f9fa;
-      border: 2px dashed #ccc;
-      color: #666;
-    }
-
-    .classmate.available:hover {
-      border-color: var(--primary-color);
-      color: var(--primary-color);
-      background: #ffffff;
-      transform: translateY(-1px);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .group-research {
-      margin-top: 15px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .btn-research {
-      background: #17a2b8;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-weight: 500;
-    }
-
-    .btn-research:hover:not(:disabled) {
-      background: #138496;
-      transform: translateY(-1px);
-    }
-
-    .btn-research:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    .research-note {
-      font-size: 0.85em;
-      color: #17a2b8;
-      font-style: italic;
-    }
-
-    /* Peer Insight Boxes */
-    .peer-insight {
-      background: linear-gradient(135deg, #fff3cd, #ffeaa7);
-      padding: 12px;
-      border-radius: 6px;
-      border-left: 4px solid #ffc107;
-      margin: 10px 0;
-      font-size: 0.9em;
-    }
-
-    .peer-insight strong {
-      color: #856404;
-    }
-
-    /* Peer Congratulations */
-    .peer-congratulations {
-      background: #e8f5e8;
-      padding: 15px;
-      border-radius: 8px;
-      margin: 15px 0;
-      border-left: 4px solid var(--primary-color);
-    }
-
-    .peer-congratulations h4 {
-      margin: 0 0 10px 0;
-      color: var(--primary-color);
-    }
-
-    .peer-feedback p {
-      margin: 5px 0;
-      font-style: italic;
-      padding: 5px 0;
-      border-bottom: 1px solid rgba(0,86,52,0.1);
-    }
-
-    .peer-feedback p:last-child {
-      border-bottom: none;
-    }
-
-    .peer-feedback strong {
-      color: var(--primary-color);
-    }
-
-    /* Enhanced message display for peers */
-    .peer-message .peer-message-content {
-      margin-right: auto;
-      background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
-      border: 1px solid #007bff;
-      max-width: 80%;
-      border-radius: 12px;
-      padding: 15px;
-    }
-
-    .peer-message-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 8px;
-      font-size: 0.85em;
-      flex-wrap: wrap;
-    }
-
-    .peer-sender {
-      font-weight: 600;
-      color: #0056b3;
-    }
-
-    .peer-expertise {
-      background: rgba(0, 123, 255, 0.1);
-      padding: 2px 8px;
-      border-radius: 10px;
-      font-size: 0.75em;
-      color: #0056b3;
-    }
-
-    .peer-introduction {
-      background: linear-gradient(135deg, #fff3cd, #ffeaa7);
-      border-left: 4px solid #ffc107;
-      margin: 20px 0;
-      border-radius: 8px;
-      animation: slideInFromRight 0.5s ease-out;
-    }
-
-    .peer-intro-content {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .peer-avatar {
-      font-size: 2.5em;
-      background: white;
-      border-radius: 50%;
-      width: 70px;
-      height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      flex-shrink: 0;
-    }
-
-    .peer-name {
-      font-weight: 600;
-      color: var(--primary-color);
-      margin-bottom: 4px;
-      font-size: 1.1em;
-    }
-
-    .peer-background {
-      font-size: 0.9em;
-      color: #666;
-      margin-bottom: 8px;
-      font-style: italic;
-    }
-
-    .intro-message {
-      color: #856404;
-      line-height: 1.5;
-    }
-
-    /* Group research results */
-    .group-research-results {
-      background: linear-gradient(135deg, #e7f3ff, #cce7ff);
-      border-left: 4px solid #007bff;
-      margin: 20px 0;
-      border-radius: 8px;
-      animation: slideInFromLeft 0.5s ease-out;
-    }
-
-    /* Study group specific animations */
-    @keyframes slideInFromRight {
-      from { 
-        opacity: 0; 
-        transform: translateX(30px); 
-      }
-      to { 
-        opacity: 1; 
-        transform: translateX(0); 
-      }
-    }
-
-    @keyframes slideInFromLeft {
-      from { 
-        opacity: 0; 
-        transform: translateX(-30px); 
-      }
-      to { 
-        opacity: 1; 
-        transform: translateX(0); 
-      }
-    }
-
-    /* Mobile responsive adjustments */
-    @media (max-width: 768px) {
-      .peer-intro-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-      }
-      
-      .peer-message-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-      }
-      
-      .peer-message .peer-message-content {
-        max-width: 95%;
-      }
-
-      .classmate-list {
-        gap: 6px;
-      }
-
-      .classmate {
-        padding: 10px 12px;
-        text-align: center;
-      }
-    }
-
-    /* All other existing styles remain the same */
-    .agent-panel { display: none; } /* Hide the old agent panel class */
-    
-    /* Maintain existing chat and implementation styles */
-    .chat-container {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-      overflow: hidden;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .chat-messages {
-      height: 500px;
-      overflow-y: auto;
-      padding: 25px;
-      background: #fafafa;
-      scroll-behavior: smooth;
-    }
-
-    .chat-input-container {
-      padding: 25px;
-      background: white;
-      border-top: 2px solid #e0e0e0;
-    }
-
-    .input-group {
-      display: flex;
-      gap: 12px;
-      align-items: flex-end;
-    }
-
-    #user-input {
-      flex: 1;
-      border: 2px solid #e0e0e0;
-      border-radius: 12px;
-      padding: 12px 16px;
-      resize: none;
-      font-family: inherit;
-      transition: border-color 0.3s ease;
-    }
-
-    #user-input:focus {
-      outline: none;
-      border-color: var(--primary-color);
-    }
-
-    .btn-send {
-      background: var(--primary-color);
-      color: white;
-      border: none;
-      border-radius: 12px;
-      padding: 12px 24px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-      font-weight: 500;
-    }
-
-    .btn-send:hover:not(:disabled) {
-      background: var(--secondary-color);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    .btn-send:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    /* Keep all existing build step, FAQ, and completion styling */
-    .build-step {
-      margin-bottom: 30px;
-      padding: 20px;
-      border-left: 4px solid var(--primary-color);
-    }
-
-    .step-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin: 15px 0;
-    }
-
-    .faq-category {
-      background: #f8f9fa;
-      padding: 15px;
-      margin: 15px 0;
-      border-radius: 8px;
-      border-left: 4px solid var(--secondary-color);
-    }
-
-    .code-block {
-      background: #f4f4f4;
-      padding: 15px;
-      border-radius: 6px;
-      border-left: 4px solid var(--primary-color);
-      font-family: 'Courier New', monospace;
-      font-size: 0.9em;
-    }
-
-    .test-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-      margin: 15px 0;
-    }
-
-    .test-item {
-      background: #fff3e0;
-      padding: 15px;
-      border-radius: 6px;
-      border-left: 4px solid #ff9800;
-    }
-
-    .step-check {
-      margin: 15px 0;
-      padding: 10px;
-      background: #e8f5e8;
-      border-radius: 6px;
-    }
-
-    .completion-check {
-      background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
-      border: 2px solid #4CAF50;
-      text-align: center;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    @media (max-width: 600px) {
-      .step-content {
-        grid-template-columns: 1fr;
-      }
-      
-      .test-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </body>
 </html>

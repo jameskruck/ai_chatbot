@@ -102,7 +102,7 @@ class VirtualStudyGroup {
       </div>
     `;
     
-    const studyGroupPanel = document.querySelector('.agent-panel');
+    const studyGroupPanel = document.querySelector('.study-group-panel');
     const main = document.querySelector('main');
     const targetElement = studyGroupPanel || main;
     
@@ -139,12 +139,33 @@ class VirtualStudyGroup {
       });
     }
     
-    // Peer invitation listeners
-    document.querySelectorAll('.agent.available').forEach(peer => {
-      peer.addEventListener('click', () => {
-        this.invitePeerToDiscussion(peer.dataset.agent);
+    // FIXED: Peer invitation listeners - use correct class and event delegation
+    const classmateList = document.querySelector('.classmate-list');
+    if (classmateList) {
+      classmateList.addEventListener('click', (e) => {
+        const classmate = e.target.closest('.classmate');
+        if (classmate && classmate.classList.contains('available')) {
+          const agentId = classmate.dataset.agent;
+          if (agentId) {
+            this.invitePeerToDiscussion(agentId);
+          }
+        }
       });
-    });
+      
+      // Also handle keyboard events for accessibility
+      classmateList.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          const classmate = e.target.closest('.classmate');
+          if (classmate && classmate.classList.contains('available')) {
+            e.preventDefault();
+            const agentId = classmate.dataset.agent;
+            if (agentId) {
+              this.invitePeerToDiscussion(agentId);
+            }
+          }
+        }
+      });
+    }
     
     // Group research listener
     const researchButton = document.getElementById('trigger-research');
@@ -324,7 +345,20 @@ class VirtualStudyGroup {
   
   // ====== PEER MANAGEMENT ======
   async invitePeerToDiscussion(peerId) {
-    if (this.activePeers.includes(peerId)) return;
+    console.log('Inviting peer:', peerId); // Debug log
+    
+    if (this.activePeers.includes(peerId)) {
+      console.log('Peer already active');
+      return;
+    }
+    
+    // Update UI immediately for better UX
+    const peerElement = document.querySelector(`[data-agent="${peerId}"]`);
+    if (peerElement) {
+      peerElement.classList.remove('available');
+      peerElement.classList.add('joining');
+      peerElement.innerHTML = peerElement.innerHTML.replace('Invite to discuss', 'Joining...');
+    }
     
     try {
       this.showLoadingState(`Inviting ${this.peers[peerId]?.name} to join...`);
@@ -348,10 +382,11 @@ class VirtualStudyGroup {
       const data = await response.json();
       
       if (data.peer_joined) {
-        const peerElement = document.querySelector(`[data-agent="${peerId}"]`);
         if (peerElement) {
-          peerElement.className = 'agent active';
-          peerElement.innerHTML = peerElement.innerHTML.replace('(Click to invite)', '(Active)');
+          peerElement.classList.remove('joining');
+          peerElement.classList.add('active');
+          peerElement.innerHTML = peerElement.innerHTML.replace('Joining...', 'Active');
+          peerElement.setAttribute('aria-pressed', 'true');
         }
         
         this.addPeerIntroduction(peerId, data.peer_name, data.introduction);
@@ -361,6 +396,14 @@ class VirtualStudyGroup {
       
     } catch (error) {
       console.error('Failed to invite peer:', error);
+      
+      // Revert UI changes on error
+      if (peerElement) {
+        peerElement.classList.remove('joining');
+        peerElement.classList.add('available');
+        peerElement.innerHTML = peerElement.innerHTML.replace('Joining...', 'Invite to discuss');
+      }
+      
       this.addMessageToChat('system', 
         `❌ Unable to connect with ${this.peers[peerId]?.name}. ` +
         'They might be in another study group - please try again.'
@@ -657,7 +700,7 @@ class VirtualStudyGroup {
       </div>
     `;
     
-    const studyGroupPanel = document.querySelector('.agent-panel');
+    const studyGroupPanel = document.querySelector('.study-group-panel');
     if (studyGroupPanel) studyGroupPanel.appendChild(loadingDiv);
   }
   
@@ -771,14 +814,22 @@ class VirtualStudyGroup {
   
   updateProgress() {
     const checkboxes = document.querySelectorAll('.build-step input[type="checkbox"]');
-    const completeButton = document.getElementById('complete-session');
-    if (!completeButton) return;
+    const completionSection = document.getElementById('completion-section');
+    if (!completionSection) return;
     
     const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
-    completeButton.disabled = !allChecked;
     
     if (allChecked) {
-      completeButton.scrollIntoView({ behavior: 'smooth' });
+      // Show the completion section
+      completionSection.classList.remove('hidden');
+      completionSection.scrollIntoView({ behavior: 'smooth' });
+      
+      // Enable the complete button
+      const completeButton = document.getElementById('complete-session');
+      if (completeButton) completeButton.disabled = false;
+    } else {
+      // Hide the completion section if not all checked
+      completionSection.classList.add('hidden');
     }
   }
   
@@ -884,6 +935,85 @@ class VirtualStudyGroup {
         border-left: 4px solid #007bff;
       }
       
+      /* Classmate interaction states */
+      .classmate.joining {
+        background: #fff3cd;
+        border: 2px solid #ffc107;
+        color: #856404;
+        cursor: wait;
+      }
+      
+      .classmate.joining:hover {
+        transform: none;
+        box-shadow: none;
+      }
+      
+      /* Loading states */
+      .loading-state {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 15px;
+        margin: 10px 0;
+        text-align: center;
+      }
+      
+      .loading-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      
+      .loading-spinner {
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      
+      /* Connection status styling */
+      .connection-status {
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+        border-left: 4px solid;
+      }
+      
+      .connection-status.success {
+        background: #d4edda;
+        border-color: #28a745;
+        color: #155724;
+      }
+      
+      .connection-status.warning {
+        background: #fff3cd;
+        border-color: #ffc107;
+        color: #856404;
+      }
+      
+      .connection-status.info {
+        background: #cce7ff;
+        border-color: #007bff;
+        color: #004085;
+      }
+      
+      .status-content {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      
+      .status-content small {
+        display: block;
+        width: 100%;
+        margin-top: 5px;
+        font-style: italic;
+      }
+      
       /* Study group specific animations */
       @keyframes slideInFromRight {
         from { 
@@ -907,6 +1037,36 @@ class VirtualStudyGroup {
         }
       }
       
+      /* Typing indicator */
+      .typing-animation {
+        display: flex;
+        gap: 3px;
+        align-items: center;
+      }
+      
+      .typing-animation span {
+        width: 8px;
+        height: 8px;
+        background: #007bff;
+        border-radius: 50%;
+        animation: typing 1.4s infinite ease-in-out;
+      }
+      
+      .typing-animation span:nth-child(1) { animation-delay: -0.32s; }
+      .typing-animation span:nth-child(2) { animation-delay: -0.16s; }
+      .typing-animation span:nth-child(3) { animation-delay: 0s; }
+      
+      @keyframes typing {
+        0%, 80%, 100% {
+          transform: scale(0.8);
+          opacity: 0.5;
+        }
+        40% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      
       /* Mobile responsive for peer messages */
       @media (max-width: 768px) {
         .peer-intro-content {
@@ -924,6 +1084,34 @@ class VirtualStudyGroup {
         .peer-message .peer-message-content {
           max-width: 95%;
         }
+        
+        .status-content {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        
+        .loading-content {
+          flex-direction: column;
+          gap: 8px;
+        }
+      }
+      
+      /* Reduced motion support */
+      @media (prefers-reduced-motion: reduce) {
+        .peer-introduction,
+        .group-research-results {
+          animation: none;
+        }
+        
+        .loading-spinner {
+          animation: none;
+        }
+        
+        .typing-animation span {
+          animation: none;
+          opacity: 1;
+          transform: scale(1);
+        }
       }
     `;
 
@@ -936,5 +1124,6 @@ class VirtualStudyGroup {
 
 // Initialize when DOM is loaded
 window.addEventListener('DOMContentLoaded', () => {
-  new VirtualStudyGroup();
+  window.studyGroup = new VirtualStudyGroup();
+  console.log('Virtual Study Group initialized');
 });
