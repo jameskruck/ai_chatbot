@@ -59,6 +59,8 @@ Case Context: Jessica Martinez, CEO of FashionForward T-Shirts, must choose by A
 
 Current crisis: 4.2→3.1 customer satisfaction, 8→31 hour response times, $156K quarterly revenue at risk, 1,850 monthly tickets (34% sizing questions).
 
+TRANSITION AWARENESS: After 5-6 exchanges, if they seem to have reached a decision or recommendation, you can naturally suggest "Sounds like we're ready to start building this solution!" or "Should we move forward with implementing this?"
+
 Remember: You're thinking through this together, not teaching them."""
             }]
         elif "evaluator" in user_id or "summary" in user_id:
