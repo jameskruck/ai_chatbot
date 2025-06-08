@@ -3,290 +3,641 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Phase 3: Implementation & Reflection – AI Chatbot Strategy Course</title>
+  <title>Phase 3: Implementation & Strategic Assessment – AI Chatbot Strategy Course</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- ====== Header / Navigation ====== -->
-  <header class="hero fade-in">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header / Navigation -->
+  <header class="hero fade-in" role="banner">
     <div>
       <h1 class="hero-title">AI Chatbot Strategy for Retail</h1>
-      <p class="hero-subtitle">Phase 3: Implementation & Reflection</p>
-      <nav class="navigation">
+      <h2 class="hero-subtitle">Phase 3: Strategic Assessment & Real-World Application</h2>
+      <nav class="navigation" aria-label="Course phases">
         <ul>
           <li><a href="index.html">Prep Work</a></li>
           <li><a href="strategy-session.html">Strategy Session</a></li>
-          <li><a href="reflection.html" aria-current="page">Implementation & Reflection</a></li>
+          <li><a href="reflection.html" aria-current="page" aria-describedby="current-phase">Strategic Assessment <span class="sr-only" id="current-phase">(current phase)</span></a></li>
         </ul>
       </nav>
     </div>
   </header>
-  <!-- ====== End Header ====== -->
 
-  <main>
-    <!-- ====== Course Completion ====== -->
-    <section id="completion" class="fade-in-up">
+  <main id="main-content">
+    <!-- Progress -->
+    <section id="progress-section" class="fade-in-up">
       <div class="progress-bar">
         <div class="progress" 
              role="progressbar" aria-valuenow="100" 
-             aria-valuemin="0" aria-valuemax="100" 
+             aria-valuemin="0" aria-valuemax="100"
+             aria-label="Course progress: 100% complete"
              style="width: 100%;"></div>
       </div>
+    </section>
 
-      <h2>🎉 Course Complete!</h2>
-      
-      <div class="achievement-card">
-        <h3>What You've Accomplished</h3>
-        <div class="achievements">
-          <div class="achievement">
-            <span class="achievement-icon">🎯</span>
-            <div class="achievement-text">
-              <h4>Strategic Analysis</h4>
-              <p>Analyzed a complex business case using frameworks and data-driven decision making</p>
-            </div>
+    <!-- Reality Check Section -->
+    <section id="reality-check" class="fade-in-up">
+      <div class="card">
+        <h2>🎯 Let's Be Honest About What You've Learned</h2>
+        <p>You've completed a strategic case analysis and built a basic FAQ chatbot. Now let's assess what you can actually do versus what you still need to learn.</p>
+        
+        <div class="competency-grid">
+          <div class="competency-item achieved">
+            <h4>✅ What You Can Do Now:</h4>
+            <ul>
+              <li>Analyze customer service challenges using a strategic framework</li>
+              <li>Set up a basic FAQ chatbot using Chatbase</li>
+              <li>Identify when chatbots are appropriate vs. when humans are needed</li>
+              <li>Calculate basic ROI for customer service automation</li>
+              <li>Configure simple keyword-based responses</li>
+            </ul>
           </div>
-          <div class="achievement">
-            <span class="achievement-icon">🤖</span>
-            <div class="achievement-text">
-              <h4>AI Implementation</h4>
-              <p>Built a functional chatbot prototype using modern AI tools and best practices</p>
-            </div>
-          </div>
-          <div class="achievement">
-            <span class="achievement-icon">💼</span>
-            <div class="achievement-text">
-              <h4>Business Thinking</h4>
-              <p>Connected technology decisions to business outcomes and strategic positioning</p>
-            </div>
-          </div>
-          <div class="achievement">
-            <span class="achievement-icon">🛠️</span>
-            <div class="achievement-text">
-              <h4>Practical Skills</h4>
-              <p>Gained hands-on experience with AI chatbot platforms and configuration</p>
-            </div>
+          
+          <div class="competency-item gap">
+            <h4>⚠️ What This Course Didn't Cover:</h4>
+            <ul>
+              <li>Complex AI/ML model training and optimization</li>
+              <li>Customer data privacy regulations (GDPR, CCPA)</li>
+              <li>Integration with existing CRM/help desk systems</li>
+              <li>Change management for customer service teams</li>
+              <li>Multi-language and accessibility requirements</li>
+              <li>Advanced conversation flow design</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ====== Reflection Questions ====== -->
-    <section id="reflection" class="fade-in-up">
-      <h2>Learning Reflection</h2>
-      
-      <div class="reflection-intro card">
-        <h3>🤔 Connecting Learning to Action</h3>
-        <p>Take a few minutes to reflect on your experience. These insights will help you apply what you've learned in your own retail context.</p>
-      </div>
+    <!-- Scenario-Based Assessment -->
+    <section id="scenario-assessment" class="fade-in-up">
+      <div class="card">
+        <h2>🧠 Strategic Assessment: What Would You Do?</h2>
+        <p>Test your strategic thinking with these real-world scenarios. Choose your approach and justify your reasoning.</p>
+        
+        <div class="scenarios">
+          <div class="scenario-card">
+            <h4>Scenario 1: The Angry Customer</h4>
+            <div class="scenario-text">
+              <p><strong>Customer message:</strong> "This is absolutely ridiculous! I ordered my daughter's birthday shirt 2 weeks ago and it still hasn't arrived. Her party is tomorrow and I'm furious. This is the worst customer service ever!"</p>
+            </div>
+            <div class="scenario-options">
+              <p><strong>How should FashionForward handle this?</strong></p>
+              <label>
+                <input type="radio" name="scenario1" value="chatbot">
+                Let the chatbot respond with tracking information
+              </label>
+              <label>
+                <input type="radio" name="scenario1" value="immediate">
+                Immediately escalate to human agent
+              </label>
+              <label>
+                <input type="radio" name="scenario1" value="hybrid">
+                Chatbot gathers info, then connects to human
+              </label>
+            </div>
+            <textarea class="justification" placeholder="Explain your choice and what risks you're considering..."></textarea>
+          </div>
 
-      <form id="reflection-form" class="reflection-form">
-        <div class="question-group">
-          <label for="strategic-insights">
-            <h4>1. Strategic Insights</h4>
-            <p>What was the most important factor in Jessica's decision? How does this apply to AI implementation decisions in general?</p>
-          </label>
-          <textarea id="strategic-insights" rows="4" 
-                    placeholder="Consider trade-offs between cost, quality, scalability, and brand alignment..."></textarea>
-        </div>
+          <div class="scenario-card">
+            <h4>Scenario 2: The CEO's Unrealistic Expectation</h4>
+            <div class="scenario-text">
+              <p><strong>Your CEO says:</strong> "I saw ChatGPT and it's amazing. I want that exact technology for our customer service by next month. It should handle everything - returns, complaints, product recommendations, even price negotiations. Budget is $10,000."</p>
+            </div>
+            <div class="scenario-options">
+              <p><strong>Your response:</strong></p>
+              <label>
+                <input type="radio" name="scenario2" value="agree">
+                "Great idea! We can definitely do that."
+              </label>
+              <label>
+                <input type="radio" name="scenario2" value="pushback">
+                "That's not realistic. Here's what we can actually do..."
+              </label>
+              <label>
+                <input type="radio" name="scenario2" value="pilot">
+                "Let's start with a pilot for FAQ questions first."
+              </label>
+            </div>
+            <textarea class="justification" placeholder="What would you actually say to your CEO? How would you manage expectations?"></textarea>
+          </div>
 
-        <div class="question-group">
-          <label for="implementation-challenges">
-            <h4>2. Implementation Reality</h4>
-            <p>What surprised you most about building the chatbot? What would you do differently in a real implementation?</p>
-          </label>
-          <textarea id="implementation-challenges" rows="4"
-                    placeholder="Think about setup complexity, training data quality, brand voice configuration..."></textarea>
-        </div>
-
-        <div class="question-group">
-          <label for="business-application">
-            <h4>3. Your Business Context</h4>
-            <p>How could you apply this approach in your own organization or a retail business you know?</p>
-          </label>
-          <textarea id="business-application" rows="4"
-                    placeholder="Consider your industry, customer base, current pain points, and strategic priorities..."></textarea>
-        </div>
-
-        <div class="question-group">
-          <label for="next-steps">
-            <h4>4. Next Steps</h4>
-            <p>What's one concrete action you could take in the next 30 days to explore AI for customer service?</p>
-          </label>
-          <textarea id="next-steps" rows="3"
-                    placeholder="This could be research, a pilot project, stakeholder conversations, or further learning..."></textarea>
-        </div>
-
-        <div class="question-group">
-          <label for="course-feedback">
-            <h4>5. Course Feedback</h4>
-            <p>What worked well in this learning experience? What would you improve?</p>
-          </label>
-          <textarea id="course-feedback" rows="3"
-                    placeholder="Your feedback helps improve future learning experiences..."></textarea>
-        </div>
-
-        <button type="submit" class="btn-primary">📝 Submit Reflection</button>
-      </form>
-    </section>
-
-    <!-- ====== Additional Resources ====== -->
-    <section id="resources" class="fade-in-up">
-      <h2>Continue Your Learning</h2>
-      
-      <div class="resources-grid">
-        <div class="resource-card">
-          <h4>📚 Strategic Reading</h4>
-          <ul>
-            <li><a href="#" target="_blank">"The AI Advantage" by Thomas Davenport</a></li>
-            <li><a href="#" target="_blank">Harvard Business Review: AI in Customer Service</a></li>
-            <li><a href="#" target="_blank">McKinsey: The Future of Customer Experience</a></li>
-          </ul>
+          <div class="scenario-card">
+            <h4>Scenario 3: The Integration Challenge</h4>
+            <div class="scenario-text">
+              <p><strong>Your IT team says:</strong> "Our current help desk system is 10 years old and doesn't have modern APIs. To integrate a chatbot, we'd need to rebuild our entire customer database structure. That's a 6-month project."</p>
+            </div>
+            <div class="scenario-options">
+              <p><strong>Your recommendation:</strong></p>
+              <label>
+                <input type="radio" name="scenario3" value="wait">
+                Wait until the system rebuild is complete
+              </label>
+              <label>
+                <input type="radio" name="scenario3" value="standalone">
+                Implement a standalone chatbot without integration
+              </label>
+              <label>
+                <input type="radio" name="scenario3" value="phased">
+                Create a phased approach with manual bridges
+              </label>
+            </div>
+            <textarea class="justification" placeholder="How would you balance business needs with technical constraints?"></textarea>
+          </div>
         </div>
         
-        <div class="resource-card">
-          <h4>🛠️ Technical Tools</h4>
-          <ul>
-            <li><a href="https://chatbase.co" target="_blank">Chatbase - Advanced chatbot platform</a></li>
-            <li><a href="https://intercom.com" target="_blank">Intercom - Customer messaging platform</a></li>
-            <li><a href="https://zapier.com" target="_blank">Zapier - Automation workflows</a></li>
-          </ul>
-        </div>
+        <button id="submit-scenarios" class="btn-primary">Submit Assessment</button>
+        <div id="scenario-feedback" class="feedback-section hidden"></div>
+      </div>
+    </section>
+
+    <!-- Business Application Exercise -->
+    <section id="business-application" class="fade-in-up">
+      <div class="card">
+        <h2>📊 Apply This to YOUR Business</h2>
+        <p>Now for the real test: Can you adapt this framework to your own context?</p>
         
-        <div class="resource-card">
-          <h4>📊 Industry Research</h4>
-          <ul>
-            <li><a href="#" target="_blank">Gartner: Customer Service Technology Trends</a></li>
-            <li><a href="#" target="_blank">Forrester: The ROI of AI Customer Service</a></li>
-            <li><a href="#" target="_blank">Retail Dive: Digital Transformation Reports</a></li>
-          </ul>
-        </div>
-        
-        <div class="resource-card">
-          <h4>🎓 Further Learning</h4>
-          <ul>
-            <li><a href="#" target="_blank">Coursera: AI for Business Leaders</a></li>
-            <li><a href="#" target="_blank">MIT Sloan: Digital Strategy Courses</a></li>
-            <li><a href="#" target="_blank">Ivey Business School: Case Method Learning</a></li>
-          </ul>
+        <div class="business-analysis">
+          <div class="analysis-step">
+            <h4>Step 1: Audit Your Customer Service</h4>
+            <label for="email-volume">How many customer service emails/messages does your organization receive per week?</label>
+            <select id="email-volume">
+              <option value="">Select volume</option>
+              <option value="low">Under 50 per week</option>
+              <option value="medium">50-200 per week</option>
+              <option value="high">200-500 per week</option>
+              <option value="very-high">500+ per week</option>
+              <option value="unknown">I don't know</option>
+            </select>
+          </div>
+
+          <div class="analysis-step">
+            <h4>Step 2: Identify Your Top FAQ Categories</h4>
+            <label for="faq-categories">Based on your experience, what are your organization's top 3 customer question types?</label>
+            <textarea id="faq-categories" rows="3" placeholder="Examples: Order status, return policy, product availability, pricing, technical support..."></textarea>
+          </div>
+
+          <div class="analysis-step">
+            <h4>Step 3: Calculate Potential Impact</h4>
+            <label for="current-response-time">What's your current average response time for customer emails?</label>
+            <select id="current-response-time">
+              <option value="">Select response time</option>
+              <option value="immediate">Under 1 hour</option>
+              <option value="same-day">1-8 hours</option>
+              <option value="next-day">8-24 hours</option>
+              <option value="slow">24+ hours</option>
+              <option value="unknown">I don't know</option>
+            </select>
+          </div>
+
+          <div class="analysis-step">
+            <h4>Step 4: Identify Your Biggest Constraint</h4>
+            <label for="main-constraint">What would be your biggest challenge in implementing a chatbot?</label>
+            <div class="constraint-options">
+              <label>
+                <input type="radio" name="constraint" value="budget">
+                Budget/cost concerns
+              </label>
+              <label>
+                <input type="radio" name="constraint" value="technical">
+                Technical integration complexity
+              </label>
+              <label>
+                <input type="radio" name="constraint" value="staff">
+                Staff resistance or training needs
+              </label>
+              <label>
+                <input type="radio" name="constraint" value="customer">
+                Customer acceptance/preference for humans
+              </label>
+              <label>
+                <input type="radio" name="constraint" value="data">
+                Lack of good training data
+              </label>
+              <label>
+                <input type="radio" name="constraint" value="time">
+                Time to implement properly
+              </label>
+            </div>
+          </div>
+
+          <button id="generate-recommendation" class="btn-primary">Generate My Recommendation</button>
+          <div id="business-recommendation" class="recommendation-output hidden"></div>
         </div>
       </div>
     </section>
 
-    <!-- ====== Course Summary ====== -->
-    <section id="summary" class="fade-in-up">
-      <div class="summary-card">
-        <h3>🎓 Key Takeaways</h3>
-        <div class="takeaways">
-          <div class="takeaway">
-            <h4>Strategic Framework</h4>
-            <p>AI implementation decisions should balance cost, quality, scalability, and brand alignment based on specific business context.</p>
+    <!-- Critical Thinking Questions -->
+    <section id="critical-thinking" class="fade-in-up">
+      <div class="card">
+        <h2>🤔 Critical Thinking: The Hard Questions</h2>
+        <p>These questions don't have "right" answers. They test whether you can think strategically about complex trade-offs.</p>
+        
+        <div class="critical-questions">
+          <div class="question-block">
+            <h4>Question 1: The Failure Scenario</h4>
+            <p>Jessica implemented the chatbot and 6 months later, customer complaints have increased 30%. Customers say the bot is "frustrating" and "doesn't understand." What went wrong and how would you fix it?</p>
+            <textarea rows="4" placeholder="Consider: training data, escalation paths, customer expectations, staff training..."></textarea>
           </div>
-          <div class="takeaway">
-            <h4>Implementation Reality</h4>
-            <p>Successful chatbots require careful training data curation, brand voice configuration, and clear escalation paths to humans.</p>
+
+          <div class="question-block">
+            <h4>Question 2: The Competitor Response</h4>
+            <p>FashionForward's main competitor just launched an AI chatbot that can handle complex styling advice and personal shopping. Customers are switching brands. How should Jessica respond?</p>
+            <textarea rows="4" placeholder="Consider: competitive positioning, technology gaps, customer loyalty, innovation timing..."></textarea>
           </div>
-          <div class="takeaway">
-            <h4>Business Impact</h4>
-            <p>Customer service technology is not just operational—it's strategic and can differentiate your brand in competitive markets.</p>
+
+          <div class="question-block">
+            <h4>Question 3: The Ethical Dilemma</h4>
+            <p>Your chatbot is so good that customers don't realize they're talking to AI. Some customers share personal financial problems, thinking they're talking to a human. What's your policy?</p>
+            <textarea rows="4" placeholder="Consider: transparency, customer trust, legal requirements, ethical responsibility..."></textarea>
+          </div>
+
+          <div class="question-block">
+            <h4>Question 4: The Scale Challenge</h4>
+            <p>Your successful chatbot now handles 80% of customer inquiries. But the remaining 20% are so complex that human agents feel overwhelmed and undertrained. How do you solve this?</p>
+            <textarea rows="4" placeholder="Consider: staff development, hybrid workflows, escalation training, job satisfaction..."></textarea>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ====== Thank You ====== -->
-    <section id="thank-you" class="fade-in-up">
-      <div class="thank-you-card">
-        <h3>Thank You!</h3>
-        <p>You've completed a comprehensive journey from strategic analysis to hands-on implementation. You're now equipped to approach AI customer service decisions with both business acumen and technical understanding.</p>
-        <p><strong>Ready to transform customer experience in your organization?</strong></p>
+    <!-- Immediate Action Planning -->
+    <section id="action-planning" class="fade-in-up">
+      <div class="card">
+        <h2>⚡ Your Next 30 Days</h2>
+        <p>Strategy without execution is just planning. What will you actually do?</p>
+        
+        <div class="action-timeline">
+          <div class="timeline-item">
+            <h4>Week 1: Research Phase</h4>
+            <div class="action-input">
+              <label for="week1-action">What's ONE specific research action you'll take?</label>
+              <select id="week1-action">
+                <option value="">Choose your Week 1 action</option>
+                <option value="email-audit">Audit last month's customer service emails</option>
+                <option value="platform-research">Research my current platform's chatbot features</option>
+                <option value="budget-analysis">Calculate current customer service costs</option>
+                <option value="stakeholder-interview">Interview 3 customers about their service preferences</option>
+                <option value="competitor-analysis">Analyze 3 competitors' chatbot implementations</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <h4>Week 2-3: Pilot Planning</h4>
+            <div class="action-input">
+              <label for="pilot-scope">If you ran a chatbot pilot, what would be your minimum viable scope?</label>
+              <textarea id="pilot-scope" rows="3" placeholder="Be specific: which questions, which platform, how many customers, success metrics..."></textarea>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <h4>Week 4: Stakeholder Alignment</h4>
+            <div class="action-input">
+              <label for="stakeholder-plan">Who needs to be involved in a chatbot decision at your organization?</label>
+              <textarea id="stakeholder-plan" rows="3" placeholder="List roles: IT, customer service manager, finance, marketing, legal..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <button id="commit-to-action" class="btn-primary">📅 Commit to These Actions</button>
+        <div id="action-confirmation" class="confirmation-message hidden"></div>
+      </div>
+    </section>
+
+    <!-- Honest Resource Section -->
+    <section id="practical-resources" class="fade-in-up">
+      <div class="card">
+        <h2>🔧 Actually Useful Next Steps</h2>
+        <p>Skip the generic reading lists. Here's what will actually help you move forward.</p>
+        
+        <div class="practical-grid">
+          <div class="practical-card immediate">
+            <h4>🏃 Do This Today</h4>
+            <ul>
+              <li>Check if your current customer service platform has chatbot features</li>
+              <li>Create a free Chatbase account and explore the interface</li>
+              <li>Download your last month's customer service emails</li>
+              <li>List your 10 most common customer questions</li>
+            </ul>
+          </div>
+
+          <div class="practical-card week">
+            <h4>📅 Do This Week</h4>
+            <ul>
+              <li>Categorize 50 recent customer emails by question type</li>
+              <li>Calculate: How much time could automation save?</li>
+              <li>Research 3 competitors' chatbot implementations</li>
+              <li>Schedule 15 minutes with your IT team about integration options</li>
+            </ul>
+          </div>
+
+          <div class="practical-card month">
+            <h4>🗓️ Do This Month</h4>
+            <ul>
+              <li>Build a business case with real ROI numbers</li>
+              <li>Test 2-3 chatbot platforms with your actual FAQ data</li>
+              <li>Survey 20 customers about their service preferences</li>
+              <li>Create a pilot proposal with specific scope and metrics</li>
+            </ul>
+          </div>
+
+          <div class="practical-card learning">
+            <h4>📚 Learn More (If You Have Time)</h4>
+            <ul>
+              <li><a href="https://help.chatbase.co" target="_blank">Chatbase documentation (what you actually used)</a></li>
+              <li><a href="https://blog.intercom.com/customer-service-ai/" target="_blank">Intercom's AI customer service insights</a></li>
+              <li><a href="https://www.zendesk.com/blog/chatbot-customer-service/" target="_blank">Zendesk chatbot best practices</a></li>
+              <li>Your industry association's customer service reports</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Course Completion -->
+    <section id="completion-assessment" class="fade-in-up">
+      <div class="card">
+        <h2>✅ Completion Assessment</h2>
+        <p>Before you finish, rate your confidence in these key areas:</p>
+        
+        <div class="confidence-assessment">
+          <div class="confidence-item">
+            <label>Strategic decision-making for customer service technology:</label>
+            <div class="confidence-scale">
+              <span>1 (Not confident)</span>
+              <input type="range" min="1" max="10" value="5" class="confidence-slider" data-skill="strategic">
+              <span>10 (Very confident)</span>
+            </div>
+            <div class="confidence-display">Current: <span id="strategic-value">5</span>/10</div>
+          </div>
+
+          <div class="confidence-item">
+            <label>Setting up and configuring a basic chatbot:</label>
+            <div class="confidence-scale">
+              <span>1 (Not confident)</span>
+              <input type="range" min="1" max="10" value="5" class="confidence-slider" data-skill="technical">
+              <span>10 (Very confident)</span>
+            </div>
+            <div class="confidence-display">Current: <span id="technical-value">5</span>/10</div>
+          </div>
+
+          <div class="confidence-item">
+            <label>Identifying when chatbots are appropriate vs. inappropriate:</label>
+            <div class="confidence-scale">
+              <span>1 (Not confident)</span>
+              <input type="range" min="1" max="10" value="5" class="confidence-slider" data-skill="judgment">
+              <span>10 (Very confident)</span>
+            </div>
+            <div class="confidence-display">Current: <span id="judgment-value">5</span>/10</div>
+          </div>
+
+          <div class="confidence-item">
+            <label>Making a business case for AI customer service at your organization:</label>
+            <div class="confidence-scale">
+              <span>1 (Not confident)</span>
+              <input type="range" min="1" max="10" value="5" class="confidence-slider" data-skill="business">
+              <span>10 (Very confident)</span>
+            </div>
+            <div class="confidence-display">Current: <span id="business-value">5</span>/10</div>
+          </div>
+        </div>
+
+        <div class="confidence-feedback" id="confidence-feedback"></div>
+        
+        <button id="complete-assessment" class="btn-primary">🎓 Complete Course</button>
+      </div>
+    </section>
+
+    <!-- Final Message -->
+    <section id="final-message" class="fade-in-up hidden">
+      <div class="card">
+        <h2>🎯 You're Ready for Real-World Application</h2>
+        <p>You've moved beyond theoretical knowledge to practical application. You understand both the possibilities and limitations of AI customer service technology.</p>
+        
+        <div class="next-level">
+          <h4>What Separates You from Most "AI Enthusiasts":</h4>
+          <ul>
+            <li>✅ You've actually built something, not just talked about it</li>
+            <li>✅ You understand the strategic trade-offs, not just the technology hype</li>
+            <li>✅ You know what questions to ask vendors and stakeholders</li>
+            <li>✅ You have realistic expectations about implementation timeline and complexity</li>
+          </ul>
+        </div>
+
+        <p><strong>Most importantly:</strong> You now think like a strategic leader who uses technology to solve business problems, not like someone who implements technology for its own sake.</p>
         
         <div class="final-actions">
-          <button id="download-certificate" class="btn-primary">📜 Download Certificate</button>
-          <button id="share-course" class="btn-secondary">📤 Share This Course</button>
+          <button id="download-summary" class="btn-primary">📋 Download Action Plan</button>
+          <button id="restart-course" class="btn-secondary">🔄 Take Course Again</button>
         </div>
       </div>
     </section>
 
-    <!-- ====== Navigation Buttons ====== -->
+    <!-- Navigation -->
     <div class="navigation-buttons">
-      <a href="strategy-session.html" class="btn-primary">← Back: Strategy Session</a>
-      <a href="index.html" class="btn-primary">🔄 Retake Course</a>
+      <a href="strategy-session.html" class="btn-secondary">← Back: Strategy Session</a>
+      <a href="index.html" class="btn-primary">🏠 Return to Start</a>
     </div>
   </main>
 
-  <!-- ====== Footer ====== -->
   <footer>
-    <p>&copy; 2025 James Kruck - AI Chatbot Strategy Course</p>
+    <p>&copy; 2025 James Kruck - Strategic AI Implementation Course</p>
   </footer>
 
-  <!-- ====== JavaScript ====== -->
+  <!-- Enhanced JavaScript -->
   <script>
-    document.getElementById('reflection-form').addEventListener('submit', function(e) {
-      e.preventDefault();
+    // Scenario Assessment Logic
+    document.getElementById('submit-scenarios').addEventListener('click', function() {
+      const scenario1 = document.querySelector('input[name="scenario1"]:checked');
+      const scenario2 = document.querySelector('input[name="scenario2"]:checked');
+      const scenario3 = document.querySelector('input[name="scenario3"]:checked');
       
-      // Collect all responses
-      const responses = {
-        strategicInsights: document.getElementById('strategic-insights').value,
-        implementationChallenges: document.getElementById('implementation-challenges').value,
-        businessApplication: document.getElementById('business-application').value,
-        nextSteps: document.getElementById('next-steps').value,
-        courseFeedback: document.getElementById('course-feedback').value,
-        timestamp: new Date().toISOString()
-      };
+      if (!scenario1 || !scenario2 || !scenario3) {
+        alert('Please complete all scenarios before submitting.');
+        return;
+      }
       
-      // Show success message
-      this.innerHTML = `
-        <div class="success-message">
-          <h4>✅ Reflection Submitted Successfully!</h4>
-          <p>Thank you for taking the time to reflect on your learning. Your insights are valuable for continuous improvement.</p>
-        </div>
-      `;
+      let feedback = '<h4>📊 Scenario Assessment Results:</h4>';
       
-      // Scroll to resources
-      document.getElementById('resources').scrollIntoView({ behavior: 'smooth' });
+      // Scenario 1 feedback
+      if (scenario1.value === 'immediate') {
+        feedback += '<div class="feedback-item good">✅ <strong>Scenario 1:</strong> Correct! Angry customers need immediate human empathy. Chatbots can\'t handle emotional escalation.</div>';
+      } else {
+        feedback += '<div class="feedback-item warning">⚠️ <strong>Scenario 1:</strong> Risky choice. Emotional situations require human intervention. Consider the customer\'s emotional state.</div>';
+      }
+      
+      // Scenario 2 feedback
+      if (scenario2.value === 'pushback') {
+        feedback += '<div class="feedback-item good">✅ <strong>Scenario 2:</strong> Excellent! Managing expectations is crucial. You\'re thinking like a strategic leader.</div>';
+      } else if (scenario2.value === 'pilot') {
+        feedback += '<div class="feedback-item ok">👍 <strong>Scenario 2:</strong> Good compromise, but you should also address the unrealistic expectations directly.</div>';
+      } else {
+        feedback += '<div class="feedback-item warning">⚠️ <strong>Scenario 2:</strong> Dangerous! Agreeing to unrealistic expectations sets everyone up for failure.</div>';
+      }
+      
+      // Scenario 3 feedback
+      if (scenario3.value === 'phased') {
+        feedback += '<div class="feedback-item good">✅ <strong>Scenario 3:</strong> Strategic thinking! Phased approaches balance business needs with technical reality.</div>';
+      } else {
+        feedback += '<div class="feedback-item ok">👍 <strong>Scenario 3:</strong> Reasonable choice, but consider hybrid approaches to deliver value sooner.</div>';
+      }
+      
+      document.getElementById('scenario-feedback').innerHTML = feedback;
+      document.getElementById('scenario-feedback').classList.remove('hidden');
     });
-    
-    document.getElementById('download-certificate').addEventListener('click', function() {
-      // Generate a simple certificate
-      const certificateText = `
-CERTIFICATE OF COMPLETION
 
-AI Chatbot Strategy for Retail
+    // Business Recommendation Generator
+    document.getElementById('generate-recommendation').addEventListener('click', function() {
+      const volume = document.getElementById('email-volume').value;
+      const responseTime = document.getElementById('current-response-time').value;
+      const faqCategories = document.getElementById('faq-categories').value;
+      
+      if (!volume || !responseTime || !faqCategories.trim()) {
+        alert('Please complete all fields to generate your recommendation.');
+        return;
+      }
+      
+      let recommendation = '<h4>🎯 Your Personalized Recommendation:</h4>';
+      
+      if (volume === 'low') {
+        recommendation += '<div class="rec-item">📊 <strong>Volume Assessment:</strong> With under 50 emails/week, a chatbot may not be cost-effective yet. Focus on improving response templates and FAQ pages first.</div>';
+      } else if (volume === 'medium') {
+        recommendation += '<div class="rec-item">📊 <strong>Volume Assessment:</strong> 50-200 emails/week is a sweet spot for chatbot ROI. You could see 30-40% reduction in manual responses.</div>';
+      } else if (volume === 'high' || volume === 'very-high') {
+        recommendation += '<div class="rec-item">📊 <strong>Volume Assessment:</strong> High volume makes chatbots very cost-effective. You should prioritize this implementation.</div>';
+      }
+      
+      if (responseTime === 'slow') {
+        recommendation += '<div class="rec-item">⏱️ <strong>Timing Impact:</strong> 24+ hour response time is hurting customer satisfaction. A chatbot could provide instant answers for common questions.</div>';
+      } else if (responseTime === 'immediate') {
+        recommendation += '<div class="rec-item">⏱️ <strong>Timing Impact:</strong> You already respond quickly. A chatbot would free up staff time rather than improve response speed.</div>';
+      }
+      
+      recommendation += '<div class="rec-item">🎯 <strong>Next Step:</strong> Start with a pilot handling your top 3 FAQ categories: ' + faqCategories.split(',').slice(0,3).join(', ') + '.</div>';
+      recommendation += '<div class="rec-item">⚠️ <strong>Success Metric:</strong> Aim for 40% reduction in manual responses within 3 months.</div>';
+      
+      document.getElementById('business-recommendation').innerHTML = recommendation;
+      document.getElementById('business-recommendation').classList.remove('hidden');
+    });
 
-This certifies that the participant has successfully completed:
-- Strategic analysis of customer service technology decisions
-- Hands-on implementation of AI chatbot solutions
-- Application of business frameworks to technology choices
+    // Confidence Assessment
+    document.querySelectorAll('.confidence-slider').forEach(slider => {
+      slider.addEventListener('input', function() {
+        const skill = this.dataset.skill;
+        const value = this.value;
+        document.getElementById(skill + '-value').textContent = value;
+        
+        updateConfidenceFeedback();
+      });
+    });
 
-Completed on: ${new Date().toLocaleDateString()}
+    function updateConfidenceFeedback() {
+      const strategic = parseInt(document.querySelector('[data-skill="strategic"]').value);
+      const technical = parseInt(document.querySelector('[data-skill="technical"]').value);
+      const judgment = parseInt(document.querySelector('[data-skill="judgment"]').value);
+      const business = parseInt(document.querySelector('[data-skill="business"]').value);
+      
+      const average = (strategic + technical + judgment + business) / 4;
+      const feedbackDiv = document.getElementById('confidence-feedback');
+      
+      let feedback = `<h4>Average Confidence: ${average.toFixed(1)}/10</h4>`;
+      
+      if (average >= 8) {
+        feedback += '<p class="feedback good">🚀 <strong>Excellent!</strong> You\'re ready to lead chatbot initiatives at your organization.</p>';
+      } else if (average >= 6) {
+        feedback += '<p class="feedback ok">👍 <strong>Good progress!</strong> You have solid foundation. Focus on practical experience to build confidence.</p>';
+      } else if (average >= 4) {
+        feedback += '<p class="feedback warning">📚 <strong>Keep learning!</strong> You understand the basics but need more hands-on experience before leading implementations.</p>';
+      } else {
+        feedback += '<p class="feedback needs-work">📖 <strong>Foundation building needed.</strong> Consider revisiting the course materials and getting more practice.</p>';
+      }
+      
+      feedbackDiv.innerHTML = feedback;
+    }
 
-Course by: James Kruck
+    // Action Commitment
+    document.getElementById('commit-to-action').addEventListener('click', function() {
+      const week1Action = document.getElementById('week1-action').value;
+      const pilotScope = document.getElementById('pilot-scope').value.trim();
+      const stakeholderPlan = document.getElementById('stakeholder-plan').value.trim();
+      
+      if (!week1Action || !pilotScope || !stakeholderPlan) {
+        alert('Please complete all action planning sections.');
+        return;
+      }
+      
+      const confirmation = document.getElementById('action-confirmation');
+      confirmation.innerHTML = `
+        <h4>✅ Action Plan Committed!</h4>
+        <p>You've created a concrete 30-day plan. This separates you from 90% of people who take courses but never apply what they learn.</p>
+        <div class="commitment-summary">
+          <p><strong>Week 1:</strong> ${document.querySelector('#week1-action option:checked').textContent}</p>
+          <p><strong>Your pilot scope:</strong> ${pilotScope.substring(0, 100)}${pilotScope.length > 100 ? '...' : ''}</p>
+        </div>
+        <p><em>Pro tip: Set a calendar reminder for each week to review your progress.</em></p>
+      `;
+      confirmation.classList.remove('hidden');
+    });
+
+    // Course Completion
+    document.getElementById('complete-assessment').addEventListener('click', function() {
+      const finalMessage = document.getElementById('final-message');
+      finalMessage.classList.remove('hidden');
+      finalMessage.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Download Action Plan
+    document.getElementById('download-summary').addEventListener('click', function() {
+      const week1Action = document.getElementById('week1-action').value;
+      const pilotScope = document.getElementById('pilot-scope').value;
+      const stakeholderPlan = document.getElementById('stakeholder-plan').value;
+      
+      const actionPlan = `
+AI CHATBOT STRATEGY - YOUR ACTION PLAN
+Generated: ${new Date().toLocaleDateString()}
+
+WEEK 1 ACTION:
+${document.querySelector('#week1-action option:checked')?.textContent || 'Not specified'}
+
+PILOT SCOPE:
+${pilotScope}
+
+STAKEHOLDER PLAN:
+${stakeholderPlan}
+
+KEY REMINDERS:
+- Start small with FAQ automation
+- Measure success with specific metrics
+- Plan for human escalation paths
+- Set realistic expectations with stakeholders
+- Focus on customer experience, not just efficiency
+
+CONFIDENCE ASSESSMENT:
+Strategic: ${document.querySelector('[data-skill="strategic"]').value}/10
+Technical: ${document.querySelector('[data-skill="technical"]').value}/10
+Judgment: ${document.querySelector('[data-skill="judgment"]').value}/10
+Business: ${document.querySelector('[data-skill="business"]').value}/10
+
+Course completed: AI Chatbot Strategy for Retail
+Instructor: James Kruck
       `;
       
-      const blob = new Blob([certificateText], { type: 'text/plain' });
+      const blob = new Blob([actionPlan], { type: 'text/plain' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'AI_Chatbot_Strategy_Certificate.txt';
+      a.download = 'My_AI_Chatbot_Action_Plan.txt';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
     });
-    
-    document.getElementById('share-course').addEventListener('click', function() {
-      if (navigator.share) {
-        navigator.share({
-          title: 'AI Chatbot Strategy for Retail',
-          text: 'Just completed this comprehensive course on strategic AI implementation for customer service. Highly recommended!',
-          url: window.location.origin
-        });
-      } else {
-        // Fallback for browsers without Web Share API
-        const shareText = `Just completed "AI Chatbot Strategy for Retail" - a comprehensive course covering strategic analysis and hands-on implementation. Check it out: ${window.location.origin}`;
-        navigator.clipboard.writeText(shareText).then(() => {
-          alert('Course link copied to clipboard!');
-        });
+
+    // Restart Course
+    document.getElementById('restart-course').addEventListener('click', function() {
+      if (confirm('Are you sure you want to restart the course? This will take you back to the beginning.')) {
+        window.location.href = 'index.html';
       }
     });
   </script>

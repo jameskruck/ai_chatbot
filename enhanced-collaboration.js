@@ -184,9 +184,22 @@ class VirtualStudyGroup {
       checkbox.addEventListener('change', () => this.updateProgress());
     });
     
+    // Knowledge check submission
+    const submitAnalysis = document.getElementById('submit-analysis');
+    if (submitAnalysis) {
+      submitAnalysis.addEventListener('click', () => this.handleKnowledgeCheck());
+    }
+    
+    // Setup rating reflection
+    const setupRatings = document.querySelectorAll('input[name="setup-rating"]');
+    setupRatings.forEach(radio => {
+      radio.addEventListener('change', () => this.handleSetupReflection());
+    });
+    
     const completeButton = document.getElementById('complete-session');
     if (completeButton) {
       completeButton.addEventListener('click', () => {
+        this.collectTransferLearning();
         window.location.href = 'reflection.html';
       });
     }
@@ -833,7 +846,85 @@ class VirtualStudyGroup {
     }
   }
   
-  // ====== ENHANCED STYLES INJECTION ======
+  // ====== LEARNING ENHANCEMENT METHODS ======
+  
+  handleKnowledgeCheck() {
+    const risks = document.getElementById('risks-analysis').value.trim();
+    const metrics = document.getElementById('success-metrics').value.trim();
+    const brandVoice = document.getElementById('brand-voice').value.trim();
+    const feedbackArea = document.getElementById('analysis-feedback');
+    
+    if (!risks || !metrics || !brandVoice) {
+      alert('Please complete all three analysis questions before continuing.');
+      return;
+    }
+    
+    // Show feedback
+    feedbackArea.innerHTML = `
+      <div class="analysis-complete">
+        <h4>✅ Strategic Analysis Complete!</h4>
+        <p>Excellent thinking! Your analysis shows you understand the key considerations for chatbot implementation:</p>
+        <ul>
+          <li><strong>Risk awareness:</strong> You identified potential challenges</li>
+          <li><strong>Success planning:</strong> You defined measurable outcomes</li>
+          <li><strong>Brand alignment:</strong> You considered voice and personality</li>
+        </ul>
+        <p>This strategic foundation will guide your implementation decisions. Ready to build!</p>
+      </div>
+    `;
+    feedbackArea.classList.remove('hidden');
+    
+    // Enable the building phase
+    setTimeout(() => {
+      const buildingSection = document.getElementById('chatbot-building');
+      if (buildingSection) {
+        buildingSection.classList.remove('hidden');
+        buildingSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 2000);
+  }
+  
+  handleSetupReflection() {
+    const selectedRating = document.querySelector('input[name="setup-rating"]:checked');
+    if (!selectedRating) return;
+    
+    const rating = parseInt(selectedRating.value);
+    let feedback = '';
+    
+    if (rating <= 2) {
+      feedback = "That's valuable feedback! Many retail leaders find new platforms challenging at first. Consider whether Jessica's team would need additional training or support.";
+    } else if (rating >= 4) {
+      feedback = "Great! An easy setup process is crucial for busy retail teams. This bodes well for FashionForward's implementation.";
+    } else {
+      feedback = "A neutral experience - this suggests Jessica should plan for some learning curve but nothing insurmountable.";
+    }
+    
+    // Show contextual feedback
+    const reflectionMoment = selectedRating.closest('.reflection-moment');
+    if (!reflectionMoment.querySelector('.reflection-feedback')) {
+      const feedbackDiv = document.createElement('div');
+      feedbackDiv.className = 'reflection-feedback';
+      feedbackDiv.innerHTML = `<p><em>${feedback}</em></p>`;
+      reflectionMoment.appendChild(feedbackDiv);
+    }
+  }
+  
+  collectTransferLearning() {
+    const yourBusiness = document.getElementById('your-business')?.value.trim();
+    const adaptationNeeded = document.getElementById('adaptation-needed')?.value.trim();
+    
+    if (yourBusiness || adaptationNeeded) {
+      // Store for potential follow-up or analytics
+      const transferData = {
+        business_application: yourBusiness,
+        needed_adaptations: adaptationNeeded,
+        timestamp: new Date().toISOString()
+      };
+      
+      // Could send to analytics endpoint
+      console.log('Transfer learning captured:', transferData);
+    }
+  }
   injectEnhancedStyles() {
     const peerStyles = `
       /* Peer-specific message styling */

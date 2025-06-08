@@ -44,30 +44,7 @@
       </div>
     </section>
 
-    <!-- Study Group Discussion Phase -->
-    <section id="case-discussion" class="fade-in-up">
-      <h2>Part A: Virtual Study Group Discussion</h2>
-      
-      <div class="session-intro card">
-        <h3>🎓 Your Role: MBA Student in Case Discussion</h3>
-        <p>
-          You've read Jessica Martinez's case. Now you're joining a virtual study group with fellow MBA students, 
-          each bringing different expertise and perspectives. Together, you'll analyze options and develop recommendations.
-        </p>
-        <div class="session-goals">
-          <h4>Study Group Goals:</h4>
-          <ul>
-            <li>🤝 <strong>Collaborate</strong> with peers who have genuine industry experience</li>
-            <li>🔍 <strong>Research</strong> together using your combined networks and expertise</li>
-            <li>⚠️ <strong>Navigate</strong> unexpected insights and real-world complications</li>
-            <li>💡 <strong>Co-create</strong> solutions through authentic peer collaboration</li>
-          </ul>
-        </div>
-        <button id="start-analysis" class="btn-primary">🚀 Join Your Study Group</button>
-      </div>
-    </section>
-
-    <!-- Video Demo Section -->
+      <!-- Video Demo Section -->
     <section id="video-demo" class="fade-in-up">
       <div class="card">
         <h2>🎥 Watch: How Virtual Study Groups Work</h2>
@@ -93,6 +70,30 @@
         </details>
       </div>
     </section>
+
+    <!-- Study Group Discussion Phase -->
+    <section id="case-discussion" class="fade-in-up">
+      <h2>Part A: Virtual Study Group Discussion</h2>
+      
+      <div class="session-intro card">
+        <h3>🎓 Your Role: MBA Student in Case Discussion</h3>
+        <p>
+          You've read Jessica Martinez's case. Now you're joining a virtual study group with fellow MBA students, 
+          each bringing different expertise and perspectives. Together, you'll analyze options and develop recommendations.
+        </p>
+        <div class="session-goals">
+          <h4>Study Group Goals:</h4>
+          <ul>
+            <li>🤝 <strong>Collaborate</strong> with peers who have genuine industry experience</li>
+            <li>🔍 <strong>Research</strong> together using your combined networks and expertise</li>
+            <li>⚠️ <strong>Navigate</strong> unexpected insights and real-world complications</li>
+            <li>💡 <strong>Co-create</strong> solutions through authentic peer collaboration</li>
+          </ul>
+        </div>
+        <button id="start-analysis" class="btn-primary">🚀 Join Your Study Group</button>
+      </div>
+    </section>
+
 
     <!-- Virtual Study Group Discussion -->
     <section id="ai-consultation" class="fade-in-up hidden">
@@ -171,8 +172,33 @@
       </div>
     </section>
 
-    <!-- Implementation Phase -->
-    <section id="chatbot-building" class="fade-in-up hidden">
+    <!-- Knowledge Check Before Building -->
+    <section id="knowledge-check" class="fade-in-up">
+      <div class="card">
+        <h3>🧠 Strategic Analysis Check</h3>
+        <p>Before building your chatbot, demonstrate your strategic thinking:</p>
+        
+        <div class="knowledge-questions">
+          <div class="question-group">
+            <label for="risks-analysis"><strong>1. Risk Analysis:</strong> What are 3 potential risks Jessica should consider with the chatbot option?</label>
+            <textarea id="risks-analysis" rows="3" placeholder="Consider customer satisfaction, implementation challenges, brand impact..."></textarea>
+          </div>
+          
+          <div class="question-group">
+            <label for="success-metrics"><strong>2. Success Metrics:</strong> How would you measure if the chatbot is working well after 6 months?</label>
+            <textarea id="success-metrics" rows="3" placeholder="Think about both quantitative and qualitative measures..."></textarea>
+          </div>
+          
+          <div class="question-group">
+            <label for="brand-voice"><strong>3. Brand Alignment:</strong> How should FashionForward's chatbot sound different from a bank's chatbot?</label>
+            <textarea id="brand-voice" rows="3" placeholder="Consider tone, personality, language style..."></textarea>
+          </div>
+        </div>
+        
+        <button id="submit-analysis" class="btn-primary">Submit Analysis & Continue</button>
+        <div id="analysis-feedback" class="feedback-area hidden"></div>
+      </div>
+    </section>
       <h2>Part B: Hands-On Implementation</h2>
       
       <div class="building-intro card">
@@ -203,6 +229,33 @@
             <input type="checkbox" id="setup-complete">
             <span>✓ I've created my Chatbase account and started a new chatbot</span>
           </label>
+        </div>
+        
+        <div class="reflection-moment">
+          <h5>💭 Quick Reflection:</h5>
+          <p><strong>How was the setup process?</strong> On a scale of 1-5, how user-friendly did you find Chatbase for non-technical users like Jessica?</p>
+          <div class="rating-scale">
+            <label>
+              <input type="radio" name="setup-rating" value="1">
+              1 (Very difficult)
+            </label>
+            <label>
+              <input type="radio" name="setup-rating" value="2">
+              2 (Somewhat difficult)
+            </label>
+            <label>
+              <input type="radio" name="setup-rating" value="3">
+              3 (Neutral)
+            </label>
+            <label>
+              <input type="radio" name="setup-rating" value="4">
+              4 (Pretty easy)
+            </label>
+            <label>
+              <input type="radio" name="setup-rating" value="5">
+              5 (Very easy)
+            </label>
+          </div>
         </div>
       </div>
 
@@ -362,6 +415,21 @@
         <button id="complete-session" class="btn-primary">
           🏁 Complete Study Group Session & Reflect
         </button>
+        
+        <div class="transfer-learning">
+          <h4>🚀 Apply This to Your Business</h4>
+          <div class="transfer-questions">
+            <div class="question-group">
+              <label for="your-business"><strong>Your Turn:</strong> Think about your own retail business or one you know. What customer service challenges could benefit from this chatbot approach?</label>
+              <textarea id="your-business" rows="3" placeholder="Consider your industry, customer base, common questions..."></textarea>
+            </div>
+            
+            <div class="question-group">
+              <label for="adaptation-needed"><strong>Adaptation:</strong> What would you need to change about this FashionForward approach to work for your business?</label>
+              <textarea id="adaptation-needed" rows="3" placeholder="Think about different customer needs, industry regulations, brand voice..."></textarea>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

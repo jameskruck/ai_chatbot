@@ -30,102 +30,132 @@ class VirtualPeer:
         self.response_count = 0
     
     def generate_response(self, user_message, discussion_context, active_peers, is_directly_addressed=False):
-        """Generate response as this specific peer in a study group context"""
+        """Generate response with MUCH better conversation context and continuity"""
         
-        # Get recent conversation history
-        recent_history = ""
-        if discussion_context.get("discussion_history"):
-            recent_messages = discussion_context["discussion_history"][-3:]  # Last 3 exchanges
-            for msg in recent_messages:
-                speaker = msg.get("speaker", "Unknown")
-                message = msg.get("message", "")
-                recent_history += f"{speaker}: {message}\n"
+        # Build comprehensive conversation history for context
+        conversation_context = self._build_conversation_context(discussion_context)
         
-        # Build context about other peers
-        peer_context = ""
-        if len(active_peers) > 1:
-            other_peers = [p for p in active_peers if p != self.peer_id]
-            peer_names = []
-            for peer_id in other_peers:
-                if peer_id == "marcus_rodriguez":
-                    peer_names.append("Marcus")
-                elif peer_id == "priya_patel":
-                    peer_names.append("Priya")
-                elif peer_id == "sarah_chen":
-                    peer_names.append("Sarah")
-            if peer_names:
-                peer_context = f"Other group members: {', '.join(peer_names)}. "
+        # Determine the conversation stage and peer dynamics
+        stage_info = self._analyze_conversation_stage(discussion_context)
         
-        # Create varied response styles based on response count
-        response_variety = [
-            "Be analytical and ask a follow-up question",
-            "Share a brief personal insight or experience", 
-            "Challenge or build on their point",
-            "Ask for clarification or more details",
-            "Bring up a new angle or consideration"
-        ]
-        
-        current_style = response_variety[self.response_count % len(response_variety)]
-        
-        # Determine tone based on user message
-        user_tone = "casual" if any(word in user_message.lower() for word in ["hey", "dude", "what's up", "yeah", "cool"]) else "professional"
-        
-        peer_prompt = f"""You are {self.name}, an MBA student in a study group discussing the FashionForward case.
+        # Create a more sophisticated prompt that maintains conversation flow
+        peer_prompt = f"""You are {self.name} in an MBA study group discussing the FashionForward customer service case.
 
-Your Background: {self.background}
-Your Personality: {self.personality}
-Your Speaking Style: {self.speaking_style}
+CASE CONTEXT: Jessica Martinez (CEO) must choose between:
+1. AI Chatbot: $87K over 2 years, automates 65% of customer inquiries
+2. Team Expansion: $256K over 2 years, maintains human touch
+3. Outsourcing: $383K over 2 years, professional but expensive
 
-Case Context: Jessica Martinez (CEO of FashionForward) needs to choose between:
-- AI Chatbot: $87K/2 years, handles 65% of tickets
-- Team Expansion: $256K/2 years, more personal touch  
-- Outsourcing: $383K/2 years, professional but expensive
+YOUR IDENTITY & PERSPECTIVE:
+- Background: {self.background}
+- Personality: {self.personality} 
+- Speaking Style: {self.speaking_style}
+- Natural Biases: {self.biases}
+- Expertise: {self.expertise}
 
-Recent conversation:
-{recent_history}
+CONVERSATION SO FAR:
+{conversation_context}
 
-{peer_context}
+CURRENT SITUATION:
+- The student just said: "{user_message}"
+- {stage_info}
+- {"You were directly addressed" if is_directly_addressed else "This is group discussion"}
+- Other active peers: {self._format_active_peers(active_peers)}
 
-The student just said: "{user_message}"
+RESPONSE GUIDELINES:
+1. BUILD ON THE CONVERSATION: Reference specific points made by others recently
+2. STAY IN CHARACTER: Show your {self.personality} perspective naturally
+3. ADD VALUE: Bring new insights from your {self.expertise} background  
+4. BE CONVERSATIONAL: Sound like a real MBA student, not a consultant
+5. KEEP IT BRIEF: 1-2 sentences maximum
+6. SHOW ENGAGEMENT: React to what was just said before adding your point
 
-Response Instructions:
-- Tone: Match their {user_tone} style
-- Length: 1-2 sentences maximum
-- Style: {current_style}
-- Sound like a real grad student, not a consultant
-- Use natural speech patterns ("I think...", "Yeah...", "What if...")
-- Show your personality but don't overdo it
-- {'Respond directly since they addressed you' if is_directly_addressed else 'Engage naturally as a peer'}
+EXAMPLES OF GOOD RESPONSES:
+- "I agree with Sarah's ROI point, but from my retail experience..."
+- "That's interesting! In my startup, we found that..."
+- "Hold on - Marcus raised something important about customer sentiment..."
+- "Building on what you just said, have we considered..."
 
-Examples of good responses:
-- "Yeah, I see your point about ROI. But what about the customer lifetime value impact?"
-- "Interesting! When we did similar cases at McKinsey, timing was everything."
-- "Hold up - are we sure about those implementation timelines?"
-- "I'm actually leaning toward option 2. Here's why..."
-
-Respond naturally as {self.name}:"""
+Your response as {self.name}:"""
 
         try:
             response = client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=[{"role": "user", "content": peer_prompt}],
-                temperature=0.9,  # Higher temperature for more personality variation
-                max_tokens=150,   # Shorter responses
-                presence_penalty=0.6,  # Encourage new topics
-                frequency_penalty=0.3  # Reduce repetition
+                temperature=0.8,  # Balanced temperature for natural but consistent responses
+                max_tokens=120,   # Shorter responses for better conversation flow
+                presence_penalty=0.7,  # Encourage new topics and avoid repetition
+                frequency_penalty=0.4  # Reduce repetitive phrases
             )
             
+            response_text = response.choices[0].message.content.strip()
+            
+            # Clean up response - remove any quotes or attribution
+            response_text = re.sub(r'^["\']|["\']$', '', response_text)
+            response_text = re.sub(r'^' + re.escape(self.name) + r':\s*', '', response_text)
+            
             self.response_count += 1
-            return response.choices[0].message.content.strip()
+            return response_text
             
         except Exception as e:
-            # Fallback responses based on peer personality
+            print(f"Error generating response for {self.name}: {str(e)}")
+            # Contextual fallback responses
             fallbacks = {
-                "sarah_chen": "Sorry, having connection issues! But I'm thinking about the financial implications here.",
-                "marcus_rodriguez": "Connection's spotty, but from a customer experience perspective...",
-                "priya_patel": "Tech issues on my end! But this reminds me of my startup experience."
+                "sarah_chen": "I'm having connectivity issues, but I think we need to look at the financial implications here.",
+                "marcus_rodriguez": "Sorry, my connection dropped! But from a customer experience standpoint...",
+                "priya_patel": "Tech issues on my end! But this reminds me of implementation challenges I've seen."
             }
             return fallbacks.get(self.peer_id, f"Sorry, I'm having connection issues - {self.name}")
+
+    def _build_conversation_context(self, discussion_context):
+        """Build rich conversation context from recent history"""
+        if not discussion_context.get("discussion_history"):
+            return "This is the start of your discussion."
+        
+        # Get last 4-6 exchanges for context (not too much to overwhelm)
+        recent_history = discussion_context["discussion_history"][-6:]
+        
+        context_lines = []
+        for msg in recent_history:
+            speaker = msg.get("speaker", "Unknown")
+            message = msg.get("message", "")
+            
+            # Format differently for human vs peer messages
+            if speaker == "human":
+                context_lines.append(f"STUDENT: {message}")
+            else:
+                # Clean peer name for context
+                peer_name = speaker.replace(" Rodriguez", "").replace(" Chen", "").replace(" Patel", "")
+                context_lines.append(f"{peer_name.upper()}: {message}")
+        
+        return "\n".join(context_lines) if context_lines else "This is the start of your discussion."
+
+    def _analyze_conversation_stage(self, discussion_context):
+        """Analyze what stage the conversation is in and provide context"""
+        message_count = len(discussion_context.get("discussion_history", []))
+        
+        if message_count < 3:
+            return "The discussion is just getting started - focus on initial analysis"
+        elif message_count < 8:
+            return "You're in the exploration phase - dig into different perspectives"
+        elif message_count < 15:
+            return "The group is building analysis - connect ideas and add depth"
+        else:
+            return "You're moving toward conclusions - help synthesize and decide"
+
+    def _format_active_peers(self, active_peers):
+        """Format active peer list for context"""
+        peer_names = []
+        for peer_id in active_peers:
+            if peer_id != self.peer_id:  # Don't include self
+                if peer_id == "sarah_chen":
+                    peer_names.append("Sarah (Finance)")
+                elif peer_id == "marcus_rodriguez": 
+                    peer_names.append("Marcus (Retail Ops)")
+                elif peer_id == "priya_patel":
+                    peer_names.append("Priya (Tech)")
+        
+        return ", ".join(peer_names) if peer_names else "just you"
 
 class StudyGroupSession:
     def __init__(self, session_id):
@@ -134,190 +164,280 @@ class StudyGroupSession:
             "sarah_chen": VirtualPeer(
                 "sarah_chen",
                 "Sarah Chen", 
-                "Finance MBA from Wharton, 3 years at McKinsey, now Strategic Planning Director at tech startup",
-                "Analytical, collaborative, sometimes overthinks but genuinely curious about different perspectives",
-                "Professional but warm, asks good questions, likes frameworks but not rigid about them",
-                "Focuses on financial metrics but learning to consider customer emotions more",
-                "Financial modeling, ROI analysis, consulting frameworks, strategic planning"
+                "Finance MBA from Wharton, 3 years at McKinsey consulting on retail strategy",
+                "Analytical and thorough, likes frameworks but stays practical, good at asking clarifying questions",
+                "Professional but approachable, uses consulting terminology naturally, focuses on data and ROI",
+                "Defaults to financial analysis first, sometimes misses emotional/customer factors initially",
+                "Financial modeling, ROI analysis, consulting frameworks, strategic planning, retail economics"
             ),
             "marcus_rodriguez": VirtualPeer(
                 "marcus_rodriguez",
                 "Marcus Rodriguez",
-                "15 years in retail operations, Customer Experience Director at major fashion retailer, MBA from Kellogg", 
-                "Practical, customer-obsessed, storyteller, protective of brand reputation",
-                "Direct, uses real examples, passionate about customers, sometimes skeptical of pure tech solutions",
-                "Prioritizes customer satisfaction, worries about implementation risks based on experience",
-                "Retail operations, customer experience design, implementation management, brand protection"
+                "15 years in retail operations, currently Customer Experience Director at major fashion retailer", 
+                "Practical and customer-focused, draws from real experience, protective of brand reputation",
+                "Direct and conversational, uses real examples, passionate about customer experience",
+                "Prioritizes customer satisfaction over pure efficiency, skeptical of technology that feels impersonal",
+                "Retail operations, customer journey mapping, brand management, implementation challenges, front-line operations"
             ),
             "priya_patel": VirtualPeer(
                 "priya_patel", 
                 "Priya Patel",
-                "Tech entrepreneur, founded and sold AI customer service platform, Stanford MBA",
-                "Energetic, optimistic about tech, fast-moving, sees big picture opportunities",
-                "Startup energy, tech terminology but explains it well, focuses on scale and growth",
-                "Pro-innovation, sometimes underestimates implementation complexity, growth-focused",
-                "AI/ML implementation, startup scaling, product development, technology adoption"
+                "Founded and sold AI customer service startup to Zendesk, now Stanford MBA focusing on scaling tech solutions",
+                "Energetic and solution-oriented, optimistic about technology, thinks in terms of scale and growth",
+                "Startup energy, comfortable with tech terminology, focuses on implementation and scalability",
+                "Sees technology solutions first, sometimes underestimates change management and adoption challenges",
+                "AI/ML implementation, startup scaling, product development, technology adoption, integration challenges"
             )
         }
         self.active_peers = ["sarah_chen"]  # Start with Sarah
         self.discussion_history = []
         self.research_insights = []
         self.complications_used = []
+        self.conversation_themes = []  # Track recurring themes
         
-        # Enhanced peer complications with more variety
+        # Enhanced peer complications with better context
         self.peer_complications = [
             {
-                "type": "experience_share",
-                "description": "Marcus just shared that when his company implemented a chatbot, customer complaints actually increased 25% in the first month because the bot couldn't handle emotional situations properly",
-                "impact": "significantly challenge",
+                "type": "implementation_reality",
+                "description": "Marcus just mentioned that when his company tried a chatbot, customer complaints increased 30% in month 1 because the bot couldn't handle frustrated customers properly - they had to add extensive human escalation rules",
+                "impact": "significantly challenge your current thinking",
                 "source": "Marcus Rodriguez",
-                "peer_context": "Based on real implementation experience"
+                "timing": "after_initial_analysis"
             },
             {
-                "type": "research_finding", 
-                "description": "Sarah found a recent McKinsey study showing that 43% of retail AI implementations fail due to poor change management and staff resistance, not technology issues",
-                "impact": "potentially affect",
-                "source": "Sarah Chen",
-                "peer_context": "From consulting research database"
+                "type": "financial_insight", 
+                "description": "Sarah found McKinsey data showing that 60% of retail AI implementations exceed budget by 40%+ due to integration complexity and change management costs not included in initial estimates",
+                "impact": "revise your financial assumptions",
+                "source": "Sarah Chen", 
+                "timing": "during_detailed_analysis"
             },
             {
-                "type": "industry_insight",
-                "description": "Priya mentioned that newer AI platforms now achieve 87% accuracy vs. 65% two years ago, and integration APIs have gotten much simpler - this could significantly improve the ROI calculations",
-                "impact": "positively impact", 
+                "type": "competitive_intelligence",
+                "description": "Priya heard through her network that FashionForward's biggest competitor is about to launch an AI-powered personal stylist feature - this could change the competitive landscape significantly",
+                "impact": "add urgency to your decision",
                 "source": "Priya Patel",
-                "peer_context": "From startup ecosystem knowledge"
-            },
-            {
-                "type": "competitive_intel",
-                "description": "Marcus heard through industry contacts that FashionForward's main competitor just had a PR disaster with their chatbot giving tone-deaf responses to upset customers about lost packages",
-                "impact": "significantly impact",
-                "source": "Marcus Rodriguez", 
-                "peer_context": "Industry network intelligence"
-            },
-            {
-                "type": "financial_insight",
-                "description": "Sarah realized that if Jessica's board is expecting 20% growth next year, the customer service costs could balloon with current staffing - making automation more urgent than it initially appeared",
-                "impact": "reframe",
-                "source": "Sarah Chen",
-                "peer_context": "Strategic planning analysis"
-            },
-            {
-                "type": "tech_update",
-                "description": "Priya just remembered that her former AI platform actually offers a 6-month pilot program for fashion retailers - this could reduce Jessica's implementation risk significantly",
-                "impact": "open new options for",
-                "source": "Priya Patel",
-                "peer_context": "Startup network connections"
+                "timing": "mid_conversation"
             }
         ]
 
-    def determine_responding_peer(self, user_message, stage):
-        """Determine which peer should respond based on message content and context"""
+    def determine_responding_peer(self, user_message, stage, discussion_context):
+        """Enhanced peer selection based on conversation flow and content"""
         
-        # Check if user directly addressed someone
         message_lower = user_message.lower()
+        recent_speakers = self._get_recent_speakers(discussion_context)
         
-        # Direct addressing patterns
-        if any(pattern in message_lower for pattern in ["sarah", "sarah,", "hey sarah"]):
-            return "sarah_chen", True
-        elif any(pattern in message_lower for pattern in ["marcus", "marcus,", "hey marcus"]):
-            if "marcus_rodriguez" in self.active_peers:
-                return "marcus_rodriguez", True
-        elif any(pattern in message_lower for pattern in ["priya", "priya,", "hey priya"]):
-            if "priya_patel" in self.active_peers:
-                return "priya_patel", True
+        # 1. Check for direct addressing first
+        direct_address = self._check_direct_address(message_lower)
+        if direct_address and direct_address in self.active_peers:
+            return direct_address, True
         
-        # Topic-based routing (when not directly addressed)
-        if any(word in message_lower for word in ["roi", "financial", "cost", "money", "budget", "revenue"]):
-            return "sarah_chen", False
-        elif any(word in message_lower for word in ["customer", "experience", "satisfaction", "brand", "service"]):
-            if "marcus_rodriguez" in self.active_peers:
-                return "marcus_rodriguez", False
-        elif any(word in message_lower for word in ["tech", "ai", "implementation", "platform", "startup"]):
-            if "priya_patel" in self.active_peers:
-                return "priya_patel", False
+        # 2. Avoid same peer responding twice in a row (unless directly addressed)
+        if recent_speakers and len(recent_speakers) > 0:
+            last_speaker_id = recent_speakers[0]
+            available_peers = [p for p in self.active_peers if p != last_speaker_id]
+            if available_peers:
+                peer_pool = available_peers
+            else:
+                peer_pool = self.active_peers
+        else:
+            peer_pool = self.active_peers
         
-        # Default rotation among active peers
-        peer_index = (len(self.discussion_history)) % len(self.active_peers)
-        return self.active_peers[peer_index], False
+        # 3. Content-based routing with expertise matching
+        content_priority = self._analyze_message_content(message_lower)
+        
+        for topic, peer_id in content_priority:
+            if peer_id in peer_pool:
+                return peer_id, False
+        
+        # 4. Conversation flow routing - who would naturally respond?
+        flow_priority = self._determine_conversation_flow(discussion_context, peer_pool)
+        if flow_priority:
+            return flow_priority, False
+        
+        # 5. Default: rotate among available peers
+        if peer_pool:
+            return peer_pool[len(self.discussion_history) % len(peer_pool)], False
+        
+        return self.active_peers[0], False
+
+    def _check_direct_address(self, message_lower):
+        """Check if user directly addressed a specific peer"""
+        address_patterns = {
+            "sarah_chen": ["sarah", "@sarah", "hey sarah", "sarah,"],
+            "marcus_rodriguez": ["marcus", "@marcus", "hey marcus", "marcus,"],
+            "priya_patel": ["priya", "@priya", "hey priya", "priya,"]
+        }
+        
+        for peer_id, patterns in address_patterns.items():
+            if any(pattern in message_lower for pattern in patterns):
+                return peer_id
+        return None
+
+    def _get_recent_speakers(self, discussion_context):
+        """Get recent speakers to avoid repetition"""
+        if not discussion_context.get("discussion_history"):
+            return []
+        
+        recent_messages = discussion_context["discussion_history"][-3:]
+        speakers = []
+        
+        for msg in recent_messages:
+            if msg.get("speaker") != "human":
+                peer_id = msg.get("peer_id")
+                if peer_id:
+                    speakers.append(peer_id)
+        
+        return speakers
+
+    def _analyze_message_content(self, message_lower):
+        """Analyze message content and return priority list of (topic, peer_id)"""
+        content_routing = []
+        
+        # Financial/business topics
+        if any(word in message_lower for word in ["roi", "cost", "budget", "revenue", "profit", "financial", "money", "pricing", "investment"]):
+            content_routing.append(("financial", "sarah_chen"))
+        
+        # Customer experience topics  
+        if any(word in message_lower for word in ["customer", "experience", "satisfaction", "service", "brand", "reputation", "feedback", "complaints"]):
+            content_routing.append(("customer_experience", "marcus_rodriguez"))
+        
+        # Technology/implementation topics
+        if any(word in message_lower for word in ["technology", "ai", "implementation", "integration", "platform", "technical", "setup", "scaling"]):
+            content_routing.append(("technology", "priya_patel"))
+        
+        # Strategic/consulting topics
+        if any(word in message_lower for word in ["strategy", "framework", "analysis", "recommendation", "consulting", "approach"]):
+            content_routing.append(("strategy", "sarah_chen"))
+        
+        # Operations topics
+        if any(word in message_lower for word in ["operations", "process", "workflow", "staff", "training", "change management"]):
+            content_routing.append(("operations", "marcus_rodriguez"))
+        
+        return content_routing
+
+    def _determine_conversation_flow(self, discussion_context, available_peers):
+        """Determine who should naturally respond based on conversation flow"""
+        if not discussion_context.get("discussion_history"):
+            return None
+        
+        last_message = discussion_context["discussion_history"][-1]
+        last_speaker = last_message.get("peer_id")
+        last_content = last_message.get("message", "").lower()
+        
+        # If someone just made a strong point, someone with different expertise should respond
+        if last_speaker == "sarah_chen" and ("marcus_rodriguez" in available_peers or "priya_patel" in available_peers):
+            # After Sarah's financial analysis, Marcus or Priya should respond with different perspective
+            return "marcus_rodriguez" if "marcus_rodriguez" in available_peers else "priya_patel"
+        
+        elif last_speaker == "marcus_rodriguez" and "priya_patel" in available_peers:
+            # After Marcus talks customer experience, Priya can offer tech perspective
+            return "priya_patel"
+        
+        elif last_speaker == "priya_patel" and "sarah_chen" in available_peers:
+            # After Priya talks tech, Sarah can bring it back to business case
+            return "sarah_chen"
+        
+        return None
 
     def get_discussion_context(self):
+        """Get comprehensive discussion context"""
         return {
-            "discussion_history": self.discussion_history[-6:],  # Last 6 exchanges
+            "discussion_history": self.discussion_history,
             "active_peers": self.active_peers,
             "complications": self.complications_used,
-            "message_count": len(self.discussion_history)
+            "message_count": len(self.discussion_history),
+            "conversation_themes": self.conversation_themes,
+            "stage": self._determine_stage()
         }
     
+    def _determine_stage(self):
+        """Determine what stage the conversation is in"""
+        message_count = len(self.discussion_history)
+        if message_count < 4:
+            return "opening"
+        elif message_count < 10:
+            return "exploration" 
+        elif message_count < 16:
+            return "analysis"
+        else:
+            return "synthesis"
+    
     def should_introduce_complication(self, stage):
-        """Decide if a peer should share a complication/insight"""
-        return (stage > 2 and 
-                len(self.complications_used) < 3 and 
-                len(self.discussion_history) > 4 and  # After some discussion
-                random.random() < 0.4)  # 40% chance
+        """Smart timing for introducing complications"""
+        return (len(self.complications_used) < 2 and 
+                len(self.discussion_history) > 6 and
+                stage in ["exploration", "analysis"] and
+                random.random() < 0.35)
     
     def generate_peer_complication(self):
-        """Generate a realistic complication from a peer's experience/research"""
-        unused_complications = [c for c in self.peer_complications if c not in self.complications_used]
-        if not unused_complications:
+        """Generate realistic complications from peer experience"""
+        unused = [c for c in self.peer_complications if c not in self.complications_used]
+        if not unused:
             return None
             
-        # Prefer complications from active peers
-        peer_complications = []
-        for comp in unused_complications:
-            source_peer_id = None
-            if "Marcus Rodriguez" in comp['source']:
-                source_peer_id = "marcus_rodriguez"
-            elif "Sarah Chen" in comp['source']:
-                source_peer_id = "sarah_chen"
-            elif "Priya Patel" in comp['source']:
-                source_peer_id = "priya_patel"
-            
-            if source_peer_id and source_peer_id in self.active_peers:
-                peer_complications.append(comp)
+        # Filter by active peers and timing
+        stage = self._determine_stage()
+        suitable = []
         
-        if peer_complications:
-            complication = random.choice(peer_complications)
-        else:
-            complication = random.choice(unused_complications)
+        for comp in unused:
+            source_peer_id = self._get_peer_id_from_source(comp['source'])
+            timing_match = (
+                comp.get('timing', 'any') == 'any' or 
+                comp.get('timing') == stage or
+                (comp.get('timing') == 'after_initial_analysis' and stage in ['exploration', 'analysis'])
+            )
             
-        self.complications_used.append(complication)
-        return complication
+            if source_peer_id in self.active_peers and timing_match:
+                suitable.append(comp)
+        
+        if suitable:
+            complication = random.choice(suitable)
+            self.complications_used.append(complication)
+            return complication
+        
+        return None
+
+    def _get_peer_id_from_source(self, source_name):
+        """Convert source name to peer ID"""
+        name_mapping = {
+            "Sarah Chen": "sarah_chen",
+            "Marcus Rodriguez": "marcus_rodriguez", 
+            "Priya Patel": "priya_patel"
+        }
+        return name_mapping.get(source_name)
 
 @app.route("/")
 def home():
-    """Health check and basic info"""
     return jsonify({
         "status": "healthy",
-        "service": "Virtual Study Group API",
-        "message": "Peer collaboration server running",
-        "version": "2.0 - Enhanced Conversations"
+        "service": "Enhanced Virtual Study Group API",
+        "message": "Improved conversation flow and peer collaboration",
+        "version": "3.0 - Enhanced Conversations"
     })
 
 @app.route("/health", methods=["GET"])
 def health_check():
-    """Detailed health check"""
     return jsonify({
         "status": "healthy", 
-        "service": "Virtual Study Group API",
+        "service": "Enhanced Virtual Study Group API",
         "openai_configured": bool(os.getenv("OPENAI_API_KEY")),
         "active_study_groups": len(active_study_groups),
-        "available_endpoints": ["/chat", "/invite_peer", "/trigger_research", "/health"],
         "improvements": [
-            "Better peer routing",
-            "More natural conversations", 
-            "Varied response styles",
-            "Enhanced complications"
+            "Enhanced conversation context management",
+            "Smarter peer response routing", 
+            "Better conversation flow continuity",
+            "Improved peer personality consistency",
+            "Advanced message content analysis"
         ]
     })
 
 @app.route("/chat", methods=["POST"])
 def peer_discussion():
-    """Handle peer-to-peer case discussion with improved routing and responses"""
+    """Enhanced peer discussion with better conversation flow"""
     data = request.json
     user_id = data.get("user_id", "default")
     user_message = data.get("message", "")
     stage = data.get("stage", 1)
-    session_type = data.get("session_type", "peer_discussion")
 
     # Initialize study group session if needed
     if user_id not in active_study_groups:
@@ -325,71 +445,79 @@ def peer_discussion():
     
     session = active_study_groups[user_id]
     
-    # Store human input in discussion history
+    # Store human input with enhanced metadata
     session.discussion_history.append({
         "speaker": "human",
         "message": user_message,
         "timestamp": datetime.now().isoformat(),
-        "stage": stage
+        "stage": stage,
+        "message_type": "user_input"
     })
 
     try:
-        # Determine which peer should respond using improved logic
-        responding_peer_id, is_directly_addressed = session.determine_responding_peer(user_message, stage)
+        # Enhanced peer selection with conversation context
+        discussion_context = session.get_discussion_context()
+        responding_peer_id, is_directly_addressed = session.determine_responding_peer(
+            user_message, stage, discussion_context
+        )
         
-        # Fallback to Sarah if determined peer isn't active
+        # Fallback safety check
         if responding_peer_id not in session.active_peers:
             responding_peer_id = session.active_peers[0]
             is_directly_addressed = False
         
         peer = session.peers[responding_peer_id]
         
-        # Generate peer response with improved context
+        # Generate enhanced peer response
         peer_response = peer.generate_response(
             user_message, 
-            session.get_discussion_context(),
+            discussion_context,
             session.active_peers,
             is_directly_addressed
         )
         
-        # Store peer response
+        # Store peer response with enhanced metadata
         session.discussion_history.append({
             "speaker": peer.name,
             "peer_id": responding_peer_id,
             "message": peer_response,
             "timestamp": datetime.now().isoformat(),
             "stage": stage,
-            "was_directly_addressed": is_directly_addressed
+            "was_directly_addressed": is_directly_addressed,
+            "message_type": "peer_response"
         })
 
         response_data = {
             "response": peer_response,
             "speaker": peer.name,
             "peer_id": responding_peer_id,
-            "was_directly_addressed": is_directly_addressed
+            "was_directly_addressed": is_directly_addressed,
+            "conversation_stage": discussion_context["stage"]
         }
         
-        # Maybe add a peer complication/insight
-        if session.should_introduce_complication(stage):
+        # Smart complication timing
+        if session.should_introduce_complication(discussion_context["stage"]):
             complication = session.generate_peer_complication()
             if complication:
                 response_data["complication"] = complication
         
-        # Occasionally add research insights (simulate group research)
-        if stage > 3 and len(session.research_insights) < 2 and random.random() < 0.25:
-            research_insight = generate_group_research_insight(session.active_peers)
-            response_data["research_insight"] = research_insight
-            session.research_insights.append(research_insight)
-        
         return jsonify(response_data)
 
     except Exception as e:
-        print(f"Error in peer discussion: {str(e)}")
-        return jsonify({"error": f"Study group connection issue: {str(e)}"}), 500
+        print(f"Error in enhanced peer discussion: {str(e)}")
+        # Provide contextual error response
+        error_peer = session.peers[session.active_peers[0]]
+        return jsonify({
+            "response": f"Sorry, I'm having technical difficulties right now. But let's keep discussing this case - I think there are some important factors we need to consider here.",
+            "speaker": error_peer.name,
+            "peer_id": session.active_peers[0],
+            "error": "connection_issue"
+        }), 200  # Return 200 to keep conversation flowing
 
+# [Rest of the routes remain the same but with enhanced error handling]
 @app.route("/invite_peer", methods=["POST"])  
 def invite_peer():
-    """Invite a new peer to join the study group discussion"""
+    """Invite a new peer with enhanced introduction"""
     data = request.json
     user_id = data.get("user_id", "")
     peer_id = data.get("peer_id", "")
@@ -405,69 +533,69 @@ def invite_peer():
     if peer_id in session.active_peers:
         return jsonify({"error": "Peer already in discussion"}), 400
     
-    # Add peer to active discussion
+    # Add peer with context-aware introduction
     session.active_peers.append(peer_id)
     peer = session.peers[peer_id]
     
-    # Generate more natural joining messages
+    # Generate contextual introduction based on current discussion
+    stage = session._determine_stage()
+    discussion_context = session.get_discussion_context()
+    
     intro_messages = {
-        "marcus_rodriguez": f"Mind if I jump in? This case actually reminds me of some challenges we faced when evaluating automation options at my company. I've got some real-world perspective that might be helpful!",
-        "priya_patel": f"Hey! {peer.name} here - I actually built an AI customer service platform before B-school, so this hits close to home. I'm probably biased toward the tech solution, but I've seen both the wins and the epic fails!",
-        "sarah_chen": f"Hi everyone! I worked on some similar cases at McKinsey, especially around operational strategy for retail. Happy to dive into the financial modeling if that's helpful!"
+        "marcus_rodriguez": f"Hey everyone! Marcus here - I couldn't help but overhear your discussion about FashionForward. This actually reminds me of some customer experience challenges we faced when evaluating automation. Mind if I share some insights from the retail side?",
+        "priya_patel": f"Hi all! Priya jumping in - I caught part of your conversation and this case is really similar to what I dealt with when building my AI platform. I've seen both the wins and spectacular failures in customer service automation. Happy to share some technical perspective!",
+        "sarah_chen": f"Hi team! Sarah here - I've been looking at some similar cases and have some McKinsey benchmark data that might be relevant to your FashionForward analysis. Should we dive into the financial modeling?"
     }
     
-    introduction = intro_messages.get(peer_id, f"Hi! I'm {peer.name}. Looking forward to working through this case with you all!")
+    introduction = intro_messages.get(peer_id, f"Hi everyone! {peer.name} here. Excited to contribute to this discussion!")
+    
+    # Add introduction to conversation history
+    session.discussion_history.append({
+        "speaker": peer.name,
+        "peer_id": peer_id,
+        "message": introduction,
+        "timestamp": datetime.now().isoformat(),
+        "message_type": "peer_introduction"
+    })
     
     return jsonify({
         "peer_joined": peer_id,
         "peer_name": peer.name,
         "introduction": introduction,
-        "active_peers": session.active_peers
+        "active_peers": session.active_peers,
+        "conversation_stage": stage
     })
 
 @app.route("/trigger_research", methods=["POST"])
 def trigger_group_research():
-    """Simulate collaborative research session"""
+    """Enhanced collaborative research simulation"""
     data = request.json
     user_id = data.get("user_id", "")
-    topic = data.get("topic", "chatbot_implementations")
-    research_type = data.get("research_type", "group_research")
     
-    # Enhanced research data with peer context
-    group_research_data = {
-        "chatbot_implementations": [
-            {"company": "Sephora", "year": 2019, "outcome": "25% email reduction, but 15% increase in phone calls - customers escalated when bot couldn't help with complex issues"},
-            {"company": "H&M", "year": 2020, "outcome": "60% FAQ automation success, improved CSAT by training bot on actual customer language patterns"},
-            {"company": "ASOS", "year": 2021, "outcome": "45% faster response times, mixed satisfaction - Gen Z loved it, older customers found it frustrating"},
-            {"company": "Zara", "year": 2022, "outcome": "Strong ROI after 8 months, key was hybrid model with seamless human handoff"},
-            {"company": "Uniqlo", "year": 2023, "outcome": "Multilingual success in Asia, 40% cost reduction, but required 6 months of training data preparation"}
+    # Enhanced research with peer context
+    research_insights = {
+        "recent_implementations": [
+            {"company": "Zara", "outcome": "40% FAQ automation, but required 6 months of language training for international customers"},
+            {"company": "H&M", "outcome": "Successful hybrid model - bot for basics, immediate human escalation for emotions"},
+            {"company": "ASOS", "outcome": "Mixed results - Gen Z loved it, millennials preferred chat, boomers called customer service"}
         ],
-        "latest_trends": [
-            "Hybrid AI-human models showing 40% better satisfaction than pure automation",
-            "Personalization engines reducing repeat questions by 55% when trained on purchase history", 
-            "Voice-enabled chatbots gaining traction in mobile commerce, especially with Gen Z shoppers",
-            "Real-time sentiment analysis improving escalation decisions by 35%",
-            "Integration with social media platforms becoming standard for fashion brands"
-        ],
-        "industry_insights": [
-            "87% of fashion retailers plan AI customer service investments in 2024-2025",
-            "Average implementation time decreased from 6 months to 6-8 weeks with modern platforms",
-            "ROI typically achieved within 8-12 months for fashion retail specifically",
-            "Customer acceptance rates 25% higher when chatbot personality matches brand voice",
-            "Mobile-first implementations show 30% better engagement than desktop-first approaches"
+        "financial_benchmarks": [
+            "Average fashion retail sees 35% cost reduction in year 2 (not year 1)",
+            "Hidden costs: Training (20-30% of budget), integration (15-25%), change management (10-15%)",
+            "Success requires 3-month pilot minimum - rushing implementation increases failure rate by 60%"
         ],
         "peer_contributions": [
-            "Sarah's consulting network provided benchmark data from 3 similar fashion retailers",
-            "Marcus shared insights from his company's recent vendor evaluation process",
-            "Priya contributed technical feasibility assessments from her startup experience"
+            "Sarah's analysis: Board will expect 6-month ROI proof, need staged approach",
+            "Marcus's insight: Customer satisfaction dips first 60 days, plan for extra human support",
+            "Priya's experience: API integrations always take 2x longer than estimated"
         ]
     }
     
-    return jsonify({"research": group_research_data})
+    return jsonify({"research": research_insights, "research_type": "collaborative"})
 
 @app.route("/reset_conversation", methods=["POST"])
 def reset_study_group():
-    """Reset study group session for a specific user"""
+    """Reset with enhanced cleanup"""
     data = request.json
     user_id = data.get("user_id", "default")
     
@@ -477,68 +605,18 @@ def reset_study_group():
     if user_id in active_study_groups:
         del active_study_groups[user_id]
     
-    return jsonify({"message": "Study group session reset successfully"})
-
-@app.route("/get_session_data", methods=["POST"])
-def get_study_group_data():
-    """Retrieve study group session data for analytics"""
-    data = request.json
-    user_id = data.get("user_id", "")
-    
-    if user_id in active_study_groups:
-        session = active_study_groups[user_id]
-        return jsonify({
-            "session_data": {
-                "active_peers": session.active_peers,
-                "complications_used": session.complications_used,
-                "research_count": len(session.research_insights),
-                "discussion_length": len(session.discussion_history)
-            },
-            "discussion_history": session.discussion_history
-        })
-    else:
-        return jsonify({"error": "Study group not found"}), 404
-
-def generate_group_research_insight(active_peers):
-    """Generate research insights that feel like collaborative discovery"""
-    base_insights = [
-        {
-            "chatbot_implementations": [
-                {"company": "Target", "year": 2023, "outcome": "Successful hybrid model with 35% cost savings and improved CSAT"},
-                {"company": "Nordstrom", "year": 2022, "outcome": "Premium customer base required high-touch approach - bot handled basics only"}
-            ],
-            "discovery_context": "Found through group research on recent retail implementations"
-        },
-        {
-            "latest_trends": [
-                "Emotional AI becoming critical - bots that detect frustration and escalate immediately",
-                "Integration with inventory systems allowing real-time product availability responses"
-            ],
-            "discovery_context": "Emerging trends identified through peer network research"
-        },
-        {
-            "competitive_analysis": [
-                "Fashion retailers using AI see 23% faster resolution times but 18% more escalations",
-                "Brands with strong social media presence have 40% better chatbot adoption rates"
-            ],
-            "discovery_context": "Cross-industry analysis from group's combined networks"
-        }
-    ]
-    
-    return random.choice(base_insights)
+    return jsonify({"message": "Study group session reset successfully", "version": "3.0"})
 
 if __name__ == "__main__":
-    # Check if OpenAI API key is set
     if not os.getenv("OPENAI_API_KEY"):
         print("WARNING: OPENAI_API_KEY environment variable not set!")
         print("Please set your OpenAI API key before running the server.")
     
-    print("Starting Virtual Study Group API v2.0")
-    print("Improvements: Better peer routing, natural conversations, varied responses")
+    print("🚀 Starting Enhanced Virtual Study Group API v3.0")
+    print("✨ Improvements: Better context, smarter routing, natural flow")
     
-    # Run the Flask app
     app.run(
         host="0.0.0.0", 
         port=int(os.environ.get("PORT", 5000)),
-        debug=False  # Set to False for production on Render
+        debug=False
     )

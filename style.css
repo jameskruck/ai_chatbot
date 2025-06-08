@@ -375,6 +375,15 @@ input, textarea, select {
   padding: 12px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   min-height: 44px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+  font-family: inherit;
+  line-height: 1.5;
 }
 
 input:focus, textarea:focus, select:focus {
@@ -385,6 +394,93 @@ input:focus, textarea:focus, select:focus {
 
 input:invalid, textarea:invalid {
   border-color: var(--error-color);
+}
+
+/* Ivey-style Radio Button Groups */
+.quiz-choices,
+.scenario-options,
+.constraint-options,
+div[class*="radio-group"] {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 15px 0;
+}
+
+.quiz-choices label,
+.scenario-options label,
+.constraint-options label,
+input[type="radio"] + label {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  color: var(--text-color);
+  padding: 14px 20px;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  font-weight: 500;
+  line-height: 1.4;
+  min-height: 50px;
+  margin: 0;
+}
+
+.quiz-choices input[type="radio"],
+.scenario-options input[type="radio"],
+.constraint-options input[type="radio"] {
+  margin-right: 12px;
+  margin-left: 0;
+  accent-color: var(--primary-color);
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border: none;
+  padding: 0;
+  min-height: auto;
+}
+
+/* Hover state - Ivey green background with white text */
+.quiz-choices label:hover,
+.scenario-options label:hover,
+.constraint-options label:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 61, 38, 0.2);
+}
+
+/* Focus state for accessibility */
+.quiz-choices label:focus-within,
+.scenario-options label:focus-within,
+.constraint-options label:focus-within {
+  outline: 3px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+.quiz-choices input[type="radio"]:focus,
+.scenario-options input[type="radio"]:focus,
+.constraint-options input[type="radio"]:focus {
+  outline: 2px solid var(--focus-color);
+  outline-offset: 2px;
+}
+
+/* Selected state - maintain Ivey green */
+.quiz-choices input[type="radio"]:checked + span,
+.scenario-options input[type="radio"]:checked + span,
+.constraint-options input[type="radio"]:checked + span {
+  font-weight: 600;
+}
+
+.quiz-choices label:has(input[type="radio"]:checked),
+.scenario-options label:has(input[type="radio"]:checked),
+.constraint-options label:has(input[type="radio"]:checked) {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  font-weight: 600;
 }
 
 /* -------------------------------------------------
