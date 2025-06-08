@@ -89,7 +89,7 @@ Your response as {self.name}:"""
             response_text = response.choices[0].message.content.strip()
             
             # Clean up response - remove any quotes or attribution
-            response_text = re.sub(r'^["\']|["\']
+            response_text = re.sub(r'^["\']|["\']$', '', response_text)
 
     def _build_conversation_context(self, discussion_context):
         """Build rich conversation context from recent history"""
