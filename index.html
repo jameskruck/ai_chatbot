@@ -13,7 +13,7 @@
   <header class="hero fade-in" role="banner">
     <div>
       <h1 class="hero-title">AI Chatbot Strategy for Retail</h1>
-      <h2 class="hero-subtitle">Empower your customer service with AI – starting here</h2>
+      <h2 class="hero-subtitle">Turn customer service chaos into competitive advantage</h2>
       <nav class="navigation" aria-label="Course phases">
         <ul>
           <li><a href="index.html" aria-current="page" aria-describedby="current-phase">Prep Work <span class="sr-only" id="current-phase">(current phase)</span></a></li>
@@ -25,41 +25,62 @@
   </header>
 
   <main id="main-content">
-    <!-- How to Use This Page -->
-    <section id="page-introduction" class="fade-in-up">
-      <div class="card">
-        <h2>How to Use This Page</h2>
-        <p>This page prepares you for your collaborative case study and chatbot-building journey. Watch the introduction video or read the text alternative, review the learning outcome below, and confirm you're ready by using the checklist. Once you're ready, you'll move on to the interactive strategy session with your study group partners.</p>
+    <!-- Course Hook -->
+    <section id="course-hook" class="fade-in-up">
+      <div class="card hook-card">
+        <div class="stat-highlight">
+          <span class="big-stat">87%</span>
+          <p>of retail leaders say customer service inquiries are overwhelming their teams</p>
+        </div>
+        <div class="stat-highlight">
+          <span class="big-stat">23%</span>
+          <p>have actually implemented AI solutions</p>
+        </div>
+        <div class="hook-message">
+          <p><strong>Why the gap?</strong> Most leaders don't know where to start. In the next hour, you'll not only understand the strategy behind AI customer service, but build a working solution yourself.</p>
+        </div>
       </div>
     </section>
 
-    <!-- Welcome to the Course -->
+    <!-- Welcome Video/Content -->
     <section id="course-introduction" class="fade-in-up">
       <div class="intro-container card">
-        <h2>Welcome to the Course</h2>
-        <p>In this brief introduction, your instructor explains the unique approach of this course - how you'll work with virtual study group partners to analyze a real business case and build an actual AI solution. The same content covered in this video is also available in an expandable text section below.</p>
+        <h2>Your Learning Journey</h2>
+        <p>This isn't a traditional course. You'll collaborate with virtual MBA peers to solve a real retail crisis, then build the solution together.</p>
+        
         <div class="video-wrapper">
-          <video controls aria-label="Course introduction video explaining the learning journey and approach." poster="images/instructor-intro-thumbnail.jpg" preload="metadata">
-            <source src="video/instructor-introduction.mp4" type="video/mp4">
-            <track src="captions/instructor-intro.vtt" kind="subtitles" srclang="en" label="English" default>
-            Your browser does not support the video tag.
-          </video>
-          <div class="video-duration"><small>Duration: 3 minutes | Captions available | Click to play</small></div>
+          <iframe width="560" height="315" 
+                  src="https://www.youtube.com/embed/YVMrST8l7DY" 
+                  title="Course introduction: collaborative learning approach"
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  referrerpolicy="strict-origin-when-cross-origin" 
+                  allowfullscreen
+                  aria-label="Course introduction explaining collaborative approach">
+          </iframe>
+          <div class="video-duration"><small>Duration: 1 minute, 34 seconds</small></div>
         </div>
+        
         <details class="intro-text-alternative">
-          <summary class="text-toggle">📖 Read the introduction content instead</summary>
+          <summary class="text-toggle">📖 Read instead of watching</summary>
           <div class="expandable-content">
-            <h3>Course Overview</h3>
-            <p><strong>Welcome!</strong> This course takes a unique approach to learning AI chatbot strategy. Instead of traditional lectures, you'll work through a real business scenario using Ivey's case method.</p>
-            <p><strong>Your Virtual Study Group:</strong> You'll collaborate with three virtual MBA peers, each bringing different expertise:</p>
-            <ul>
-              <li><strong>Sarah Chen</strong> - Finance MBA from McKinsey</li>
-              <li><strong>Marcus Rodriguez</strong> - Retail operations veteran</li>
-              <li><strong>Priya Patel</strong> - Tech startup founder</li>
-            </ul>
-            <p><strong>What You'll Do:</strong> Analyze FashionForward's customer service crisis, evaluate strategic options, and build a chatbot solution.</p>
-            <p><strong>Why This Works:</strong> Collaboration across diverse expertise develops strategic thinking and real-world implementation skills.</p>
-            <p>Ready to join your study group? Let's begin!</p>
+            <h3>Your Virtual Study Group</h3>
+            <p>You'll work with three MBA peers, each bringing real industry experience:</p>
+            <div class="peer-preview">
+              <div class="peer-card">
+                <strong>💼 Sarah Chen</strong>
+                <p>Finance MBA, Ex-McKinsey. Asks the tough ROI questions.</p>
+              </div>
+              <div class="peer-card">
+                <strong>🎯 Marcus Rodriguez</strong>
+                <p>15 years in retail operations. Knows what actually works.</p>
+              </div>
+              <div class="peer-card">
+                <strong>🚀 Priya Patel</strong>
+                <p>Tech startup founder. Pushes for practical implementation.</p>
+              </div>
+            </div>
+            <p><strong>Why this approach works:</strong> Real strategic thinking happens through collaboration across different expertise areas. You'll experience authentic peer learning and build implementation skills.</p>
           </div>
         </details>
       </div>
@@ -67,50 +88,225 @@
 
     <!-- Learning Outcome -->
     <section id="learning-outcome" class="fade-in-up">
-      <div class="card">
-        <h2>Learning Outcome</h2>
-        <p><strong>By the end of this course, you will be able to build a functional FAQ chatbot prototype using AI tools, grounded in customer service best practices and strategic analysis.</strong></p>
-      </div>
-    </section>
-
-    <!-- Confidence Check -->
-    <section id="confidence-check" class="fade-in-up">
-      <div class="card">
-        <h2>Confidence Check</h2>
-        <label for="confidence-rating"><strong>How confident are you in building an AI chatbot today?</strong></label>
-        <select id="confidence-rating" style="margin-top:0.5rem;">
-          <option value="">Select your confidence level</option>
-          <option value="1">1 – I have no idea where to start and feel very unsure</option>
-          <option value="2">2 – I have heard of AI chatbots but don’t feel ready to build one</option>
-          <option value="3">3 – I’m somewhat confident but have lots of questions</option>
-          <option value="4">4 – I feel fairly confident and just need a little guidance</option>
-          <option value="5">5 – I’m very confident and excited to start building!</option>
-        </select>
-        <div id="confidence-feedback" style="margin-top:1rem; font-style: italic; color: #333;"></div>
-      </div>
-    </section>
-
-    <!-- Other sections remain unchanged (case study, chatbot building, checklist, etc.) -->
-    <!-- Example of the Ready Check -->
-    <section id="prep-check" class="fade-in-up">
-      <h2>Ready Check</h2>
-      <div class="card">
-        <h3>Before Moving to Phase 2</h3>
-        <p>Make sure you understand and can apply these key ideas:</p>
-        <div class="checklist">
-          <label><input type="checkbox" id="framework-check"><span>✓ I understand the customer service strategy framework and how to apply it.</span></label>
-          <label><input type="checkbox" id="case-check"><span>✓ I can explain Jessica's situation and the strategic options.</span></label>
-          <label><input type="checkbox" id="ready-check"><span>✓ I'm ready to build a chatbot that addresses these challenges.</span></label>
+      <div class="card outcome-card">
+        <h2>🎯 What You'll Accomplish</h2>
+        <div class="outcome-statement">
+          <p><strong>By the end of this course, you will be able to create a basic AI chatbot prototype using Chatbase.</strong></p>
         </div>
-        <p><em>Once all items are checked, the “Proceed” button will unlock and take you to the next phase: collaborating with your virtual peers.</em></p>
-        <button id="proceed-button" class="btn-primary" disabled>🚀 Proceed to Strategy Session</button>
+        <div class="outcome-breakdown">
+          <h3>You'll Master:</h3>
+          <div class="skill-grid">
+            <div class="skill-item">
+              <span class="skill-icon">🤝</span>
+              <p>Strategic analysis through peer collaboration</p>
+            </div>
+            <div class="skill-item">
+              <span class="skill-icon">🔍</span>
+              <p>Customer service problem diagnosis</p>
+            </div>
+            <div class="skill-item">
+              <span class="skill-icon">⚖️</span>
+              <p>Business option evaluation</p>
+            </div>
+            <div class="skill-item">
+              <span class="skill-icon">🛠️</span>
+              <p>AI chatbot implementation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Course Roadmap -->
+    <section id="course-roadmap" class="fade-in-up">
+      <div class="card">
+        <h2>📍 Your Learning Roadmap</h2>
+        <p>This course map shows exactly how you'll progress from business challenge to working solution. Each phase builds strategically toward your final outcome.</p>
+        
+        <div class="course-map-container">
+          <img src="images/Course Map.png" 
+               alt="Course map showing three phases of learning progression. Phase 1 Prep Work (15 minutes): Analyze FashionForward's customer service crisis and understand strategic options to learn business context and framework for chatbot decisions. Phase 2 Study Group Session (30 minutes): Collaborate with virtual MBA peers to evaluate solutions, then build chatbot prototype using Chatbase to make strategic decisions through peer expertise and implement technical solution. Phase 3 Implementation and Reflection (15 minutes): Reflect on collaborative learning and plan application to own business context to ensure chatbot knowledge transfers to real-world application. Final outcome: Working chatbot prototype ready for business use."
+               class="course-map-image" />
+        </div>
+        
+        <p class="map-caption"><em>Each phase systematically builds your expertise from strategic analysis to hands-on implementation.</em></p>
+      </div>
+    </section>
+
+    <!-- The Challenge Preview -->
+    <section id="challenge-preview" class="fade-in-up">
+      <div class="card challenge-card">
+        <h2>🏬 The Challenge: FashionForward's Crisis</h2>
+        <div class="crisis-overview">
+          <div class="problem-statement">
+            <p><strong>The Situation:</strong> Jessica Martinez, CEO of FashionForward, has a problem. Her customer service team is drowning in repetitive emails about sizing, returns, and shipping. Response times are climbing, satisfaction is falling, and her team is burning out.</p>
+          </div>
+          
+          <div class="options-teaser">
+            <h3>Jessica's Options</h3>
+            <div class="option-preview">
+              <div class="option-quick">
+                <span class="option-cost">$87K</span>
+                <span class="option-name">AI Chatbot</span>
+              </div>
+              <div class="option-quick">
+                <span class="option-cost">$256K</span>
+                <span class="option-name">Hire More Staff</span>
+              </div>
+              <div class="option-quick">
+                <span class="option-cost">$383K</span>
+                <span class="option-name">Outsource</span>
+              </div>
+            </div>
+            <p class="decision-hook"><strong>Which would you choose?</strong> Your study group will analyze each option, then build the solution.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Readiness Assessment -->
+    <section id="readiness-assessment" class="fade-in-up">
+      <div class="card assessment-card">
+        <h2>✅ Readiness Check</h2>
+        <p>Quick scenario to gauge your starting point:</p>
+        
+        <div class="scenario-question">
+          <div class="scenario-text">
+            <p><strong>Scenario:</strong> A frustrated customer emails: <em>"I ordered a shirt 3 days ago and haven't heard anything. This is terrible service!"</em></p>
+            <p><strong>Your immediate response would be:</strong></p>
+          </div>
+          
+          <div class="scenario-options">
+            <label class="scenario-option">
+              <input type="radio" name="scenario" value="A">
+              <span class="option-letter">A</span>
+              <span class="option-text">Apologize and explain normal processing times</span>
+            </label>
+            
+            <label class="scenario-option">
+              <input type="radio" name="scenario" value="B">
+              <span class="option-letter">B</span>
+              <span class="option-text">Immediately offer a full refund</span>
+            </label>
+            
+            <label class="scenario-option">
+              <input type="radio" name="scenario" value="C">
+              <span class="option-letter">C</span>
+              <span class="option-text">Transfer directly to human support</span>
+            </label>
+            
+            <label class="scenario-option">
+              <input type="radio" name="scenario" value="D">
+              <span class="option-letter">D</span>
+              <span class="option-text">Ask for order details to investigate</span>
+            </label>
+          </div>
+          
+          <button id="submit-scenario" class="btn-secondary">Submit Response</button>
+          <div id="scenario-feedback" class="scenario-feedback hidden"></div>
+        </div>
+        
+        <div class="confidence-check">
+          <label for="confidence-rating"><strong>How confident are you about building an AI chatbot today?</strong></label>
+          <select id="confidence-rating">
+            <option value="">Select your confidence level</option>
+            <option value="1">1 – No idea where to start</option>
+            <option value="2">2 – Heard of chatbots, not ready to build</option>
+            <option value="3">3 – Somewhat confident, have questions</option>
+            <option value="4">4 – Fairly confident, need guidance</option>
+            <option value="5">5 – Very confident and excited!</option>
+          </select>
+          <div id="confidence-feedback"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strategy Framework (Simplified) -->
+    <section id="strategy-preview" class="fade-in-up">
+      <div class="card framework-card">
+        <h2>🎯 Your Strategic Approach</h2>
+        <p>You'll use this framework with your study group to analyze FashionForward's situation:</p>
+        
+        <div class="framework-simple">
+          <div class="framework-flow">
+            <div class="framework-step-simple">
+              <span class="step-number">1</span>
+              <span class="step-name">Assess Current State</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="framework-step-simple">
+              <span class="step-number">2</span>
+              <span class="step-name">Define Success</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="framework-step-simple">
+              <span class="step-number">3</span>
+              <span class="step-name">Evaluate Options</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="framework-step-simple">
+              <span class="step-number">4</span>
+              <span class="step-name">Implement & Measure</span>
+            </div>
+          </div>
+        </div>
+        
+        <details class="framework-details">
+          <summary>📋 See detailed framework breakdown</summary>
+          <div class="expandable-content">
+            <div class="framework-detailed">
+              <div class="framework-step-detailed">
+                <h4>1. Assess Current State</h4>
+                <p>Analyze customer pain points, team capacity, and service quality metrics</p>
+              </div>
+              <div class="framework-step-detailed">
+                <h4>2. Define Success Criteria</h4>
+                <p>Establish measurable goals for response time, customer satisfaction, and cost efficiency</p>
+              </div>
+              <div class="framework-step-detailed">
+                <h4>3. Evaluate Options</h4>
+                <p>Compare solutions across cost, effectiveness, scalability, and brand alignment</p>
+              </div>
+              <div class="framework-step-detailed">
+                <h4>4. Implement & Measure</h4>
+                <p>Execute with proper change management and continuous improvement feedback loops</p>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Final Ready Check -->
+    <section id="final-check" class="fade-in-up">
+      <div class="card ready-card">
+        <h2>🚀 Ready to Begin?</h2>
+        <div class="readiness-indicator">
+          <div class="readiness-items">
+            <div class="readiness-item" id="scenario-status">
+              <span class="status-icon">⏳</span>
+              <span class="status-text">Complete the scenario above</span>
+            </div>
+            <div class="readiness-item" id="confidence-status">
+              <span class="status-icon">⏳</span>
+              <span class="status-text">Rate your confidence level</span>
+            </div>
+          </div>
+          
+          <div class="proceed-section">
+            <p class="proceed-message"><strong>Once you're ready:</strong> Join your virtual study group to tackle Jessica's challenge and build your chatbot solution.</p>
+            <button id="proceed-button" class="btn-primary proceed-btn" disabled>
+              🎓 Join Your Study Group
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Navigation Buttons -->
     <div class="navigation-buttons">
       <span></span>
-      <a href="strategy-session.html" class="btn-primary">Next: Strategy Session →</a>
+      <span class="nav-instruction"><em>Complete the readiness check above to proceed</em></span>
     </div>
   </main>
 
@@ -118,47 +314,500 @@
     <p>&copy; 2025 James Kruck</p>
   </footer>
 
-  <!-- JavaScript for Checklist and Confidence Feedback -->
   <script>
-    // Checklist readiness
-    const checkboxes = document.querySelectorAll('.checklist input[type="checkbox"]');
-    const proceedButton = document.getElementById('proceed-button');
-    checkboxes.forEach(checkbox => { checkbox.addEventListener('change', updateProceedButton); });
-    function updateProceedButton() {
-      const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
-      proceedButton.disabled = !allChecked;
-      if (allChecked) {
+    // Scenario Assessment
+    let scenarioCompleted = false;
+    let confidenceRated = false;
+
+    document.getElementById('submit-scenario').addEventListener('click', () => {
+      const selected = document.querySelector('input[name="scenario"]:checked');
+      const feedback = document.getElementById('scenario-feedback');
+      
+      if (!selected) {
+        alert('Please select a response before submitting.');
+        return;
+      }
+      
+      scenarioCompleted = true;
+      feedback.classList.remove('hidden');
+      
+      let message = '';
+      let insights = '';
+      
+      switch (selected.value) {
+        case 'A':
+          message = "Good instinct! Setting expectations is important.";
+          insights = "This shows you understand customer communication basics. Your study group will help you think about proactive vs. reactive strategies.";
+          break;
+        case 'B':
+          message = "Bold approach! Shows customer-first thinking.";
+          insights = "This reveals a strong customer advocacy mindset. You'll explore when this approach makes financial sense with your study group.";
+          break;
+        case 'C':
+          message = "Safe choice! Human escalation is always an option.";
+          insights = "This shows you value human expertise. You'll learn when to automate vs. escalate as you analyze the FashionForward case.";
+          break;
+        case 'D':
+          message = "Smart! Information gathering before action.";
+          insights = "This shows analytical thinking. Perfect foundation for the systematic approach you'll use with your study group.";
+          break;
+      }
+      
+      feedback.innerHTML = `
+        <div class="feedback-message">
+          <p><strong>${message}</strong></p>
+          <p class="feedback-insight">${insights}</p>
+        </div>
+      `;
+      
+      updateReadinessStatus();
+    });
+
+    // Confidence Rating
+    document.getElementById('confidence-rating').addEventListener('change', (e) => {
+      confidenceRated = true;
+      const value = e.target.value;
+      const feedback = document.getElementById('confidence-feedback');
+      
+      let message = '';
+      switch (value) {
+        case '1':
+          message = "Perfect starting point! Your study group will guide you through each step.";
+          break;
+        case '2':
+          message = "Great foundation! You'll build confidence through hands-on collaboration.";
+          break;
+        case '3':
+          message = "Good position to learn! Your questions will drive rich group discussions.";
+          break;
+        case '4':
+          message = "Excellent! You'll refine your skills and learn advanced implementation.";
+          break;
+        case '5':
+          message = "Fantastic! Your enthusiasm will energize the group collaboration.";
+          break;
+      }
+      
+      feedback.innerHTML = `<div class="confidence-message">${message}</div>`;
+      feedback.style.opacity = '0';
+      setTimeout(() => feedback.style.opacity = '1', 100);
+      
+      updateReadinessStatus();
+    });
+
+    // Update Readiness Status
+    function updateReadinessStatus() {
+      const scenarioStatus = document.getElementById('scenario-status');
+      const confidenceStatus = document.getElementById('confidence-status');
+      const proceedButton = document.getElementById('proceed-button');
+      
+      if (scenarioCompleted) {
+        scenarioStatus.innerHTML = '<span class="status-icon">✅</span><span class="status-text">Scenario completed</span>';
+      }
+      
+      if (confidenceRated) {
+        confidenceStatus.innerHTML = '<span class="status-icon">✅</span><span class="status-text">Confidence rated</span>';
+      }
+      
+      if (scenarioCompleted && confidenceRated) {
+        proceedButton.disabled = false;
+        proceedButton.classList.add('ready');
         proceedButton.onclick = () => window.location.href = 'strategy-session.html';
       }
     }
 
-    // Confidence feedback
-    const confidenceSelect = document.getElementById('confidence-rating');
-    const feedbackBox = document.getElementById('confidence-feedback');
-    confidenceSelect.addEventListener('change', () => {
-      const value = confidenceSelect.value;
-      let feedback = '';
-      switch (value) {
-        case '1':
-          feedback = "Don't worry! We'll start from the basics and walk you through step by step.";
-          break;
-        case '2':
-          feedback = "Great! This course will help you gain confidence and practical skills.";
-          break;
-        case '3':
-          feedback = "You're in the perfect place – we'll address your questions and guide you along the way!";
-          break;
-        case '4':
-          feedback = "Awesome! We'll build on your confidence and ensure you're ready.";
-          break;
-        case '5':
-          feedback = "Love the enthusiasm! Let’s harness that excitement and build something amazing.";
-          break;
-        default:
-          feedback = '';
-      }
-      feedbackBox.textContent = feedback;
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
     });
   </script>
+
+  <style>
+    /* Hook Section */
+    .hook-card {
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+      border-left: 4px solid var(--primary-color);
+      display: grid;
+      grid-template-columns: 1fr 1fr 2fr;
+      gap: 20px;
+      align-items: center;
+      padding: 30px;
+    }
+
+    .stat-highlight {
+      text-align: center;
+    }
+
+    .big-stat {
+      display: block;
+      font-size: 3rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      line-height: 1;
+    }
+
+    .stat-highlight p {
+      margin: 10px 0 0 0;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .hook-message {
+      padding-left: 20px;
+      border-left: 2px solid var(--secondary-color);
+    }
+
+    /* Peer Preview Cards */
+    .peer-preview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .peer-card {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 3px solid var(--secondary-color);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .peer-card strong {
+      color: var(--primary-color);
+      font-size: 1.1rem;
+    }
+
+    /* Outcome Card */
+    .outcome-card {
+      background: linear-gradient(135deg, #f0f7f0, #e8f5e8);
+      border: 1px solid var(--primary-color);
+    }
+
+    .outcome-statement {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 15px 0;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      background: white;
+      border-radius: 6px;
+    }
+
+    .skill-icon {
+      font-size: 1.5rem;
+    }
+
+    /* Challenge Preview */
+    .challenge-card {
+      background: linear-gradient(135deg, #f7f9f7, #f0f7f0);
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .options-teaser {
+      margin: 20px 0;
+    }
+
+    .option-preview {
+      display: flex;
+      justify-content: space-around;
+      margin: 15px 0;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .option-quick {
+      background: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      min-width: 100px;
+    }
+
+    .option-cost {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    .option-name {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .decision-hook {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-top: 20px;
+      padding: 15px;
+      background: white;
+      border-radius: 8px;
+    }
+
+    /* Scenario Assessment */
+    .assessment-card {
+      background: linear-gradient(135deg, #f0f7f0, #e8f5e8);
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .scenario-question {
+      margin: 20px 0;
+    }
+
+    .scenario-text {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .scenario-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    .scenario-option {
+      display: flex;
+      align-items: center;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .scenario-option:hover {
+      background: #f59e0b;
+      color: white;
+      border-color: #f59e0b;
+    }
+
+    .scenario-option input {
+      margin: 0;
+      margin-right: 15px;
+    }
+
+    .option-letter {
+      font-weight: bold;
+      margin-right: 10px;
+      min-width: 20px;
+    }
+
+    .scenario-feedback {
+      margin: 20px 0;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      border-left: 4px solid #22c55e;
+    }
+
+    .feedback-message strong {
+      color: var(--primary-color);
+    }
+
+    .feedback-insight {
+      margin-top: 10px;
+      font-style: italic;
+      color: #666;
+    }
+
+    .confidence-check {
+      margin: 30px 0 0 0;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+    }
+
+    .confidence-check select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .confidence-message {
+      margin-top: 10px;
+      padding: 10px;
+      background: #f0f7f0;
+      border-radius: 4px;
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+
+    /* Framework Preview */
+    .framework-simple {
+      margin: 20px 0;
+    }
+
+    .framework-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .framework-step-simple {
+      background: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      min-width: 140px;
+    }
+
+    .framework-step-simple .step-number {
+      display: block;
+      background: var(--secondary-color);
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin: 0 auto 10px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .step-name {
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    .arrow {
+      color: var(--secondary-color);
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .framework-detailed {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .framework-step-detailed {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid var(--secondary-color);
+    }
+
+    .framework-step-detailed h4 {
+      margin: 0 0 10px 0;
+      color: var(--primary-color);
+    }
+
+    /* Ready Check */
+    .ready-card {
+      background: linear-gradient(135deg, #f0f7f0, #e8f5e8);
+      border-left: 4px solid var(--primary-color);
+    }
+
+    .readiness-items {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .readiness-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px;
+      background: white;
+      border-radius: 8px;
+    }
+
+    .status-icon {
+      font-size: 1.2rem;
+    }
+
+    .proceed-section {
+      text-align: center;
+      margin-top: 25px;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+    }
+
+    .proceed-btn.ready {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      animation: readyPulse 2s infinite;
+    }
+
+    @keyframes readyPulse {
+      0% { box-shadow: 0 0 0 0 rgba(0, 86, 52, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(0, 86, 52, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 86, 52, 0); }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .hook-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hook-message {
+        padding-left: 0;
+        border-left: none;
+        border-top: 2px solid var(--secondary-color);
+        padding-top: 20px;
+      }
+
+      .option-preview {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .framework-flow {
+        flex-direction: column;
+      }
+
+      .arrow {
+        transform: rotate(90deg);
+      }
+
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Hidden class */
+    .hidden {
+      display: none;
+    }
+  </style>
 </body>
 </html>
