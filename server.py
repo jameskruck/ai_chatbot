@@ -44,6 +44,7 @@ class VirtualPeer:
         conversation_context = self._build_conversation_context(discussion_context)
         response_type = self._analyze_user_input(user_message)
 
+        # 🚀 Everything in triple quotes, no code outside
         peer_prompt = f"""You are {self.name} in an MBA study group discussing the FashionForward customer service case.
 
 CASE CONTEXT: Jessica Martinez (CEO) must choose between:
@@ -79,10 +80,43 @@ GOOD RESPONSE EXAMPLES:
 
 Your response as {self.name}:"""
 
-        # (Existing OpenAI API call logic follows...)
+        try:
+            response = client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": peer_prompt}],
+                temperature=0.7,
+                max_tokens=100,
+                presence_penalty=0.8,
+                frequency_penalty=0.5
+            )
+
+            response_text = response.choices[0].message.content.strip()
+
+            # Simple cleanup - remove quotes and name attribution
+            if response_text.startswith('"') and response_text.endswith('"'):
+                response_text = response_text[1:-1]
+            if response_text.startswith("'") and response_text.endswith("'"):
+                response_text = response_text[1:-1]
+
+            # Remove name attribution if present
+            name_pattern = self.name + ":"
+            if response_text.startswith(name_pattern):
+                response_text = response_text[len(name_pattern):].strip()
+
+            self.response_count += 1
+            return response_text
+
+        except Exception as e:
+            print(f"Error generating response for {self.name}: {str(e)}")
+            # Contextual fallback responses that respond to the human
+            fallbacks = {
+                "sarah_chen": "Let me think about that from a financial perspective...",
+                "marcus_rodriguez": "That's interesting - from a customer experience standpoint...",
+                "priya_patel": "Good question! In my startup experience..."
+            }
+            return fallbacks.get(self.peer_id, "That's a great point - let me consider that.")
 
     def _is_meaningless_input(self, user_message):
-        """Detect if the user's input is too short, vague, or uninformative."""
         vague_phrases = ["ok", "okay", "sure", "yup", "yeah", "yes", "hmm", "alright", "fine", "cool", "uh huh", "k", "got it"]
         nonsense_patterns = ["blah", "blah blah", "...", "???", "idk", "huh", "nonsense"]
 
@@ -98,74 +132,33 @@ Your response as {self.name}:"""
         return False
 
     def _is_direct_invitation(self, user_message):
-        """Detect if the user is prompting the peer to share insights"""
         invitation_phrases = ["please share", "can you share", "tell me more", "could you explain", "your thoughts", "what’s your take", "what’s your perspective", "can you tell me more"]
         input_lower = user_message.lower().strip()
         return any(phrase in input_lower for phrase in invitation_phrases)
 
-def _generate_clarifying_question(self):
-    """Generate a polite clarifying question, tailored to the peer's personality"""
-    if self.peer_id == "marcus_rodriguez":
-        clarifying_questions = [
-            "Could you give me a bit more context there?",
-            "Hmm, I'm not quite sure what you mean. Can you clarify that a bit?"
-        ]
-    elif self.peer_id == "sarah_chen":
-        clarifying_questions = [
-            "Could you clarify that so we’re on the same page financially?",
-            "That’s an interesting point—can you expand on it a bit more for us?"
-        ]
-    elif self.peer_id == "priya_patel":
-        clarifying_questions = [
-            "Interesting! Can you tell me more about what you meant?",
-            "Oh, could you dive a bit deeper into that idea? I’m curious!"
-        ]
-    else:
-        # Default fallback clarifying questions
-        clarifying_questions = [
-            "I'm not sure I understand - could you clarify what you meant?",
-            "Could you expand on that a bit? What exactly are you thinking about?"
-        ]
-    
-    return random.choice(clarifying_questions)
+    def _generate_clarifying_question(self):
+        if self.peer_id == "marcus_rodriguez":
+            clarifying_questions = [
+                "Could you give me a bit more context there?",
+                "Hmm, I'm not quite sure what you mean. Can you clarify that a bit?"
+            ]
+        elif self.peer_id == "sarah_chen":
+            clarifying_questions = [
+                "Could you clarify that so we’re on the same page financially?",
+                "That’s an interesting point—can you expand on it a bit more for us?"
+            ]
+        elif self.peer_id == "priya_patel":
+            clarifying_questions = [
+                "Interesting! Can you tell me more about what you meant?",
+                "Oh, could you dive a bit deeper into that idea? I’m curious!"
+            ]
+        else:
+            clarifying_questions = [
+                "I'm not sure I understand - could you clarify what you meant?",
+                "Could you expand on that a bit? What exactly are you thinking about?"
+            ]
 
-    # (The rest of your methods here...)
-
-
-
-CASE CONTEXT: Jessica Martinez (CEO) must choose between:
-1. AI Chatbot: $87K over 2 years, automates 65% of customer inquiries
-2. Team Expansion: $256K over 2 years, maintains human touch
-3. Outsourcing: $383K over 2 years, professional but expensive
-
-YOUR IDENTITY:
-- Background: {self.background}
-- Personality: {self.personality} 
-- Speaking Style: {self.speaking_style}
-- Expertise: {self.expertise}
-
-RECENT CONVERSATION:
-{conversation_context}
-
-HUMAN'S INPUT: "{user_message}"
-RESPONSE TYPE NEEDED: {response_type}
-
-CRITICAL INSTRUCTIONS:
-1. RESPOND DIRECTLY TO THE HUMAN - they just spoke to the group
-2. {self._get_response_guidance(response_type, user_message)}
-3. Sound like a real MBA student, not a consultant
-4. Keep it conversational and natural (1-2 sentences max)
-5. Show your {self.personality} perspective
-6. {'You were directly addressed by name' if is_directly_addressed else 'Respond as part of group discussion'}
-
-GOOD RESPONSE EXAMPLES:
-- "Yeah, good point! From my experience at [company], I'd also add..."
-- "Hmm, I actually see it differently. What if we considered..."
-- "That's exactly what I was thinking! And here's another angle..."
-- "Wait, are we sure about that assumption? In my startup we found..."
-
-Your response as {self.name}:"""
-
+        return random.choice(clarifying_questions)
         try:
             response = client.chat.completions.create(
                 model="gpt-3.5-turbo",
