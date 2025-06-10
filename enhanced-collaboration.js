@@ -9,6 +9,7 @@ class StudyGroupSession {
         this.messageCount = 0;
         this.serverUrl = 'https://ai-chatbot-oise.onrender.com'; // Your Render deployment
         this.isReadyForImplementation = false;
+        this.hasAskedReadiness = false; // 🟩 NEW FLAG ADDED
         
         this.init();
     }
@@ -125,6 +126,19 @@ class StudyGroupSession {
         // Clear input
         userInput.value = '';
         this.messageCount++;
+        
+        // 🟩 NEW: Check if user's message indicates readiness after Sarah's prompt
+        if (this.hasAskedReadiness && !this.isReadyForImplementation) {
+            const messageLower = message.toLowerCase();
+            const readinessPhrases = [
+                'yes', 'ready', 'let\'s build', 'move to implementation', 
+                'let\'s implement', 'start building', 'i\'m ready'
+            ];
+            if (readinessPhrases.some(phrase => messageLower.includes(phrase))) {
+                this.isReadyForImplementation = true;
+                this.showReadyButton();
+            }
+        }
         
         // Check if user is indicating readiness for implementation
         this.checkImplementationReadiness(message);
@@ -453,12 +467,19 @@ class StudyGroupSession {
         }
     }
     
+    // 🟩 UPDATED: Modified checkForReadyButton method
     checkForReadyButton() {
-        console.log('Checking for ready button. Message count:', this.messageCount, 'Ready for implementation:', this.isReadyForImplementation);
+        console.log('Checking for readiness prompt. Message count:', this.messageCount, 'Ready for implementation:', this.isReadyForImplementation);
         
-        // Show ready button after 5 messages if not already shown
-        if (this.messageCount >= 5 && !this.isReadyForImplementation && !document.getElementById('ready-to-build-btn')) {
-            this.showReadyButton();
+        if (this.messageCount >= 8 && !this.isReadyForImplementation && !this.hasAskedReadiness) {
+            this.hasAskedReadiness = true;
+            // Let Sarah nudge the group
+            this.displayMessage({
+                speaker: 'Sarah Chen',
+                peer_id: 'sarah_chen',
+                message: "We've had a great discussion! Do you all feel ready to move on to implementation?",
+                timestamp: new Date().toISOString()
+            }, 'peer');
         }
     }
     
@@ -777,8 +798,8 @@ document.addEventListener('DOMContentLoaded', () => {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = StudyGroupSession;
 }
-// Add this function to your enhanced-collaboration.js file
 
+// Clipboard functionality
 function copyToClipboard(button) {
     const textToCopy = button.getAttribute('data-copy');
     
@@ -831,64 +852,72 @@ function showCopySuccess(button) {
         button.classList.remove('copied');
     }, 2000);
 }
-// Enhanced feedback for application ability
-document.querySelectorAll('input[name="application-ability"]').forEach(radio => {
-  radio.addEventListener('change', function() {
-    const feedbackDiv = document.getElementById('application-feedback');
-    let message = '';
-    let className = '';
-    
-    switch (this.value) {
-      case 'not-able':
-        message = "🔄 That's honest feedback. Consider revisiting the hands-on sections or reaching out for additional support. Learning complex topics often requires multiple exposures.";
-        className = 'concerning';
-        break;
-      case 'understand-need-support':
-        message = "💪 Good self-awareness! Understanding concepts is the first step. Consider practicing with a colleague or seeking mentorship to build your application skills.";
-        className = 'needs-improvement';
-        break;
-      case 'some-confidence':
-        message = "✅ Great progress! You have a solid foundation. The best way to build more confidence is through practice and real-world application.";
-        className = 'good';
-        break;
-      case 'confident-use':
-        message = "🎉 Excellent! You're ready to implement what you've learned. Consider sharing your knowledge with others to reinforce your learning.";
-        className = 'excellent';
-        break;
-    }
-    
-    feedbackDiv.textContent = message;
-    feedbackDiv.className = `feedback-message ${className} show`;
-  });
-});
 
-// Enhanced feedback for retention likelihood
-document.querySelectorAll('input[name="retention-likelihood"]').forEach(radio => {
-  radio.addEventListener('change', function() {
-    const feedbackDiv = document.getElementById('retention-feedback');
-    let message = '';
-    let className = '';
-    
-    switch (this.value) {
-      case 'forget-most':
-        message = "📚 Consider creating a personal summary or action plan to help retain key concepts. Spaced repetition and practical application are key to long-term retention.";
-        className = 'concerning';
-        break;
-      case 'general-ideas':
-        message = "🧠 That's very normal! Most people benefit from refreshers. Consider bookmarking key resources or setting up periodic review reminders.";
-        className = 'needs-improvement';
-        break;
-      case 'key-concepts':
-        message = "💡 Strong retention! You've internalized the core concepts. Try explaining them to someone else to further solidify your understanding.";
-        className = 'good';
-        break;
-      case 'confident-apply':
-        message = "🌟 Outstanding! Your confidence in retention suggests excellent learning integration. You're well-positioned to be a knowledge leader in this area.";
-        className = 'excellent';
-        break;
-    }
-    
-    feedbackDiv.textContent = message;
-    feedbackDiv.className = `feedback-message ${className} show`;
-  });
+// Enhanced feedback for application ability
+document.addEventListener('DOMContentLoaded', () => {
+    // Enhanced feedback for application ability
+    document.querySelectorAll('input[name="application-ability"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            const feedbackDiv = document.getElementById('application-feedback');
+            if (!feedbackDiv) return;
+            
+            let message = '';
+            let className = '';
+            
+            switch (this.value) {
+                case 'not-able':
+                    message = "🔄 That's honest feedback. Consider revisiting the hands-on sections or reaching out for additional support. Learning complex topics often requires multiple exposures.";
+                    className = 'concerning';
+                    break;
+                case 'understand-need-support':
+                    message = "💪 Good self-awareness! Understanding concepts is the first step. Consider practicing with a colleague or seeking mentorship to build your application skills.";
+                    className = 'needs-improvement';
+                    break;
+                case 'some-confidence':
+                    message = "✅ Great progress! You have a solid foundation. The best way to build more confidence is through practice and real-world application.";
+                    className = 'good';
+                    break;
+                case 'confident-use':
+                    message = "🎉 Excellent! You're ready to implement what you've learned. Consider sharing your knowledge with others to reinforce your learning.";
+                    className = 'excellent';
+                    break;
+            }
+            
+            feedbackDiv.textContent = message;
+            feedbackDiv.className = `feedback-message ${className} show`;
+        });
+    });
+
+    // Enhanced feedback for retention likelihood
+    document.querySelectorAll('input[name="retention-likelihood"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            const feedbackDiv = document.getElementById('retention-feedback');
+            if (!feedbackDiv) return;
+            
+            let message = '';
+            let className = '';
+            
+            switch (this.value) {
+                case 'forget-most':
+                    message = "📚 Consider creating a personal summary or action plan to help retain key concepts. Spaced repetition and practical application are key to long-term retention.";
+                    className = 'concerning';
+                    break;
+                case 'general-ideas':
+                    message = "🧠 That's very normal! Most people benefit from refreshers. Consider bookmarking key resources or setting up periodic review reminders.";
+                    className = 'needs-improvement';
+                    break;
+                case 'key-concepts':
+                    message = "💡 Strong retention! You've internalized the core concepts. Try explaining them to someone else to further solidify your understanding.";
+                    className = 'good';
+                    break;
+                case 'confident-apply':
+                    message = "🌟 Outstanding! Your confidence in retention suggests excellent learning integration. You're well-positioned to be a knowledge leader in this area.";
+                    className = 'excellent';
+                    break;
+            }
+            
+            feedbackDiv.textContent = message;
+            feedbackDiv.className = `feedback-message ${className} show`;
+        });
+    });
 });

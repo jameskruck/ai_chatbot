@@ -208,6 +208,29 @@ form button:focus {
   outline: 3px solid var(--focus-color);
   outline-offset: 3px;
 }
+/* Navigation styles for non-interactive nav items */
+.navigation .nav-item {
+  display: inline-block;
+  color: #e5e7eb;
+  font-weight: 600;
+  text-decoration: underline;
+  padding: 12px 20px;
+  border-radius: 6px;
+  transition: none; /* No transition for non-interactive */
+  border: 2px solid transparent;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  cursor: default; /* Not clickable */
+}
+
+.navigation .nav-item.current-page {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.4);
+  font-weight: 700;
+}
+
 
 /* -------------------------------------------------
    6) IMPROVED MAIN LAYOUT

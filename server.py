@@ -28,16 +28,110 @@ class VirtualPeer:
         self.expertise = expertise
         self.conversation_history = []
         self.response_count = 0
-    
+
     def generate_response(self, user_message, discussion_context, active_peers, is_directly_addressed=False):
         """Generate response with human-first priority and better conversation flow"""
-        
-        # Always prioritize responding to the human's input
+
+        # Check for meaningless or very short input first
+        if self._is_meaningless_input(user_message):
+            return self._generate_clarifying_question()
+
+        # Check if user is inviting the peer to share thoughts
+        if self._is_direct_invitation(user_message):
+            return "Sure, let me expand on that from my perspective!"
+
+        # Build conversation context and response prompt
         conversation_context = self._build_conversation_context(discussion_context)
         response_type = self._analyze_user_input(user_message)
-        
-        # Create a prompt that responds directly to the human
+
         peer_prompt = f"""You are {self.name} in an MBA study group discussing the FashionForward customer service case.
+
+CASE CONTEXT: Jessica Martinez (CEO) must choose between:
+1. AI Chatbot: $87K over 2 years, automates 65% of customer inquiries
+2. Team Expansion: $256K over 2 years, maintains human touch
+3. Outsourcing: $383K over 2 years, professional but expensive
+
+YOUR IDENTITY:
+- Background: {self.background}
+- Personality: {self.personality}
+- Speaking Style: {self.speaking_style}
+- Expertise: {self.expertise}
+
+RECENT CONVERSATION:
+{conversation_context}
+
+HUMAN'S INPUT: "{user_message}"
+RESPONSE TYPE NEEDED: {response_type}
+
+CRITICAL INSTRUCTIONS:
+1. RESPOND DIRECTLY TO THE HUMAN - they just spoke to the group
+2. {self._get_response_guidance(response_type, user_message)}
+3. Sound like a real MBA student, not a consultant
+4. Keep it conversational and natural (1-2 sentences max)
+5. Show your {self.personality} perspective
+6. {'You were directly addressed by name' if is_directly_addressed else 'Respond as part of group discussion'}
+
+GOOD RESPONSE EXAMPLES:
+- "Yeah, good point! From my experience at a major fashion brand, I'd also add..."
+- "Hmm, I actually see it differently. What if we considered..."
+- "That's exactly what I was thinking! And here's another angle..."
+- "Wait, are we sure about that assumption? In my startup we found..."
+
+Your response as {self.name}:"""
+
+        # (Existing OpenAI API call logic follows...)
+
+    def _is_meaningless_input(self, user_message):
+        """Detect if the user's input is too short, vague, or uninformative."""
+        vague_phrases = ["ok", "okay", "sure", "yup", "yeah", "yes", "hmm", "alright", "fine", "cool", "uh huh", "k", "got it"]
+        nonsense_patterns = ["blah", "blah blah", "...", "???", "idk", "huh", "nonsense"]
+
+        input_lower = user_message.lower().strip()
+
+        if input_lower in vague_phrases:
+            return True
+        if any(phrase in input_lower for phrase in nonsense_patterns):
+            return True
+        if len(input_lower.split()) <= 2 and len(input_lower) <= 10:
+            return True
+
+        return False
+
+    def _is_direct_invitation(self, user_message):
+        """Detect if the user is prompting the peer to share insights"""
+        invitation_phrases = ["please share", "can you share", "tell me more", "could you explain", "your thoughts", "what’s your take", "what’s your perspective", "can you tell me more"]
+        input_lower = user_message.lower().strip()
+        return any(phrase in input_lower for phrase in invitation_phrases)
+
+def _generate_clarifying_question(self):
+    """Generate a polite clarifying question, tailored to the peer's personality"""
+    if self.peer_id == "marcus_rodriguez":
+        clarifying_questions = [
+            "Could you give me a bit more context there?",
+            "Hmm, I'm not quite sure what you mean. Can you clarify that a bit?"
+        ]
+    elif self.peer_id == "sarah_chen":
+        clarifying_questions = [
+            "Could you clarify that so we’re on the same page financially?",
+            "That’s an interesting point—can you expand on it a bit more for us?"
+        ]
+    elif self.peer_id == "priya_patel":
+        clarifying_questions = [
+            "Interesting! Can you tell me more about what you meant?",
+            "Oh, could you dive a bit deeper into that idea? I’m curious!"
+        ]
+    else:
+        # Default fallback clarifying questions
+        clarifying_questions = [
+            "I'm not sure I understand - could you clarify what you meant?",
+            "Could you expand on that a bit? What exactly are you thinking about?"
+        ]
+    
+    return random.choice(clarifying_questions)
+
+    # (The rest of your methods here...)
+
+
 
 CASE CONTEXT: Jessica Martinez (CEO) must choose between:
 1. AI Chatbot: $87K over 2 years, automates 65% of customer inquiries
@@ -183,7 +277,7 @@ class StudyGroupSession:
             "marcus_rodriguez": VirtualPeer(
                 "marcus_rodriguez",
                 "Marcus Rodriguez",
-                "15 years in retail operations, currently Customer Experience Director at major fashion retailer", 
+                "15 years in retail operations, currently Customer Experience Director at a major fashion brand", 
                 "Practical and customer-focused, draws from real experience, protective of brand reputation",
                 "Direct and conversational, uses real examples, passionate about customer experience",
                 "Prioritizes customer satisfaction over pure efficiency, skeptical of technology that feels impersonal",

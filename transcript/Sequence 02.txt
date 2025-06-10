@@ -1,0 +1,16 @@
+00:00:00:00 - 00:00:24:02
+Unknown
+Okay. And we're on to step two. In this step, we're going to give our bot some FAQs so that it has a bank to answer the questions with. You can see that these are some of the FAQs that came out in the discussions. So I encourage you to familiarize yourself with that . To get some insight into how the chat bots going to flow,
+
+00:00:24:04 - 00:00:55:03
+Unknown
+here's kind of a nice little flowchart for you. Familiarize yourself with. And then once you're ready to go, you are going to either copy this all above or just click this down or download Training Data file. Okay. So that goes in your downloads. Now we're gonna go back to Chatbase. We're just going to simply drag and drop that in.
+
+00:00:55:05 - 00:01:01:03
+Unknown
+And there we're going to create our agent.
+
+00:01:01:05 - 00:01:05:01
+Unknown
+Okay. That's Step 2!
+

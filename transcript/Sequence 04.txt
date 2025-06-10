@@ -1,0 +1,24 @@
+00:00:00:00 - 00:00:20:05
+Unknown
+All right. You've done the hard work in setting up your bot, giving it some information to work off of. Now it's time to do a little bit of testing. Okay. So in this scenario, your classmates have come up with some chat suggestions for what we should be looking for. So let's just go ahead and copy this question.
+
+00:00:20:07 - 00:00:30:21
+Unknown
+I'll bring it over to our training data. Let's go over to playground to test this out. Let's go ahead and paste that in.
+
+00:00:30:23 - 00:00:50:23
+Unknown
+Okay. Glad to know. Let's try a different one. Let's see if we were a little bit upset. Let's see how the bot handles that. So we're going to copy I'm really frustrated - my package is lost.
+
+00:00:51:00 - 00:01:06:10
+Unknown
+Okay. And it responds in a very human way. Oh no I'm really sorry to hear that your package seems to be lost. If it's been more than seven days in shipping, please reach out to our support team and we'll investigate this for you right away. Just let us know your order number and we'll get to the bottom of it. We're here to help.
+
+00:01:06:12 - 00:01:26:13
+Unknown
+That's responding as expected. So you can keep on going through the test until you're satisfied. Of course, if you need to change anything, everything can be editable in here. So you can show your sources by clicking Show Sources here. And we'll get some information about our FAQs. Remember, if you want to adjust some of the settings, you just want to go to settings,
+
+00:01:26:13 - 00:01:37:01
+Unknown
+Ai, play around the instructions a little bit, but once you reach that height like that and you're going to get complete. Thanks all!
+

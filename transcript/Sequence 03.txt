@@ -1,0 +1,12 @@
+00:00:00:00 - 00:00:25:13
+Unknown
+All right, folks, we are moving on to step three. In this step, we're going to make sure that our bot is answering in the tone of voice we would like it to that matches our company. So we have some instructions here includes role, persona, constraints, and communication style. In order for you to put these into your Chatbase bot, you're going to want to select this button, copy instructions, and then I'll go into your, pad.
+
+00:00:25:13 - 00:00:49:08
+Unknown
+So let me bring it back over to the Chatbase. Okay. So what we want to do here to edit this is we're going to go to settings. And then we're going to go to AI. Then you'll see that there's already some pre-configured information in here. You can work with this. They have a few different examples. There's AI agent, customer support agent, but we’re going custom.
+
+00:00:49:08 - 00:01:07:01
+Unknown
+so we don't really need to worry about that right now. Select all of that and replace it with our new style. Okay. And then we're going to hit save. Okay. So now we've done some configuration. That was step three.
+

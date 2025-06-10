@@ -1,0 +1,12 @@
+00:00:00:00 - 00:00:20:00
+Unknown
+Hey, y'all, it's James, your instructor here again. I'm going to guide you through step one of setting up your chat bot. And this includes just really setting up a chat based account. So step by step when you go to chat base. Once there you can click try for free will set you up with the setting of an account.
+
+00:00:20:01 - 00:00:28:08
+Unknown
+I already have an acount, so I’m going to sign in.
+
+00:00:28:10 - 00:00:39:01
+Unknown
+Okay. And then next thing I'm going to do to finish off this step, super simple: click new AI agent. Okay, in the next video we're going to set up how to train this agent.
+
