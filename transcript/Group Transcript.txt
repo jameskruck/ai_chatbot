@@ -1,0 +1,40 @@
+00:00:00:00 - 00:00:21:11
+Unknown
+Hi again. It's James, your instructor, and I'm going to give you a quick walk through how to join and work with your virtual study group. So we're going to get started by selecting “Join Your Study Group.” That's going to open an expanded window in which you're entered into a chat with your peers. These are all virtual, OpenAI created characters who are going to help you kind of work through the process.
+
+00:00:21:13 - 00:00:44:11
+Unknown
+So you're going to start off with Sarah. Sarah says, hi, I'm Sarah, excited to work through this FashionForward case with you. I've been looking at some similar customer service automation in my consulting work. What's your initial take on Jessica's situation? So feel free to add some however you want. I'm going to say I'm concerned about the high volume of calls.
+
+00:00:50:01 - 00:01:11:14
+Unknown
+Sarah responds high. The high volume of calls is definitely a key factor to consider. Have we looked at the breakdown of inquiries to see if there are any patterns or trends we can leverage? I could continue this conversation with Sarah, or I can invite a different classmate into the room. Marcus is my peer playing a retail CX Director. Let’s bring in Marcus.
+
+00:01:11:16 - 00:01:32:04
+Unknown
+Marcus introduces himself: Marcus here. I couldn't help but overhear your discussion about FashionForward. This actually reminds me some customer experience challenges we face when evaluating automation options. Mind if I share some insights from the retail side? Well, we do want to hear that. So please do share, Marcus.
+
+00:01:32:06 - 00:01:52:24
+Unknown
+Thanks for bringing that up. In my experience at my current company, we saw a similar trend with call volumes, and we were able to address it by implementing a more efficient ticketing system. So that’s the insight from Marcus here. You still have one more classmate we can introduce. That's Priya. Priya comes in and she's got a insight into, her tech role.
+
+00:01:53:01 - 00:02:19:15
+Unknown
+So she says, hi all. Priya jumping in. I caught part of your conversation. This case is really similar to what I dealt with when building my AI platform. I've seen both the wins and spectacular failures in customer service automation. Happy to share some technical perspective. I'd love to hear that. Yeah, please do share some common pitfalls, Priya.
+
+00:02:19:17 - 00:02:53:09
+Unknown
+Priya says yeah, definitely. One common pitfall I've seen is not fully understanding the customer journey before implementing any new tech solutions. It's crucial to a lot of technology with the customer's needs and preferences. Sounds good. I wonder what Marcus thinks about that? What do you think about Priya’s suggestion, Marcus. Marcus agrees with Priya. Understanding the customer journey is key before implementing any new technology.
+
+00:02:53:11 - 00:03:15:00
+Unknown
+In my role as Customer Experience Director, aligning tech solutions with customer needs has always been crucial for maintaining brand reputation. This conversation can continue on working back and forth with each other. One more button to show you here. Let's research this together. This is going to simulate as if you and your group spend some time away from this conversation and did some research.
+
+00:03:15:02 - 00:03:37:05
+Unknown
+So here we have some results. We have some recent retail implementations, some financial insights, and some individual insights from each member of the group. After you work through this problem with your peers, you'll unlock the ability to start building your bot. So go ahead, click that. You'll send one last message to your team and then you're ready to go.
+
+00:03:37:07 - 00:03:40:01
+Unknown
+All right everyone, thanks for watching.
+

@@ -1,0 +1,16 @@
+00:00:00:000 - 00:00:24:895
+Unknown
+Hi there and welcome. I'm James, your instructor for this course. I'm excited to guide you through this short, engaging course on how to build a customer service chat bot that delivers real impact. You're here because you're curious about how AI can improve the customer experience in retail. Whether you're brand new to chat bots or have already been exploring them, you'll find practical step by step guidance in this course.
+
+00:00:24:975 - 00:00:51:445
+Unknown
+We'll begin by diving into the case of Fashion Forward t shirts, a company facing a critical customer service challenge. You'll see how to analyze the problem and weigh different solutions. Next, you'll work with your virtual study group. Sarah, Marcus and Priya, each bringing unique perspectives and expertise. They'll help you explore options, highlight potential pitfalls, and brainstorm innovative solutions.
+
+00:00:51:525 - 00:01:18:625
+Unknown
+After you've explored the strategic options, you'll move into the hands on phase building your very own chatbot prototype using an AI platform. You'll learn how to train it with customer FAQs and set up your brand voice and test it out step by step. So by the end of this course, you'll be able to build a functional FAQ chatbot prototype using AI tools grounded in customer service best practices and strategic analysis.
+
+00:01:18:705 - 00:01:33:115
+Unknown
+So let's get started. Dive in, experiment and see how your chatbot can transform the customer experience. I'll be here to support you every step of the way.
+
