@@ -23,6 +23,7 @@
 /* -------------------------------------------------
    2) GLOBAL RESET & BASE STYLES
 ------------------------------------------------- */
+
 * {
   box-sizing: border-box;
 }
@@ -3617,3 +3618,32 @@ h3[style*="color"] {
   /* if you find it sitting beside the intro <p>, force it onto its own row */
   grid-row: 2;
 }
+/* Consistent header colors across pages */
+.hero-title,
+.hero-subtitle,
+.navigation a,
+.navigation .nav-item {
+  color: white !important;
+}
+
+/* Consistent heading colors */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--secondary-color) !important;
+}
+
+/* Force hide implementation content when hidden class is present */
+#implementation-content.hidden {
+  display: none !important;
+}
+
+#implementation-content.hidden * {
+  display: none !important;
+}
+
+/* Uniform nav item backgrounds for current page */
+.navigation .nav-item.current-page {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
