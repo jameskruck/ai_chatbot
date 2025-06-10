@@ -11,17 +11,17 @@
 
   <!-- Header / Navigation -->
   <header class="hero fade-in" role="banner">
-    <div>
-      <h1 class="hero-title">AI Chatbot Strategy for Retail</h1>
-      <h2 class="hero-subtitle">Phase 3: Strategic Assessment & Implementation Planning</h2>
-      <nav class="navigation" aria-label="Course phases">
-        <ul>
-          <li><a href="index.html">Prep Work</a></li>
-          <li><a href="strategy-session.html">Strategy Session</a></li>
-          <li><a href="reflection.html" aria-current="page" aria-describedby="current-phase">Strategic Assessment <span class="sr-only" id="current-phase">(current phase)</span></a></li>
-        </ul>
-      </nav>
-    </div>
+  <div>
+    <h1 class="hero-title">AI Chatbot Strategy for Retail</h1>
+    <h2 class="hero-subtitle">Turn customer service chaos into competitive advantage</h2>
+    <nav class="navigation" aria-label="Course phases">
+      <ul>
+        <li><span class="nav-item">Prep Work</span></li>
+        <li><span class="nav-item">Study Group Session</span></li>
+        <li><span class="nav-item current-page">Implementation & Reflection</span></li>
+      </ul>
+    </nav>
+  </div>
   </header>
 
   <main id="main-content">
@@ -50,7 +50,7 @@
           
           <div class="accomplishment-item">
             <h4>Hands-On Implementation</h4>
-            <p>Set up and configure a basic FAQ chatbot using modern tools</p>
+            <p>Set up and configure a basic FAQ chatbot using Chatbase</p>
           </div>
           
           <div class="accomplishment-item">
@@ -585,35 +585,35 @@
         return;
       }
       
-      let assessment = '<h4>🎯 Your Strategic Assessment:</h4>';
+      let assessment = '<h4>Your Strategic Assessment:</h4>';
       
       // Volume-based recommendations
       if (volume === 'low') {
-        assessment += '<div class="rec-item">📊 <strong>Volume Analysis:</strong> With under 50 emails/week, focus on improving response templates and self-service options first. A chatbot may not be cost-effective yet.</div>';
+        assessment += '<div class="rec-item" <strong>Volume Analysis:</strong> With under 50 emails/week, focus on improving response templates and self-service options first. A chatbot may not be cost-effective yet.</div>';
       } else if (volume === 'medium') {
-        assessment += '<div class="rec-item">📊 <strong>Volume Analysis:</strong> 50-200 emails/week is the sweet spot for chatbot ROI. You could see 30-40% reduction in manual responses.</div>';
+        assessment += '<div class="rec-item"><strong>Volume Analysis:</strong> 50-200 emails/week is the sweet spot for chatbot ROI. You could see 30-40% reduction in manual responses.</div>';
       } else if (volume === 'high' || volume === 'very-high') {
-        assessment += '<div class="rec-item">📊 <strong>Volume Analysis:</strong> High volume makes chatbots very cost-effective. This should be a priority implementation.</div>';
+        assessment += '<div class="rec-item"> <strong>Volume Analysis:</strong> High volume makes chatbots very cost-effective. This should be a priority implementation.</div>';
       }
       
       // Response time impact
       if (responseTime === 'slow') {
-        assessment += '<div class="rec-item">⏱️ <strong>Response Time Impact:</strong> 24+ hour response times hurt customer satisfaction. A chatbot could provide instant answers for common questions.</div>';
+        assessment += '<div class="rec-item"> <strong>Response Time Impact:</strong> 24+ hour response times hurt customer satisfaction. A chatbot could provide instant answers for common questions.</div>';
       } else if (responseTime === 'immediate') {
-        assessment += '<div class="rec-item">⏱️ <strong>Response Time Impact:</strong> You already respond quickly. A chatbot would free up staff time rather than improve speed.</div>';
+        assessment += '<div class="rec-item"> <strong>Response Time Impact:</strong> You already respond quickly. A chatbot would free up staff time rather than improve speed.</div>';
       } else {
-        assessment += '<div class="rec-item">⏱️ <strong>Response Time Impact:</strong> Your current response time is reasonable. A chatbot could help you maintain this while handling more volume.</div>';
+        assessment += '<div class="rec-item"> <strong>Response Time Impact:</strong> Your current response time is reasonable. A chatbot could help you maintain this while handling more volume.</div>';
       }
       
       // FAQ focus
       const categories = faqCategories.split(',').slice(0, 3).map(c => c.trim()).join(', ');
-      assessment += `<div class="rec-item">🎯 <strong>Recommended Focus:</strong> Start with your top FAQ categories: ${categories}. This focused approach increases your chances of success.</div>`;
+      assessment += `<div class="rec-item"> <strong>Recommended Focus:</strong> Start with your top FAQ categories: ${categories}. This focused approach increases your chances of success.</div>`;
       
       // Success metrics validation
       if (successMetrics.trim()) {
-        assessment += '<div class="rec-item">📈 <strong>Success Tracking:</strong> You\'ve defined clear success metrics - this puts you ahead of 80% of implementations that fail due to unclear goals.</div>';
+        assessment += '<div class="rec-item"> <strong>Success Tracking:</strong> You\'ve defined clear success metrics - this puts you ahead of 80% of implementations that fail due to unclear goals.</div>';
       } else {
-        assessment += '<div class="rec-item warning">⚠️ <strong>Success Tracking:</strong> Consider defining specific metrics like "reduce response time by 50%" or "automate 40% of common questions."</div>';
+        assessment += '<div class="rec-item warning"> <strong>Success Tracking:</strong> Consider defining specific metrics like "reduce response time by 50%" or "automate 40% of common questions."</div>';
       }
       
       // Constraint-based advice
@@ -626,10 +626,10 @@
           data: 'Start with your most common 10-15 questions. You don\'t need perfect data to begin.',
           time: 'Begin with a simple FAQ bot that can be set up in 1-2 weeks, then iterate.'
         };
-        assessment += `<div class="rec-item">🔧 <strong>Addressing Your Main Challenge:</strong> ${constraintAdvice[constraint]}</div>`;
+        assessment += `<div class="rec-item"> <strong>Addressing Your Main Challenge:</strong> ${constraintAdvice[constraint]}</div>`;
       }
       
-      assessment += '<div class="rec-item success">🎯 <strong>Next Steps:</strong> Your assessment shows you\'re ready to move forward. Use the 90-day roadmap below to guide your implementation.</div>';
+      assessment += '<div class="rec-item success"> <strong>Next Steps:</strong> Your assessment shows you\'re ready to move forward. Use the 90-day roadmap below to guide your implementation.</div>';
       
       document.getElementById('business-recommendation').innerHTML = assessment;
       document.getElementById('business-recommendation').classList.remove('hidden');

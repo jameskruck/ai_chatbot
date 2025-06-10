@@ -1363,9 +1363,8 @@ details[open] .text-toggle::before {
 
 /* Hidden class */
 .hidden {
-  display: none;
+  display: none !important;
 }
-
 /* -------------------------------------------------
    22) STUDY GROUP SESSION STYLES (IVEY GREEN)
 ------------------------------------------------- */
@@ -3514,4 +3513,107 @@ h3[style*="color"] {
     min-height: 44px !important;
     font-size: 0.9rem !important;
   }
+}
+/* Force hide implementation content when hidden class is present */
+#implementation-content.hidden {
+  display: none !important;
+}
+
+#implementation-content.hidden * {
+  display: none !important;
+}
+/* -------------------------------------------------
+  11) TEST SCENARIOS GRID FIX
+------------------------------------------------- */
+.test-scenarios {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+}
+
+.test-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 15px !important;
+  margin: 20px 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.step-content {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.test-item {
+  background: white !important;
+  padding: 20px !important;
+  border-radius: 8px !important;
+  border-left: 4px solid var(--primary-color) !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.test-item:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+}
+
+.test-item strong {
+  color: var(--primary-color) !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  display: block !important;
+  margin-bottom: 10px !important;
+}
+
+.test-item p {
+  margin: 8px 0 !important;
+  line-height: 1.5 !important;
+}
+
+.test-item em {
+  background: var(--ivey-light) !important;
+  padding: 8px 12px !important;
+  border-radius: 4px !important;
+  border-left: 3px solid var(--primary-color) !important;
+  display: block !important;
+  margin-top: 8px !important;
+  font-style: normal !important;
+  color: var(--primary-color) !important;
+  font-weight: 500 !important;
+}
+
+/* -------------------------------------------------
+  12) RESPONSIVE ADJUSTMENTS
+------------------------------------------------- */
+@media (max-width: 600px) {
+  main {
+    max-width: 100%;
+    padding: 10px;
+    margin: 0;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .test-scenario {
+    padding: 15px;
+    margin: 10px 0;
+  }
+}
+/* turn Step 4’s layout into a single-column grid */
+#implementation-content .build-step:nth-of-type(4) .step-content {
+  grid-template-columns: 1fr;
+}
+/*———————————————————————————————
+  Let the Test Scenarios grid span the full width
+————————————————————————————————*/
+.step-content > .test-scenarios {
+  /* span from column 1 through the last column */
+  grid-column: 1 / -1;
+  /* if you find it sitting beside the intro <p>, force it onto its own row */
+  grid-row: 2;
 }

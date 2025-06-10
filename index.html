@@ -15,7 +15,7 @@
     <h2 class="hero-subtitle">Turn customer service chaos into competitive advantage</h2>
     <nav class="navigation" aria-label="Course phases">
       <ul>
-        <li><span class="nav-item current-page">Prep Work (current phase)</span></li>
+        <li><span class="nav-item current-page">Prep Work</span></li>
         <li><span class="nav-item">Study Group Session</span></li>
         <li><span class="nav-item">Implementation & Reflection</span></li>
       </ul>
@@ -25,22 +25,23 @@
 
 
   <main id="main-content">
-    <!-- Course Hook -->
-    <section id="course-hook" class="fade-in-up">
-      <div class="card hook-card">
-        <div class="stat-highlight">
-          <span class="big-stat">87%</span>
-          <p>of retail leaders say customer service inquiries are overwhelming their teams</p>
-        </div>
-        <div class="stat-highlight">
-          <span class="big-stat">23%</span>
-          <p>have actually implemented AI solutions</p>
-        </div>
-        <div class="hook-message">
-          <p><strong>Why the gap?</strong> Most leaders don't know where to start. In the next hour, you'll not only understand the strategy behind AI customer service, but build a working solution yourself.</p>
-        </div>
-      </div>
-    </section>
+<section id="course-hook" class="fade-in-up">
+  <div class="card hook-card">
+    <div class="stat-highlight">
+      <span class="big-stat">87%</span>
+      <p>of retail leaders say customer service inquiries are overwhelming their teams</p>
+    </div>
+    <div class="stat-highlight">
+      <span class="big-stat">23%</span>
+      <p>have actually implemented AI solutions</p>
+    </div>
+    <div class="hook-message">
+      <p><strong>Welcome to the Course!</strong> You're about to join a dynamic journey of strategic analysis and hands-on chatbot creation, working alongside virtual MBA peers in a collaborative case study.</p>
+      <p><strong>Why the gap?</strong> Most leaders don't know where to start. In the next hour, you'll not only understand the strategy behind AI customer service, but build a working solution yourself.</p>
+    </div>
+  </div>
+</section>
+
 
     <!-- Welcome Video/Content -->
     <section id="course-introduction" class="fade-in-up">
@@ -286,88 +287,123 @@
     <p>&copy; 2025 James Kruck</p>
   </footer>
 
+ 
+ 
   <script>
     // Scenario Assessment
     let scenarioCompleted = false;
     let confidenceRated = false;
 
-    document.getElementById('submit-scenario').addEventListener('click', () => {
-      const selected = document.querySelector('input[name="scenario"]:checked');
-      const feedback = document.getElementById('scenario-feedback');
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Scenario Assessment Handler
+      const submitButton = document.getElementById('submit-scenario');
+      console.log('Submit button found:', submitButton); // DEBUG
       
-      if (!selected) {
-        alert('Please select a response before submitting.');
-        return;
+      if (submitButton) {
+        submitButton.addEventListener('click', () => {
+          console.log('Submit button clicked!'); // DEBUG
+          
+          const selected = document.querySelector('input[name="scenario"]:checked');
+          console.log('Selected radio button:', selected); // DEBUG
+          
+          const feedback = document.getElementById('scenario-feedback');
+          console.log('Feedback div found:', feedback); // DEBUG
+          
+          if (!selected) {
+            alert('Please select a response before submitting.');
+            return;
+          }
+          
+          scenarioCompleted = true;
+          console.log('About to remove hidden class'); // DEBUG
+          feedback.classList.remove('hidden');
+          console.log('Hidden class removed, feedback classes now:', feedback.className); // DEBUG
+          
+          let message = '';
+          let insights = '';
+          
+          switch (selected.value) {
+            case 'A':
+              message = "Good instinct! Setting expectations is important.";
+              insights = "This shows you understand customer communication basics. Your study group will help you think about proactive vs. reactive strategies.";
+              break;
+            case 'B':
+              message = "Bold approach! Shows customer-first thinking.";
+              insights = "This reveals a strong customer advocacy mindset. You'll explore when this approach makes financial sense with your study group.";
+              break;
+            case 'C':
+              message = "Safe choice! Human escalation is always an option.";
+              insights = "This shows you value human expertise. You'll learn when to automate vs. escalate as you analyze the FashionForward case.";
+              break;
+            case 'D':
+              message = "Smart! Information gathering before action.";
+              insights = "This shows analytical thinking. Perfect foundation for the systematic approach you'll use with your study group.";
+              break;
+          }
+          
+const feedbackHTML = `
+  <div style="margin: 0; color: black;">
+    <p style="margin: 0 0 10px 0; color: black; font-size: 16px;"><strong style="color: #003d26; font-weight: bold;">${message}</strong></p>
+    <p style="margin: 10px 0 0 0; color: #666; font-style: italic; line-height: 1.5;">${insights}</p>
+  </div>
+`;
+          
+          console.log('About to set innerHTML:', feedbackHTML); // DEBUG
+feedback.innerHTML = feedbackHTML;          
+console.log('innerHTML set, feedback content:', feedback.innerHTML); // DEBUG
+          console.log('Feedback div text content:', feedback.textContent); // ADD THIS LINE
+console.log('Feedback div children:', feedback.children); // ADD THIS LINE
+          
+          updateReadinessStatus();
+        });
+      } else {
+        console.log('Submit button NOT found!'); // DEBUG
       }
-      
-      scenarioCompleted = true;
-      feedback.classList.remove('hidden');
-      
-      let message = '';
-      let insights = '';
-      
-      switch (selected.value) {
-        case 'A':
-          message = "Good instinct! Setting expectations is important.";
-          insights = "This shows you understand customer communication basics. Your study group will help you think about proactive vs. reactive strategies.";
-          break;
-        case 'B':
-          message = "Bold approach! Shows customer-first thinking.";
-          insights = "This reveals a strong customer advocacy mindset. You'll explore when this approach makes financial sense with your study group.";
-          break;
-        case 'C':
-          message = "Safe choice! Human escalation is always an option.";
-          insights = "This shows you value human expertise. You'll learn when to automate vs. escalate as you analyze the FashionForward case.";
-          break;
-        case 'D':
-          message = "Smart! Information gathering before action.";
-          insights = "This shows analytical thinking. Perfect foundation for the systematic approach you'll use with your study group.";
-          break;
-      }
-      
-      feedback.innerHTML = `
-        <div class="feedback-message">
-          <p><strong>${message}</strong></p>
-          <p class="feedback-insight">${insights}</p>
-        </div>
-      `;
-      
-      updateReadinessStatus();
-    });
 
-    // Confidence Rating - SAVE TO LOCALSTORAGE FOR REFLECTION PAGE
-    document.getElementById('confidence-rating').addEventListener('change', (e) => {
-      confidenceRated = true;
-      const value = e.target.value;
-      const feedback = document.getElementById('confidence-feedback');
-      
-      // 🔑 IMPORTANT: Store the original confidence for the reflection page
-      localStorage.setItem('originalConfidence', value);
-      
-      let message = '';
-      switch (value) {
-        case '1':
-          message = "Perfect starting point! Your study group will guide you through each step.";
-          break;
-        case '2':
-          message = "Great foundation! You'll build confidence through hands-on collaboration.";
-          break;
-        case '3':
-          message = "Good position to learn! Your questions will drive rich group discussions.";
-          break;
-        case '4':
-          message = "Excellent! You'll refine your skills and learn advanced implementation.";
-          break;
-        case '5':
-          message = "Fantastic! Your enthusiasm will energize the group collaboration.";
-          break;
+      // Confidence Rating Handler
+      const confidenceSelect = document.getElementById('confidence-rating');
+      if (confidenceSelect) {
+        confidenceSelect.addEventListener('change', (e) => {
+          confidenceRated = true;
+          const value = e.target.value;
+          const feedback = document.getElementById('confidence-feedback');
+          
+          if (!feedback) return;
+          
+          // Store the original confidence for the reflection page (if localStorage available)
+          try {
+            localStorage.setItem('originalConfidence', value);
+          } catch (error) {
+            console.log('LocalStorage not available, continuing without storing confidence');
+          }
+          
+          let message = '';
+          switch (value) {
+            case '1':
+              message = "Perfect starting point! Your study group will guide you through each step.";
+              break;
+            case '2':
+              message = "Great foundation! You'll build confidence through hands-on collaboration.";
+              break;
+            case '3':
+              message = "Good position to learn! Your questions will drive rich group discussions.";
+              break;
+            case '4':
+              message = "Excellent! You'll refine your skills and learn advanced implementation.";
+              break;
+            case '5':
+              message = "Fantastic! Your enthusiasm will energize the group collaboration.";
+              break;
+            default:
+              message = "Thank you for sharing your confidence level!";
+          }
+          
+          feedback.innerHTML = `<div class="confidence-message show">${message}</div>`;
+          
+          updateReadinessStatus();
+        });
       }
-      
-      feedback.innerHTML = `<div class="confidence-message">${message}</div>`;
-      feedback.style.opacity = '0';
-      setTimeout(() => feedback.style.opacity = '1', 100);
-      
-      updateReadinessStatus();
     });
 
     // Update Readiness Status
@@ -376,15 +412,15 @@
       const confidenceStatus = document.getElementById('confidence-status');
       const proceedButton = document.getElementById('proceed-button');
       
-      if (scenarioCompleted) {
+      if (scenarioCompleted && scenarioStatus) {
         scenarioStatus.innerHTML = '<span class="status-icon">✅</span><span class="status-text">Scenario completed</span>';
       }
       
-      if (confidenceRated) {
+      if (confidenceRated && confidenceStatus) {
         confidenceStatus.innerHTML = '<span class="status-icon">✅</span><span class="status-text">Confidence rated</span>';
       }
       
-      if (scenarioCompleted && confidenceRated) {
+      if (scenarioCompleted && confidenceRated && proceedButton) {
         proceedButton.disabled = false;
         proceedButton.classList.add('ready');
         proceedButton.onclick = () => window.location.href = 'strategy-session.html';
@@ -403,386 +439,5 @@
     });
   </script>
 
-  <style>
-    /* Hook Section */
-    .hook-card {
-      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-      border-left: 4px solid var(--primary-color);
-      display: grid;
-      grid-template-columns: 1fr 1fr 2fr;
-      gap: 20px;
-      align-items: center;
-      padding: 30px;
-    }
-
-    .stat-highlight {
-      text-align: center;
-    }
-
-    .big-stat {
-      display: block;
-      font-size: 3rem;
-      font-weight: bold;
-      color: var(--primary-color);
-      line-height: 1;
-    }
-
-    .stat-highlight p {
-      margin: 10px 0 0 0;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    .hook-message {
-      padding-left: 20px;
-      border-left: 2px solid var(--secondary-color);
-    }
-
-    /* Peer Preview Cards */
-    .peer-preview {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      margin: 20px 0;
-    }
-
-    .peer-card {
-      background: white;
-      padding: 15px;
-      border-radius: 8px;
-      border-left: 3px solid var(--secondary-color);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-
-    .peer-card strong {
-      color: var(--primary-color);
-      font-size: 1.1rem;
-    }
-
-    /* Outcome Card */
-    .outcome-card {
-      background: linear-gradient(135deg, #f0f7f0, #e8f5e8);
-      border: 1px solid var(--primary-color);
-    }
-
-    .outcome-statement {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      margin: 15px 0;
-      border-left: 4px solid var(--primary-color);
-    }
-
-    .skill-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      margin: 20px 0;
-    }
-
-    .skill-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px;
-      background: white;
-      border-radius: 6px;
-    }
-
-    .skill-icon {
-      font-size: 1.5rem;
-    }
-
-    /* Challenge Preview */
-    .challenge-card {
-      background: linear-gradient(135deg, #f7f9f7, #f0f7f0);
-      border-left: 4px solid var(--primary-color);
-    }
-
-    .options-teaser {
-      margin: 20px 0;
-    }
-
-    .option-preview {
-      display: flex;
-      justify-content: space-around;
-      margin: 15px 0;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .option-quick {
-      background: white;
-      padding: 15px 20px;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      min-width: 100px;
-    }
-
-    .option-cost {
-      display: block;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--primary-color);
-    }
-
-    .option-name {
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    .decision-hook {
-      text-align: center;
-      font-size: 1.1rem;
-      margin-top: 20px;
-      padding: 15px;
-      background: white;
-      border-radius: 8px;
-    }
-
-    /* Scenario Assessment */
-    .assessment-card {
-      background: linear-gradient(135deg, #f0f7f0, #e8f5e8);
-      border-left: 4px solid var(--primary-color);
-    }
-
-    .scenario-question {
-      margin: 20px 0;
-    }
-
-    .scenario-text {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      border-left: 4px solid var(--primary-color);
-    }
-
-    .scenario-options {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin: 15px 0;
-    }
-
-    .scenario-option {
-      display: flex;
-      align-items: center;
-      background: white;
-      padding: 15px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-    }
-
-    .scenario-option:hover {
-      background: #f59e0b;
-      color: white;
-      border-color: #f59e0b;
-    }
-
-    .scenario-option input {
-      margin: 0;
-      margin-right: 15px;
-    }
-
-    .option-letter {
-      font-weight: bold;
-      margin-right: 10px;
-      min-width: 20px;
-    }
-
-    .scenario-feedback {
-      margin: 20px 0;
-      padding: 20px;
-      background: white;
-      border-radius: 8px;
-      border-left: 4px solid #22c55e;
-    }
-
-    .feedback-message strong {
-      color: var(--primary-color);
-    }
-
-    .feedback-insight {
-      margin-top: 10px;
-      font-style: italic;
-      color: #666;
-    }
-
-    .confidence-check {
-      margin: 30px 0 0 0;
-      padding: 20px;
-      background: white;
-      border-radius: 8px;
-    }
-
-    .confidence-check select {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-    }
-
-    .confidence-message {
-      margin-top: 10px;
-      padding: 10px;
-      background: #f0f7f0;
-      border-radius: 4px;
-      color: var(--primary-color);
-      font-weight: 500;
-    }
-
-    /* Framework Preview */
-    .framework-simple {
-      margin: 20px 0;
-    }
-
-    .framework-flow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .framework-step-simple {
-      background: white;
-      padding: 15px 20px;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      min-width: 140px;
-    }
-
-    .framework-step-simple .step-number {
-      display: block;
-      background: var(--secondary-color);
-      color: white;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      margin: 0 auto 10px auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-    }
-
-    .step-name {
-      font-weight: 600;
-      color: var(--primary-color);
-    }
-
-    .arrow {
-      color: var(--secondary-color);
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .framework-detailed {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-      margin: 20px 0;
-    }
-
-    .framework-step-detailed {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      border-left: 4px solid var(--secondary-color);
-    }
-
-    .framework-step-detailed h4 {
-      margin: 0 0 10px 0;
-      color: var(--primary-color);
-    }
-
-    /* Ready Check */
-    .ready-card {
-      background: linear-gradient(135deg, #f0f7f0, #e8f5e8);
-      border-left: 4px solid var(--primary-color);
-    }
-
-    .readiness-items {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin: 20px 0;
-    }
-
-    .readiness-item {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      padding: 15px;
-      background: white;
-      border-radius: 8px;
-    }
-
-    .status-icon {
-      font-size: 1.2rem;
-    }
-
-    .proceed-section {
-      text-align: center;
-      margin-top: 25px;
-      padding: 20px;
-      background: white;
-      border-radius: 8px;
-    }
-
-    .proceed-btn.ready {
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      animation: readyPulse 2s infinite;
-    }
-
-    @keyframes readyPulse {
-      0% { box-shadow: 0 0 0 0 rgba(0, 86, 52, 0.4); }
-      70% { box-shadow: 0 0 0 10px rgba(0, 86, 52, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(0, 86, 52, 0); }
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      .hook-card {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .hook-message {
-        padding-left: 0;
-        border-left: none;
-        border-top: 2px solid var(--secondary-color);
-        padding-top: 20px;
-      }
-
-      .option-preview {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .framework-flow {
-        flex-direction: column;
-      }
-
-      .arrow {
-        transform: rotate(90deg);
-      }
-
-      .skill-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Hidden class */
-    .hidden {
-      display: none;
-    }
-  </style>
 </body>
 </html>

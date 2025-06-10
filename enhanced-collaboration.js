@@ -127,21 +127,9 @@ class StudyGroupSession {
         userInput.value = '';
         this.messageCount++;
         
-        // 🟩 NEW: Check if user's message indicates readiness after Sarah's prompt
-        if (this.hasAskedReadiness && !this.isReadyForImplementation) {
-            const messageLower = message.toLowerCase();
-            const readinessPhrases = [
-                'yes', 'ready', 'let\'s build', 'move to implementation', 
-                'let\'s implement', 'start building', 'i\'m ready'
-            ];
-            if (readinessPhrases.some(phrase => messageLower.includes(phrase))) {
-                this.isReadyForImplementation = true;
-                this.showReadyButton();
-            }
-        }
-        
-        // Check if user is indicating readiness for implementation
-        this.checkImplementationReadiness(message);
+// 🟩 REMOVED: No longer need to check Sarah's prompt since we show button directly
+// Check if user is indicating readiness for implementation
+this.checkImplementationReadiness(message);
         
         try {
             // Send to enhanced server
@@ -467,21 +455,15 @@ class StudyGroupSession {
         }
     }
     
-    // 🟩 UPDATED: Modified checkForReadyButton method
-    checkForReadyButton() {
-        console.log('Checking for readiness prompt. Message count:', this.messageCount, 'Ready for implementation:', this.isReadyForImplementation);
-        
-        if (this.messageCount >= 8 && !this.isReadyForImplementation && !this.hasAskedReadiness) {
-            this.hasAskedReadiness = true;
-            // Let Sarah nudge the group
-            this.displayMessage({
-                speaker: 'Sarah Chen',
-                peer_id: 'sarah_chen',
-                message: "We've had a great discussion! Do you all feel ready to move on to implementation?",
-                timestamp: new Date().toISOString()
-            }, 'peer');
-        }
+// 🟩 UPDATED: Show ready button directly after 8 messages
+checkForReadyButton() {
+    console.log('Checking for readiness button. Message count:', this.messageCount, 'Ready for implementation:', this.isReadyForImplementation);
+    
+    if (this.messageCount >= 8 && !this.isReadyForImplementation && !this.hasAskedReadiness) {
+        this.hasAskedReadiness = true;
+        this.showReadyButton();
     }
+}
     
     showReadyButton() {
         const chatContainer = document.querySelector('.chat-input-container');
