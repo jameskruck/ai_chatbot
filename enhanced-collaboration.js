@@ -831,3 +831,64 @@ function showCopySuccess(button) {
         button.classList.remove('copied');
     }, 2000);
 }
+// Enhanced feedback for application ability
+document.querySelectorAll('input[name="application-ability"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    const feedbackDiv = document.getElementById('application-feedback');
+    let message = '';
+    let className = '';
+    
+    switch (this.value) {
+      case 'not-able':
+        message = "🔄 That's honest feedback. Consider revisiting the hands-on sections or reaching out for additional support. Learning complex topics often requires multiple exposures.";
+        className = 'concerning';
+        break;
+      case 'understand-need-support':
+        message = "💪 Good self-awareness! Understanding concepts is the first step. Consider practicing with a colleague or seeking mentorship to build your application skills.";
+        className = 'needs-improvement';
+        break;
+      case 'some-confidence':
+        message = "✅ Great progress! You have a solid foundation. The best way to build more confidence is through practice and real-world application.";
+        className = 'good';
+        break;
+      case 'confident-use':
+        message = "🎉 Excellent! You're ready to implement what you've learned. Consider sharing your knowledge with others to reinforce your learning.";
+        className = 'excellent';
+        break;
+    }
+    
+    feedbackDiv.textContent = message;
+    feedbackDiv.className = `feedback-message ${className} show`;
+  });
+});
+
+// Enhanced feedback for retention likelihood
+document.querySelectorAll('input[name="retention-likelihood"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    const feedbackDiv = document.getElementById('retention-feedback');
+    let message = '';
+    let className = '';
+    
+    switch (this.value) {
+      case 'forget-most':
+        message = "📚 Consider creating a personal summary or action plan to help retain key concepts. Spaced repetition and practical application are key to long-term retention.";
+        className = 'concerning';
+        break;
+      case 'general-ideas':
+        message = "🧠 That's very normal! Most people benefit from refreshers. Consider bookmarking key resources or setting up periodic review reminders.";
+        className = 'needs-improvement';
+        break;
+      case 'key-concepts':
+        message = "💡 Strong retention! You've internalized the core concepts. Try explaining them to someone else to further solidify your understanding.";
+        className = 'good';
+        break;
+      case 'confident-apply':
+        message = "🌟 Outstanding! Your confidence in retention suggests excellent learning integration. You're well-positioned to be a knowledge leader in this area.";
+        className = 'excellent';
+        break;
+    }
+    
+    feedbackDiv.textContent = message;
+    feedbackDiv.className = `feedback-message ${className} show`;
+  });
+});

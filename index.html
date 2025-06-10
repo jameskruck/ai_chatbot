@@ -50,7 +50,7 @@
         
         <div class="video-wrapper">
           <iframe width="560" height="315" 
-                  src="https://www.youtube.com/embed/YVMrST8l7DY" 
+                  src="https://www.youtube.com/embed/RyNOfzsd8aY" 
                   title="Course introduction: collaborative learning approach"
                   frameborder="0" 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -335,11 +335,14 @@
       updateReadinessStatus();
     });
 
-    // Confidence Rating
+    // Confidence Rating - SAVE TO LOCALSTORAGE FOR REFLECTION PAGE
     document.getElementById('confidence-rating').addEventListener('change', (e) => {
       confidenceRated = true;
       const value = e.target.value;
       const feedback = document.getElementById('confidence-feedback');
+      
+      // 🔑 IMPORTANT: Store the original confidence for the reflection page
+      localStorage.setItem('originalConfidence', value);
       
       let message = '';
       switch (value) {
